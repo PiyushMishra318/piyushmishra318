@@ -8,144 +8,178 @@
     <link rel="stylesheet" href="master.css">
     <title>Portfolio</title>
   </head>
-  <body>
-    <div class="homepage">
-      <nav class="navbar navbar-expand-md  navbar-dark fixed-top" id="navbar">
-        <!-- Brand -->
-        <a class="brand" href="index.html"><img src="brand.png" alt="" href="index.html" style="height:55px;width:70px;"></a>
-        <!-- Toggler/collapsibe Button -->
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+  <body onload="myFunction()" style="margin:0;">
+    <div class="container" id="loader">
+      <div class="loader">
+  <span>L</span>
+  <span>O</span>
+  <span>A</span>
+  <span>D</span>
+  <span>I</span>
+  <span>N</span>
+  <span>G</span>
 
-        <!-- Navbar links -->
-        <div class="collapse navbar-collapse text-center" id="collapsibleNavbar">
-          <ul class="navbar-nav">
-            <li class="nav-item" id="homepage">
-              <a class="btn btn-secondary" >Home</a>
-            </li>
-            <li class="nav-item" id="aboutus">
-              <a class="btn btn-secondary" >About Me</a>
-            </li>
-            <li class="nav-item" id="services">
-              <a class="btn btn-secondary" >My Work</a>
-            </li>
-            <li class="nav-item" id="contact">
-              <a class="btn btn-secondary">Get in Touch</a>
-            </li>
-          </ul>
-        </div>
-      </nav>
-      <div class="text-centered">
-        <div class="typewriter">
-        </div>
-      </div>
-      <div class ="text-centered1">
-          <div class="row">
-            <div class="col-sm-3 col-md-3 col-lg-3 col-xs-3">
-              <a href="https://www.facebook.com/piyush.mishra.3154?ref=br_rs"><img src="fb.png" style="width:50px;height:50px"></a>
-            </div>
-            <div class="col-sm-3 col-md-3 col-lg-3 col-xs-3">
-              <a href="https://twitter.com/PiyushM3108"><img src="twitter.png" style="width:50px;height:50px"></a>
-            </div>
-            <div class="col-sm-3 col-md-3 col-lg-3 col-xs-3">
-              <a href="https://www.instagram.com/piyush_mishra.kh.3108/?hl=en"><img src="instagram.gif" style="width:50px;height:50px"></a>
-            </div>
-            <div class="col-sm-3 col-md-3 col-lg-3 col-xs-3">
-              <a href="https://github.com/PiyushMishra318"><img src="github.png" style="width:50px;height:50px"></a>
-            </div>
-          </div>
-      </div>
+  <div class="covers">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
     </div>
-    <div class="About Me" id="section2">
-      <div class="jumbotron text-center">
-        <h1>About Me</h1>
-        <br><br>
-        <div class="row">
-          <div class="col-sm-12 col-md-6 col-xs-12 col-lg-6">
-            <img src="myimage.jpg" style="height:550px;width:420px">
+    <div style="display:none;" id="myDiv" class="animate-bottom">
+      <div class="homepage">
+        <nav class="navbar navbar-expand-md  navbar-dark fixed-top" id="navbar">
+          <!-- Brand -->
+          <a class="brand" href="index.html"><img src="brand.png" alt="" href="index.html" style="height:55px;width:70px;"></a>
+          <!-- Toggler/collapsibe Button -->
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <!-- Navbar links -->
+          <div class="collapse navbar-collapse text-center" id="collapsibleNavbar">
+            <ul class="navbar-nav">
+              <li class="nav-item" id="homepage">
+                <a class="btn btn-secondary" >Home</a>
+              </li>
+              <li class="nav-item" id="aboutus">
+                <a class="btn btn-secondary" >About Me</a>
+              </li>
+              <li class="nav-item" id="services">
+                <a class="btn btn-secondary" >My Work</a>
+              </li>
+              <li class="nav-item" id="contact">
+                <a class="btn btn-secondary">Get in Touch</a>
+              </li>
+            </ul>
           </div>
-          <div class="col-sm-12 col-md-6 col-xs-12 col-lg-6 text-left">
-            <h5>Hello, I am Piyush Mishra and I am currently pursuing Bachelor of Technology(B.TECH) in Computer Science and Engineering(CSE).</h5>
-            <p>
-              I am currently living in Greater Noida.While I'm a proficient full-stack developer, my interests are in building scalable backend services.
-              My technical expertise includes fluency in C, C++, Java and Python.
-              I have also created a couple of projects on Django Web-Framework.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="container" id="section3">
-      <div class="text-center">
-        <h1>My Work</h1>
-      </div>
-      <br>
-      <br>
-      <div class="row">
-        <div class="col-sm-6 col-md-6 col-lg-6 col-xs-6">
-          <div class="container">
-            <div class="content">
-              <a href="https://github.com/PiyushMishra318/Django/tree/master/Blog" target="_blank">
-                <div class="content-overlay"></div>
-                <img class="content-image" src="Blogimg.png">
-                <div class="content-details fadeIn-top">
-                  <h3>A Simple Blog.</h3>
-                  <p>This website is a working sample blog made using Django with all neccessary features.</p>
-                </div>
-              </a>
-            </div>
+        </nav>
+        <div class="text-centered">
+          <h1>Piyush Mishra</h1>
+          <div class="typewriter">
           </div>
         </div>
-        <div class="col-sm-6 col-md-6 col-lg-6 col-xs-6">
-          <div class="container">
-            <div class="content">
-              <a href="https://github.com/PiyushMishra318/Django/tree/master/piyush" target="_blank">
-                <div class="content-overlay"></div>
-                <img class="content-image" src="Profileimg.png">
-                <div class="content-details fadeIn-top">
-                  <h3>Profile Search</h3>
-                  <p>A website which helps the superuser search a profile information by entering the profile name in the search bar.</p>
-                </div>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <br>
-    <br>
-    <div class="contactform">
-      <div class="form-block">
-        <h1 style="text-align:center">Contact Form</h1>
-        <form>
-          <div class="row">
-            <div class="col-lg-6">
-                <div class="form-group" >
-                    <input type="text" style="background: rgba(255, 255, 255, 0.5);" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Name">
-                  </div>
-                <div class="form-group">
-                  <input type="email" style="background: rgba(255, 255, 255, 0.5);" class="form-control" aria-describedby="emailHelp" placeholder="Email">
-                </div>
-                <div class="form-group" >
-                  <input type="text" style="background: rgba(255, 255, 255, 0.5);" class="form-control" placeholder="Subject">
-                </div>
+        <div class ="text-centered1">
+            <div class="row">
+              <div class="col-xs-3">
+                <a href="https://www.facebook.com/piyush.mishra.3154?ref=br_rs"><img src="fb.png" style="width:50px;height:50px"></a>
               </div>
-                <div class="col-lg-6">
+              <div class="col-xs-3">
+                <a href="https://twitter.com/PiyushM3108"><img src="twitter.png" style="width:50px;height:50px"></a>
+              </div>
+              <div class="col-xs-3">
+                <a href="https://www.instagram.com/piyush_mishra.kh.3108/?hl=en"><img src="instagram.gif" style="width:50px;height:50px"></a>
+              </div>
+              <div class="col-xs-3">
+                <a href="https://github.com/PiyushMishra318"><img src="github.png" style="width:50px;height:50px"></a>
+              </div>
+            </div>
+        </div>
+      </div>
+      <div class="About Me" id="section2">
+        <div class="jumbotron text-center">
+          <h1>About Me</h1>
+          <br><br>
+          <div class="row">
+            <div class="col-sm-12 col-md-6 col-xs-12 col-lg-6">
+              <img src="myimage.jpg" style="height:440px;width:320px">
+            </div>
+            <div class="col-sm-12 col-md-6 col-xs-12 col-lg-6 text-left">
+              <h5>Hello, I am Piyush Mishra and I am currently pursuing Bachelor of Technology(B.TECH) in Computer Science and Engineering(CSE).</h5>
+              <p>
+                I am currently living in Greater Noida.While I'm a proficient full-stack developer, my interests are in building scalable backend services.
+                My technical expertise includes fluency in C, C++, Java and Python.
+                I have also created a couple of projects on Django Web-Framework.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container" id="section3">
+        <div class="text-center">
+          <h1>My Work</h1>
+        </div>
+        <br>
+        <br>
+        <div class="row">
+          <div class="col-sm-6 col-md-6 col-lg-6 col-xs-6">
+            <div class="container">
+              <div class="content">
+                <a href="https://github.com/PiyushMishra318/Django/tree/master/Blog" target="_blank">
+                  <div class="content-overlay"></div>
+                  <img class="content-image" src="Blogimg.png">
+                  <div class="content-details fadeIn-top">
+                    <h3>A Simple Blog.</h3>
+                    <p>This website is a working sample blog made using Django with all neccessary features.</p>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-6 col-lg-6 col-xs-6">
+            <div class="container">
+              <div class="content">
+                <a href="https://github.com/PiyushMishra318/Django/tree/master/piyush" target="_blank">
+                  <div class="content-overlay"></div>
+                  <img class="content-image" src="Profileimg.png">
+                  <div class="content-details fadeIn-top">
+                    <h3>Profile Search</h3>
+                    <p>A website which helps the superuser search a profile information by entering the profile name in the search bar.</p>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br>
+      <br>
+      <div class="contactform">
+        <div class="form-block">
+          <h1 style="text-align:center">Contact Form</h1>
+          <form>
+            <div class="row">
+              <div class="col-lg-6">
+                  <div class="form-group" >
+                      <input type="text" style="background: rgba(255, 255, 255, 0.5);" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Name">
+                    </div>
                   <div class="form-group">
-                    <textarea  style="width:345px;height:132px;background: rgba(255, 255, 255, 0.5);" placeholder="Your Message here...."></textarea><br>
-                    <button type="submit" class="btn btn-secondary">Send</button>
+                    <input type="email" style="background: rgba(255, 255, 255, 0.5);" class="form-control" aria-describedby="emailHelp" placeholder="Email">
+                  </div>
+                  <div class="form-group" >
+                    <input type="text" style="background: rgba(255, 255, 255, 0.5);" class="form-control" placeholder="Subject">
                   </div>
                 </div>
-            </div>
-          </form>
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <textarea  style="width:345px;height:132px;background: rgba(255, 255, 255, 0.5);" placeholder="Your Message here...."></textarea><br>
+                      <button type="submit" class="btn btn-secondary">Send</button>
+                    </div>
+                  </div>
+              </div>
+            </form>
+        </div>
+      </div>
+      <div class='scrolltop'>
+        <div class='scroll icon'>
+          <img src="scroll.png" height="50px" width="50px">
+        </div>
       </div>
     </div>
-    <div class='scrolltop'>
-      <div class='scroll icon'>
-        <img src="scroll.png" height="50px" width="50px">
-      </div>
-    </div>
+    <script type="text/javascript">
+    var myVar;
+    function myFunction() {
+        myVar = setTimeout(showPage, 5000);
+    }
+    function showPage() {
+      document.getElementById("loader").style.display = "none";
+      document.getElementById("myDiv").style.display = "block";
+    }
+    </script>
     <script src="https://code.jquery.com/jquery-3.3.1.js"
             integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
             crossorigin="anonymous"></script>
