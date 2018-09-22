@@ -1,6 +1,6 @@
 window.onscroll = () => {
   const nav = document.querySelector('#navbar');
-  if(this.scrollY >= 100) nav.className = 'navbar navbar-expand-md  navbar-dark bg-dark fixed-top'; else nav.className = 'navbar navbar-expand-md  navbar-dark bg-dark';
+  if(this.scrollY >= 150) nav.className = 'navbar navbar-expand-md  navbar-dark bg-set fixed-top'; else nav.className = 'navbar navbar-expand-md  navbar-dark bg-set';
 }
 
 
@@ -36,16 +36,52 @@ $(function(){$(".scroll").click(function(){$("html,body").animate({scrollTop:$("
 
 
 
-var text = ["<h1> I am a Web Developer.</h1>","<h1> I am a Programmer.</h1>","<h1> Welcome to My Portfolio.</h1>"];
-var counter = 0;
-var elem = document.querySelector(".typewriter");
-var inst = setInterval(change,4000);
 
-function change() {
-  elem.innerHTML = text[counter];
-  counter++;
-  if (counter >= text.length) {
-    counter = 0;
-    // clearInterval(inst); // uncomment this if you want to stop refreshing after one cycle
-  }
-}
+                  function write (obj, sentence, i, cb) {
+                    if (i != sentence.length) {
+                      setTimeout(function () {
+                        i++
+                        obj.innerHTML = sentence.substr(0, i+1) +' <em aria-hidden="true"></em>';
+                        write(obj, sentence, i, cb)
+                      }, 50)
+                    } else {
+
+                      cb()
+                    }
+                  }
+                   function erase (obj, cb,i) {
+                   var sentence = obj.innerText
+                      if (sentence.length != 0) {
+                       setTimeout(function () {
+                       sentence = sentence.substr(0,sentence.length-1)
+
+                       obj.innerText = sentence
+                       erase(obj, cb)
+                        }, 18/(i*(i/10000000)))
+                        } else {
+                        obj.innerText = " "
+                        cb()
+                     }
+                    }
+                    var typeline = document.querySelector("#typeline")
+
+                     function writeerase(obj, sentence, time, cb) {
+                      write(obj, sentence, 0, function () {
+                       setTimeout(function () {
+                       erase(obj, cb) }, time) })
+                       }
+
+                  var sentences = [
+                    "an Engineer. ",
+                    "a Developer. ",
+                    "a Web Designer."
+                  ]
+
+                  var counter = 0
+                  function loop () {
+                    var sentence = sentences[counter % sentences.length]
+                    writeerase(typeline, sentence, 1500, loop)
+                    counter++
+                  }
+
+                  loop()
