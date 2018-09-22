@@ -36,7 +36,7 @@ $(function(){$(".scroll").click(function(){$("html,body").animate({scrollTop:$("
 
 
 
-var text = ["<h1>Web Developer.</h1>","<h1>Programmer.</h1>","<h1> My Portfolio.</h1>"];
+var text = ["<h1> I am a Web Developer.</h1>","<h1> I am a Programmer.</h1>","<h1> Welcome to My Portfolio.</h1>"];
 var counter = 0;
 var elem = document.querySelector(".typewriter");
 var inst = setInterval(change,4000);
