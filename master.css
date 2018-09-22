@@ -799,6 +799,3 @@ em {
 	-webkit-animation: typing 3s steps(21, end),
 	blink-caret .5s step-end infinite alternate;
 }
-.col-xs-2{
-  border:10px solid transparent;
-}
