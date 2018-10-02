@@ -235,7 +235,7 @@ function onpress(evt){
 function main(){
 	canvas = document.createElement('canvas');
 	width = window.innerWidth;
-	height = window.nnerHeight;
+	height = window.innerHeight;
 
 	var evt = "touchstart";
 
@@ -329,8 +329,8 @@ function render(){
 		s_text.GameOver.draw(ctx, width/2 - s_text.GameOver.width/2, height - 400);
 		s_buttons.Ok.draw(ctx, okbtn.x , okbtn.y);
 
-		s_numberS.draw(ctx, width - 80, height - 304, score)
-		s_numberS.draw(ctx, width - 80, height - 262, best)
+		s_numberS.draw(ctx, width - 100, height - 304, score)
+		s_numberS.draw(ctx, width - 100, height - 262, best)
 
 	}else{
 		s_numberB.draw(ctx, width/2, 20, score)
