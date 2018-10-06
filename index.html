@@ -13,7 +13,6 @@
 <canvas id="canvas"></canvas>
 <style type="text/css">
 	body{
-
 		margin: 0px;
 	}
 </style>
@@ -50,8 +49,8 @@
 	var joystick	= new VirtualJoystick({
 		mouseSupport	: true,
 		stationaryBase: true,
-                      baseX: 100,
-                      baseY: height - 150,
+                      baseX: 70,
+                      baseY: height - 70,
 		limitStickTravel: true,
 		stickRadius	: 50
 	});
@@ -420,10 +419,10 @@
 				
 					if(health <= 0){
 						ctx.fillStyle = "white"
-						ctx.font = "50px Arial";
-						ctx.fillText("GAME OVER!!", 250, 300);
+						ctx.font = "25px Arial";
+						ctx.fillText("GAME OVER!!", width/2 - 25, 300);
 						ctx.font = "10px Arial";
-						ctx.fillText("press ENTER to restart",350,330);
+						ctx.fillText("Tap anywhere to restart", width/2 - 10,330);
 						document.addEventListener("touchstart",function(e){
 							location.reload()
 						})
