@@ -12,12 +12,17 @@
 
 <canvas id="canvas"></canvas>
 <style type="text/css">
-	body{
-
-		margin: 0px;
+	canvas{
+		display: block;
+		position: absolute;
+		margin:auto;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
 	}
 </style>
-<script src="virtualjoystick.js"></script> 
+
 <script type="text/javascript">
 	
 	var
@@ -47,39 +52,7 @@
 	arrowkeysImg = new Image();
 	shootbtnImg = new Image();
 	startImg = new Image();
-	var joystick	= new VirtualJoystick({
-		mouseSupport	: true,
-		stationaryBase: true,
-                      baseX: 100,
-                      baseY: height - 150,
-		limitStickTravel: true,
-		stickRadius	: 50
-	});
-	joystick.addEventListener('touchStartValidation', function(event){
-		var touch	= event.changedTouches[0];
-		if( touch.pageX >= width/2 )	return false;
-		return true
-	});
-	// var joystick	= new VirtualJoystick({
-	// 	stationaryBase: true,
- //                      baseX: width - 150,
- //                      baseY: height - 150,
-	// 	strokeStyle	: 'orange',
-	// 	limitStickTravel: true,
-	// 	stickRadius	: 0		
-	// });
-	// joystick.addEventListener('touchStartValidation', function(event){
-	// 	var touch	= event.changedTouches[0];
-	// 	if( touch.pageX >= width/2 )	return false;
-	// 	return true
-	// });
-	// joystick.addEventListener('touchStart', function(){
-	// 	beam.push({
-	// 			x : player.y,
-	// 			y : player.x + playerImg.width/2,
-	// 		})
-	// 		bsp += .001
-	// })
+
 
 
 
@@ -158,8 +131,6 @@
 	document.addEventListener("touchstart",function(e){
 		mx = e.touches[0].clientX;
 		my = e.touches[0].clientY;
-
-		
 
 		if(0 < mx && mx < 44 &&
 			(height - arrowkeysImg.height) + 30 < my && my < (height - arrowkeysImg.height) + 30 + 40){
@@ -321,8 +292,6 @@
 			}
 			window.requestAnimationFrame(draw);
 		}else{
-
-			
 			
 			ctx.drawImage(bgImg, 0, 0);
 			if (flag === 0) {
@@ -341,12 +310,13 @@
 					ctx.fillText("3. Try to dodge the enemy ships or your health will decrease(by 20).", 0, 320)
 					ctx.fillText("4. If any ship passes by you, your health will decrease(by 5).", 0, 340)
 					ctx.font = '10px Arial'
-					ctx.fillText("Develepor's note : The game is repetative and endless (unless you die that is *cou", 0, 380)
+					ctx.fillText("Develepor's note : The game is repetative and endless (unless you die that is *cou",0, 380)
 					ctx.fillText("gh* LOSER) Try to score as much as you can.",0, 390)
 					ctx.drawImage(startImg, startbtn.x, startbtn.y)
 				}else{
 
 					ctx.drawImage(playerImg, player.x, player.y)
+					ctx.drawImage(arrowkeysImg, 0, height - arrowkeysImg.height)
 					ctx.drawImage(shootbtnImg, width - shootbtnImg.width, height - shootbtnImg.height)
 
 
@@ -434,24 +404,12 @@
 					player.x = 0
 				}else if(player.y < 0){
 					player.y = 0
-				}else if(player.y > height - playerImg.height){
-					player.y = height - playerImg.height
-				}else if(player.x > width - playerImg.width ){
-					player.x = width - playerImg.width
+				}else if(player.y > 490){
+					player.y = 490
+				}else if(player.x > 930){
+					player.x = 930
 				}
-				if( joystick.right() ){
-					player.x += 1 + psp;    
-				}
-				if( joystick.left() ){
-					player.x -= 1 + psp;     
-				}
-				if( joystick.up() ){
-					player.y -= 1 + psp;       
-				}
-				if( joystick.down() ){
-					player.y += 1 + psp;
-				}
-				
+
 				ctx.fillStyle = "white";
 				ctx.font = "30px Arial";
 				ctx.fillText("Score: "+score, 10, 50);
