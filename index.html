@@ -6,6 +6,8 @@
 
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="mobile-web-app-capable" content="yes">
+	<link rel="apple-touch-icon" sizes="192x192" href="./image/brandimg.png">
+	<link rel="manifest" href="manifest.json">
 	<title>Space Shooter</title>
 </head>
 <body ontouchstart = "start(event);">
@@ -13,7 +15,16 @@
 <canvas id="canvas"></canvas>
 <style type="text/css">
 	body{
-		margin: 0px;
+		margin : 0px;
+	}
+
+	#canvas {
+		display: block;
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
 	}
 </style>
 <script src="virtualjoystick.js"></script> 
@@ -463,7 +474,12 @@ document.addEventListener("keydown",function(e){
 			}
 		}		
 draw();
+if ('serviceWorker' in navigator){
+	navigator.serviceWorker
+	.register('./serviceWorker.js')
+	.then(function(){console.log("Service Worker registered");});
 
+}
 
 </script>
 
