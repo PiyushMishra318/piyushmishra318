@@ -135,18 +135,55 @@ document.addEventListener("keydown",function(e){
 		
 			if(map[37]){
 			   player.x -= 5 + psp;
-			   
-			}else if(map[39]){
-			   player.x += 5 + psp;
-			   
-			}else if(map[38]){
-			   player.y -= 5 + psp;
-			   
-			}else if(map[40]){
-			   player.y += 5 + psp;
+			}
+		}
+	})
+document.addEventListener('keyup', function(event){
+		if(event.keyCode in map){
+			map[event.keyCode] = false;
+		}
+	});
+document.addEventListener("keydown",function(e){
+		if(event.keyCode in map){
+			map[event.keyCode] = true;
+			 if(map[39]){
+			   player.x += 5 + psp;  
 			}
 		}	
 	})
+document.addEventListener('keyup', function(event){
+		if(event.keyCode in map){
+			map[event.keyCode] = false;
+		}
+	});
+document.addEventListener("keydown",function(e){
+		if(event.keyCode in map){
+			map[event.keyCode] = true;
+		
+			if(map[38]){
+			   player.y -= 5 + psp;
+			}
+		}
+	})
+document.addEventListener('keyup', function(event){
+		if(event.keyCode in map){
+			map[event.keyCode] = false;
+		}
+	});
+document.addEventListener("keydown",function(e){
+		if(event.keyCode in map){
+			map[event.keyCode] = true;
+		
+			if(map[40]){
+			   player.y += 5 + psp;
+			}
+		}
+	})
+document.addEventListener('keyup', function(event){
+		if(event.keyCode in map){
+			map[event.keyCode] = false;
+		}
+	});
 
 	document.addEventListener("keydown",function(e){
 		if(event.keyCode in map){
@@ -231,6 +268,15 @@ document.addEventListener("keydown",function(e){
 						}
 					})
 				}else{
+					if(player.x < 0 ){
+					player.x = 0
+				}else if(player.y < 0){
+					player.y = 0
+				}else if(player.y > height - playerImg.height){
+					player.y = height - playerImg.height
+				}else if(player.x > width - playerImg.width ){
+					player.x = width - playerImg.width
+				}
 
 				ctx.drawImage(playerImg, player.x, player.y)
 
@@ -336,7 +382,15 @@ document.addEventListener("keydown",function(e){
 			}
 			window.requestAnimationFrame(draw);
 		}else{
-
+			if(player.x < 0 ){
+					player.x = 0
+				}else if(player.y < 0){
+					player.y = 0
+				}else if(player.y > height - playerImg.height){
+					player.y = height - playerImg.height
+				}else if(player.x > width - playerImg.width ){
+					player.x = width - playerImg.width
+				}
 			
 			
 			ctx.drawImage(bgImg, 0, 0, width, height);
