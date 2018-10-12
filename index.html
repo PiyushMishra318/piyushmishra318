@@ -129,73 +129,75 @@
 		y : player.x + playerImg.width/2,
 	}
 
-document.addEventListener("keydown",function(e){
-		if(event.keyCode in map){
-			map[event.keyCode] = true;
-		
-			if(map[37]){
-			   player.x -= 5 + psp;
-			}
-		}
+document.addEventListener('mousemove',function(evt)
+	{
+		player.x = evt.clientX - playerImg.width/2;
+		player.y = evt.clientY - playerImg.height/2;
 	})
-document.addEventListener('keyup', function(event){
-		if(event.keyCode in map){
-			map[event.keyCode] = false;
-		}
-	});
-document.addEventListener("keydown",function(e){
-		if(event.keyCode in map){
-			map[event.keyCode] = true;
-			 if(map[39]){
-			   player.x += 5 + psp;  
-			}
-		}	
-	})
-document.addEventListener('keyup', function(event){
-		if(event.keyCode in map){
-			map[event.keyCode] = false;
-		}
-	});
-document.addEventListener("keydown",function(e){
-		if(event.keyCode in map){
-			map[event.keyCode] = true;
-		
-			if(map[38]){
-			   player.y -= 5 + psp;
-			}
-		}
-	})
-document.addEventListener('keyup', function(event){
-		if(event.keyCode in map){
-			map[event.keyCode] = false;
-		}
-	});
-document.addEventListener("keydown",function(e){
-		if(event.keyCode in map){
-			map[event.keyCode] = true;
-		
-			if(map[40]){
-			   player.y += 5 + psp;
-			}
-		}
-	})
-document.addEventListener('keyup', function(event){
-		if(event.keyCode in map){
-			map[event.keyCode] = false;
-		}
-	});
 
-	document.addEventListener("keydown",function(e){
-		if(event.keyCode in map){
-			map[event.keyCode] = true;
-			if(map[32]){
+
+// document.addEventListener("keydown",function(e){
+// 		if(event.keyCode in map){
+// 			map[event.keyCode] = true;
+		
+// 			if(map[37]){
+// 			   player.x -= 5 + psp;
+// 			}
+// 		}
+// 	})
+// document.addEventListener('keyup', function(event){
+// 		if(event.keyCode in map){
+// 			map[event.keyCode] = false;
+// 		}
+// 	});
+// document.addEventListener("keydown",function(e){
+// 		if(event.keyCode in map){
+// 			map[event.keyCode] = true;
+// 			 if(map[39]){
+// 			   player.x += 5 + psp;  
+// 			}
+// 		}	
+// 	})
+// document.addEventListener('keyup', function(event){
+// 		if(event.keyCode in map){
+// 			map[event.keyCode] = false;
+// 		}
+// 	});
+// document.addEventListener("keydown",function(e){
+// 		if(event.keyCode in map){
+// 			map[event.keyCode] = true;
+		
+// 			if(map[38]){
+// 			   player.y -= 5 + psp;
+// 			}
+// 		}
+// 	})
+// document.addEventListener('keyup', function(event){
+// 		if(event.keyCode in map){
+// 			map[event.keyCode] = false;
+// 		}
+// 	});
+// document.addEventListener("keydown",function(e){
+// 		if(event.keyCode in map){
+// 			map[event.keyCode] = true;
+		
+// 			if(map[40]){
+// 			   player.y += 5 + psp;
+// 			}
+// 		}
+// 	})
+// document.addEventListener('keyup', function(event){
+// 		if(event.keyCode in map){
+// 			map[event.keyCode] = false;
+// 		}
+// 	});
+
+	document.addEventListener("mousedown",function(e){
 				beam.push({
 					x : player.y,
 					y : player.x + playerImg.width/2,
 				})
 				bsp += .001
-			}
-		}
 	})
 
 	document.addEventListener('keyup', function(event){
@@ -532,7 +534,6 @@ if ('serviceWorker' in navigator){
 	navigator.serviceWorker
 	.register('./serviceWorker.js')
 	.then(function(){console.log("Service Worker registered");});
-
 }
 
 </script>
