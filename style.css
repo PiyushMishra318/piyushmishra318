@@ -1,0 +1,652 @@
+.home {
+  height:auto;
+  background-repeat: no-repeat;
+  background-image: url('verticalfarm1.jpg');
+  background-size: cover;
+}
+
+
+.container1 {
+  width: 80%;
+  margin: 15px auto;
+  padding: 1px;
+  background-size: cover;
+  background-position: center;
+  transition: background 0.8s linear;
+  box-shadow: 0px 5px 25px 0px rgba(0,0,0,0.75);
+}
+
+
+.widget {
+  margin: 20px;
+  width: 206px;
+  height: 406px;
+}
+
+.text-1, .text-2, .text-3, .text-4 {
+  width: 206px;
+  height: 94px;
+  margin: 6px;
+  padding: 1px;
+  text-align: center;
+  text-transform: uppercase;
+  background-color: rgba(255,255,255,0.6);
+  cursor: pointer;
+} 
+
+.text-1:hover,
+.text-2:hover,
+.text-3:hover,
+.text-4:hover{
+  background-color: rgba(72, 72, 72, 1);
+  color: white;
+}
+
+.text-1 > p:first-child, 
+.text-2 > p:first-child,
+.text-3 > p:first-child,
+.text-4 > p:first-child {
+  font-size: 1em;
+  font-weight: 300;
+}
+
+.text-1 > p:last-child, 
+.text-2 > p:last-child,
+.text-3 > p:last-child,
+.text-4 > p:last-child {
+  font-size: 1em;
+  font-weight: 900;
+}
+
+.nav-link{
+  border:none;
+  position:relative;
+  font-family: 'Oswald', sans-serif !important ;
+  height:auto;
+  font-size: 17px;
+  padding:0 2em;
+  cursor:pointer;
+  transition:800ms ease all;
+  outline:none;
+  margin:10px;
+}
+.nav-link:before{
+  content:'';
+  position:absolute;
+  top:0;
+  right:0;
+  height:2px;
+  width:0;
+  border-bottom:1px solid blue;
+  background: linear-gradient(to right, #0000ff 40%, #66ff33 50%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation-delay: 1s;
+  transition:400ms ease all;
+}
+.nav-link:after{
+  content:'';
+  position:absolute;
+  top:50%;
+  right:0;
+  height:2px;
+  width:0;
+  border-bottom:1px solid green;
+  background: linear-gradient(to right, #0000ff 40%, #66ff33 50%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation-delay: 1s;
+  transition:400ms ease all;
+}
+.nav-link:after{
+  right:inherit;
+  top:inherit;
+  left:0;
+  bottom:0;
+}
+
+.nav-link:hover:before,.nav-link:hover:after{
+  width:100%;
+  transition:800ms ease all;
+}
+.dropdown-menu .nav-link{
+  color:black !important;
+}
+.dropdown-meu .nav-link:hover{
+  border-bottom:1px solid black !important;
+}
+nav{
+  background:black;
+  max-height: 100px;
+}
+.transparent{
+  background:rgba(0,0,0,0.5);
+}
+
+.home{
+  background-image: url("greenhouse-2139527_960_720-3.jpg");
+  position: relative;
+  min-height:500px;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-align: center;
+}
+
+.product{
+  background-image: url("product.jpg");
+  position: relative;
+  min-height:500px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.text-centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color:black;
+    font-size: 30px;
+    color:darkblue;
+}
+.text-centered1 {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color:black;
+    font-size: 30px;
+    color:darkblue;
+}
+.text-centered h1{
+  background: linear-gradient(to right, #0000ff 40%, #66ff33 50%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.text-center h1{
+  background: linear-gradient(to right, #0000ff 40%, #66ff33 52%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.content {
+  position: relative;
+  width: 70%;
+  max-width: 400px;
+  margin: auto;
+  overflow: hidden;
+}
+
+.content .content-overlay {
+  background: linear-gradient(to right, rgba(0, 0, 254, 0.5), rgba(102, 255, 51, 0.5));
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  opacity: 0;
+  -webkit-transition: all 0.4s ease-in-out 0s;
+  -moz-transition: all 0.4s ease-in-out 0s;
+  transition: all 0.4s ease-in-out 0s;
+}
+.col-lg-4{
+  padding-bottom:100px;
+}
+.content:hover .content-overlay{
+  opacity: 1;
+}
+
+.content-image{
+  width: 100%;
+  height: 100%;
+}
+.row{
+  margin-right: 0px;
+     margin-left: 0px;
+}
+.content-details {
+  position: absolute;
+  text-align: center;
+  padding-left: 1em;
+  padding-right: 1em;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  opacity: 0;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  -webkit-transition: all 0.3s ease-in-out 0s;
+  -moz-transition: all 0.3s ease-in-out 0s;
+  transition: all 0.5s ease-in-out 0s;
+}
+
+.content:hover .content-details{
+  top: 50%;
+  left: ;
+  opacity: 1;
+}
+
+.content-details h4{
+  color: #fff;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.content-details p{
+  color: #fff;
+  font-size: 0.8em;
+}
+
+.fadeIn-top{
+  top: 20%;
+}
+.social-network{
+    background: linear-gradient(to bottom, #0000cc 0%, #33ccff 100%);
+    width:100%;
+}
+.social-network i{
+  font-size:20px;
+  padding:5px;
+  color:white;
+}
+.social-network i:hover{
+  font-size:20px;
+  padding:5px;
+  color:#99ffcc;
+  transition: all 0.5s ease-in-out 0s;
+}
+#pics .col-sm-4{
+  margin-bottom:50px;
+}
+.Designation{
+  color:white;
+}
+.buttons {
+  position: fixed;
+  right:0;
+  top:0;
+}
+.buttons a {
+  display: block;
+  text-decoration: none;
+  padding: 10px 20px;
+  margin: 5px;
+  background: #000;
+  color: #ccc;
+}
+
+.sidebar {
+  background: #1a1c1d;
+  color: #787d80;
+  width: 250px;
+  height: 100%;
+  text-align: center;
+  transform-origin: left;
+  transform-style: preserve-3d;
+  transition: all 0.5s;
+  overflow: hidden;
+}
+.sidebar.hideDown {
+  transform: rotateY(90deg) skewY(10deg);
+}
+.sidebar.hideUp {
+  transform: rotateY(90deg) skewY(-10deg);
+}
+.sidebar .sidebarHeader {
+  padding: 20px 10px;
+  font-weight: 700;
+}
+.sidebar ul {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+.sidebar ul li {
+  padding: 15px 10px;
+}
+.sidebar ul li a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.5s;
+}
+.sidebar ul li a:hover {
+  color: #ccc;
+}
+
+
+.bg-my{
+  background: linear-gradient(to right, rgba(0, 0, 254, 0.5), rgba(102, 255, 51, 0.5));
+}
+
+/*Contact-form css*/
+.container1 {
+  background-color: #363E4A;
+}
+body{
+  background: linear-gradient(to right, rgba(0, 0, 254, 0.5), rgba(102, 255, 51, 0.5));
+  font-family: "Avenir Next", "Avenir", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+h1 {
+  font-family: "Texta", "Avenir Next", "Avenir", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  text-align: center;
+}
+
+h2 {
+  font-weight: 400;
+  font-size: 24px;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.container1 {
+  max-width:100%;
+  margin: 50px auto;
+  padding: 10px 40px 0px 10px;
+  transform: translateZ(0);
+  text-align: center;
+}
+
+.form-footer {
+  margin-top: ;
+}
+
+.ui-input {
+  position: relative;
+  padding: 0;
+  border: 0;
+}
+
+.ui-input input {
+  font-family: "Avenir Next", "Avenir", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  border: 0;
+  background: none;
+  padding: 0px 0px 0px 0px;
+  font-size: 24px;
+  outline: 0;
+  width: 100%;
+  tap-highlight-color: rgba(0, 0, 0, 0);
+  touch-callout: none;
+}
+
+.ui-input input + label {
+  position: relative;
+  display: block;
+  padding: 8px 0 8px 0;
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: .0875em;
+  font-weight: 500;
+  text-align: left;
+}
+.ui-input input + label::before, .ui-input input + label::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "";
+  width: 100%;
+  height: 1px;
+}
+.ui-input input + label::before {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+.ui-input input + label::after {
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 300ms cubic-bezier(0.215, 0.61, 0.355, 1);
+  background-color: #6EB1FF;
+  height: 2px;
+}
+.ui-input input + label span {
+  position: relative;
+  color: rgba(255, 255, 255, 0.2);
+  transition: color 300ms cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.ui-input input + label span::after {
+  content: attr(data-text);
+  position: absolute;
+  overflow: hidden;
+  left: 0;
+  transform: scaleX(1);
+  white-space: nowrap;
+  color: #fff;
+  background-image: linear-gradient(to right, #4A90E2 50%, rgba(255, 255, 255, 0) 0%);
+  background-position: 100% 50%;
+  background-size: 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  backface-visibility: hidden;
+  perspective: 1000;
+  transform: translateZ(0);
+  transition: background-position 300ms cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.ui-input input:focus + label::after,
+.ui-input input.error + label::after,
+.ui-input input:invalid + label::after,
+.ui-input input.filled + label::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+.ui-input input:focus + label span::after,
+.ui-input input.error + label span::after,
+.ui-input input:invalid + label span::after,
+.ui-input input.filled + label span::after {
+  background-image: linear-gradient(to right, white 50%, rgba(255, 255, 255, 0) 0%);
+  background-position: 0% 50%;
+}
+
+.ui-input input.filled {
+  color: #ffffff;
+}
+.ui-input input.filled + label::after {
+  background-color: #ffffff;
+}
+.ui-input input.filled + label span::after {
+  background-image: linear-gradient(to right, #ffffff 50%, rgba(255, 255, 255, 0) 0%);
+  background-position: 0% 50%;
+}
+
+.ui-input input:focus {
+  color: #6EB1FF;
+}
+.ui-input input:focus + label::after {
+  background-color: #6EB1FF;
+}
+.ui-input input:focus + label span::after {
+  background-image: linear-gradient(to right, #6EB1FF 50%, rgba(255, 255, 255, 0) 0%);
+  background-position: 0% 50%;
+}
+
+.ui-input input.error,
+.ui-input input:invalid {
+  color: #E66161;
+}
+.ui-input input.error + label::after,
+.ui-input input:invalid + label::after {
+  background-color: #E66161;
+}
+.ui-input input.error + label span::after,
+.ui-input input:invalid + label span::after {
+  background-image: linear-gradient(to right, #E66161 50%, rgba(255, 255, 255, 0) 0%);
+  background-position: 0% 50%;
+}
+
+.ui-input textarea {
+  font-family: "Avenir Next", "Avenir", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  border: 0;
+  background: none;
+  padding: 16px 0 16px 0;
+  font-size: 24px;
+  outline: 0;
+  width: 100%;
+  tap-highlight-color: rgba(0, 0, 0, 0);
+  touch-callout: none;
+}
+
+.ui-input textarea + label {
+  position: relative;
+  display: block;
+  padding: 8px 0 8px 0;
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: .0875em;
+  font-weight: 500;
+  text-align: left;
+}
+.ui-input textarea + label::before, .ui-input input + label::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "";
+  width: 100%;
+  height: 1px;
+}
+.ui-input textarea + label::before {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+.ui-input textarea + label::after {
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 300ms cubic-bezier(0.215, 0.61, 0.355, 1);
+  background-color: #6EB1FF;
+  height: 2px;
+}
+.ui-input textarea + label span {
+  position: relative;
+  color: rgba(255, 255, 255, 0.2);
+  transition: color 300ms cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.ui-input textarea + label span::after {
+  content: attr(data-text);
+  position: absolute;
+  overflow: hidden;
+  left: 0;
+  transform: scaleX(1);
+  white-space: nowrap;
+  color: #fff;
+  background-image: linear-gradient(to right, #4A90E2 50%, rgba(255, 255, 255, 0) 0%);
+  background-position: 100% 50%;
+  background-size: 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  backface-visibility: hidden;
+  perspective: 1000;
+  transform: translateZ(0);
+  transition: background-position 300ms cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.ui-input textarea:focus + label::after,
+.ui-input textarea.error + label::after,
+.ui-input textarea:invalid + label::after,
+.ui-input textarea.filled + label::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+.ui-input textarea:focus + label span::after,
+.ui-input textarea.error + label span::after,
+.ui-input textarea:invalid + label span::after,
+.ui-input textarea.filled + label span::after {
+  background-image: linear-gradient(to right, white 50%, rgba(255, 255, 255, 0) 0%);
+  background-position: 0% 50%;
+}
+
+.ui-input textarea.filled {
+  color: #ffffff;
+}
+.ui-input textarea.filled + label::after {
+  background-color: #ffffff;
+}
+.ui-input textarea.filled + label span::after {
+  background-image: linear-gradient(to right, #ffffff 50%, rgba(255, 255, 255, 0) 0%);
+  background-position: 0% 50%;
+}
+
+.ui-input textarea:focus {
+  color: #6EB1FF;
+}
+.ui-input textarea:focus + label::after {
+  background-color: #6EB1FF;
+}
+.ui-input textarea:focus + label span::after {
+  background-image: linear-gradient(to right, #6EB1FF 50%, rgba(255, 255, 255, 0) 0%);
+  background-position: 0% 50%;
+}
+
+.ui-input textarea.error,
+.ui-input textarea:invalid {
+  color: #E66161;
+}
+.ui-input textarea.error + label::after,
+.ui-input textarea:invalid + label::after {
+  background-color: #E66161;
+}
+.ui-input textarea.error + label span::after,
+.ui-input textarea:invalid + label span::after {
+  background-image: linear-gradient(to right, #E66161 50%, rgba(255, 255, 255, 0) 0%);
+  background-position: 0% 50%;
+}
+
+
+
+.__first, .__second, .__third, .__fourth {
+  animation-name: fadeIn;
+  animation-duration: 180ms;
+  animation-fill-mode: both;
+  animation-iteration-count: 1;
+}
+
+.__first {
+  animation-delay: 0;
+}
+
+.__second {
+  animation-delay: 80ms;
+}
+
+.__third {
+  animation-delay: 180ms;
+}
+
+.__fourth {
+  animation-delay: 360ms;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -25%, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+.col-lg-2{
+  margin-top: 50px;
+}
+.col-lg-2 img{
+    height: 92%;
+    width: 350%;
+} 
+@media only screen and (max-width: 600px){
+  .col-lg-2 img{
+    height:100%;
+    width:100%;
+  }
+  .fixbutton{
+    position:absolute;
+    right:10px;
+  }
+}
+/*contactform css end*/

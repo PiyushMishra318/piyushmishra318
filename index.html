@@ -1,542 +1,234 @@
 <!DOCTYPE html>
-<html>
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+		<link rel="icon" href="favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel="stylesheet" type="text/css" href="my.css">
+    <link rel="stylesheet" type="text/css" href="button.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="navstyle.css">
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Federo" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Satisfy" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="footer.css">
 
-	<meta name="apple-mobile-web-app-capable" content="yes">
-	<meta name="mobile-web-app-capable" content="yes">
-	<link rel="apple-touch-icon" sizes="192x192" href="./image/brandimg.png">
-	<link rel="manifest" href="manifest.json">
-	<title>Space Shooter</title>
-</head>
-<body ontouchstart = "start(event);">
+  </head>
+  <body>
+  <div class="home">
+    <nav class="navbar navbar-expand-lg navbar-dark transparent">
+      <img src="index.png" height="50px" width="50px">&nbsp;&nbsp;
+      <a class="navbar-brand navfont" href="#">AEROKRISHI</a>
+      <button class="navbar-toggler navbar-toggler-right navbutton fixbutton" type="button" data-toggle="modal" data-backdrop="false" data-target="#sidenav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
 
-<canvas id="canvas"></canvas>
-<style type="text/css">
-	body{
-		margin : 0px;
-	}
-
-	#canvas {
-		display: block;
-		position: absolute;
-		top: 0;
-		bottom: 0;
-		left: 0;
-		right: 0;
-	}
-</style>
-<script src="virtualjoystick.js"></script> 
-<script type="text/javascript">
-	
-	var
-	canvas = document.getElementById('canvas'),
-	ctx = canvas.getContext('2d'),
-	enemy = [];
-	var beam = [];
-	var score = 0;
-	var health = 100;
-	var player;
-	var width = window.innerWidth;
-	var height = window.innerHeight;
-	var flag = 0;
-	var esp = 1;
-	var psp = 5;
-	var bsp = 10;
-	var map = {
-		37: false, // Left Arrow Key
-		39: false, // Right Arrow Key
-		38: false, // Top Arrow Key
-		40: false, // Bottom Arrow Key
-		32: false,
-	}
-	playerImg = new Image();
-	enemyImg = new Image();
-	bgImg = new Image();
-	beamImg = new Image();
-	arrowkeysImg = new Image();
-	shootbtnImg = new Image();
-	startImg = new Image();
-	var joystick	= new VirtualJoystick({
-		
-		// stationaryBase: true,
-  //                     baseX: 70,
-  //                     baseY: height - 70,
-		limitStickTravel: true,
-		stickRadius	: 20
-	});
-	joystick.addEventListener('touchStartValidation', function(event){
-		var touch	= event.changedTouches[0];
-		if( touch.pageX >= width/2 )	return false;
-		return true
-	});
-	// var joystick	= new VirtualJoystick({
-	// 	stationaryBase: true,
- //                      baseX: width - 150,
- //                      baseY: height - 150,
-	// 	strokeStyle	: 'orange',
-	// 	limitStickTravel: true,
-	// 	stickRadius	: 0		
-	// });
-	// joystick.addEventListener('touchStartValidation', function(event){
-	// 	var touch	= event.changedTouches[0];
-	// 	if( touch.pageX >= width/2 )	return false;
-	// 	return true
-	// });
-	// joystick.addEventListener('touchStart', function(){
-	// 	beam.push({
-	// 			x : player.y,
-	// 			y : player.x + playerImg.width/2,
-	// 		})
-	// 		bsp += .001
-	// })
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link navfont" href="#page">HOME <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link navfont" href="#whatwedo">WHAT WE DO</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link navfont" href="#about">WHO WE ARE</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link navfont" href="#services">SERVICES</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link navfont" href="#page" onclick="window.alert('Coming Soon!')">Blog</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+   
+    <div class="sidenav bg-faded p-4" id="sidenav">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="#" data-toggle="modal" data-backdrop="false" data-target="#sidenav"><i class="fa fa-window-close" style="font-size:24px ; color:white;"></i></a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link " style="color: white;" href="#page">HOME <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" style="color: white;" href="#whatwedo">WHAT WE DO</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" style="color: white;" href="#about">WHO WE ARE</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" style="color: white;" href="#services">SERVICES</a>
+          </li>
+          <li class="nav-item">
+          <a class="nav-link" href="#page" onclick="window.alert('Coming Soon!')">Blog</a>
+        </li>
+        </ul>
+      </div>
+      
 
 
+      <div class="container intro text-center bg-my" style="color:white;margin-top:100px;height:auto;">
+        <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt </h3>
+      </div>
 
-	
-
-	player = {
-		x : (width - playerImg.width)/4,
-		y : (height - playerImg.height),
-		radius : 5,
-		speed : 5 + psp
-	}
-
-
-	playerImg.src = 'player.png';
-	enemyImg.src = 'enemy.png';
-	bgImg.src = 'bg.png';
-	beamImg.src = 'beam.png';
-	arrowkeysImg.src = 'arrowkeys.png';
-	shootbtnImg.src = 'shootbtn.png';
-	startImg.src = 'start.png';
-
-	var startbtn = {
-		x : (width - startImg.width)/2,
-		y : height - startImg.height,
-	}
-
-
-	enemy[0] = {
-		x : (width - enemyImg.width)/2,
-		y : 10,
-		radius : 40,
-	}
-
-	beam[0] = {
-		x : player.y - playerImg.height,
-		y : player.x + playerImg.width/2,
-	}
-
-document.addEventListener('mousemove',function(evt)
-	{
-		player.x = evt.clientX - playerImg.width/2;
-		player.y = evt.clientY - playerImg.height/2;
-	})
+      <div class="container container2">
+        <div class="box">
+          <div class="widget">
+            <div class="text-1">
+              <p>Lorem Ipsum</p>
+              <p>Lorem Ipsum</p>
+            </div>
+            <div class="text-2">
+              <p>Lorem Ipsum</p>
+              <p>Lorem Ipsum</p>
+            </div>
+            <div class="text-3">
+              <p>Lorem Ipsum</p>
+              <p>Lorem Ipsum</p>
+            </div>
+            <div class="text-4">
+              <p>Lorem Ipsum</p>
+              <p>Lorem Ipsum</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
 
 
-// document.addEventListener("keydown",function(e){
-// 		if(event.keyCode in map){
-// 			map[event.keyCode] = true;
-		
-// 			if(map[37]){
-// 			   player.x -= 5 + psp;
-// 			}
-// 		}
-// 	})
-// document.addEventListener('keyup', function(event){
-// 		if(event.keyCode in map){
-// 			map[event.keyCode] = false;
-// 		}
-// 	});
-// document.addEventListener("keydown",function(e){
-// 		if(event.keyCode in map){
-// 			map[event.keyCode] = true;
-// 			 if(map[39]){
-// 			   player.x += 5 + psp;  
-// 			}
-// 		}	
-// 	})
-// document.addEventListener('keyup', function(event){
-// 		if(event.keyCode in map){
-// 			map[event.keyCode] = false;
-// 		}
-// 	});
-// document.addEventListener("keydown",function(e){
-// 		if(event.keyCode in map){
-// 			map[event.keyCode] = true;
-		
-// 			if(map[38]){
-// 			   player.y -= 5 + psp;
-// 			}
-// 		}
-// 	})
-// document.addEventListener('keyup', function(event){
-// 		if(event.keyCode in map){
-// 			map[event.keyCode] = false;
-// 		}
-// 	});
-// document.addEventListener("keydown",function(e){
-// 		if(event.keyCode in map){
-// 			map[event.keyCode] = true;
-		
-// 			if(map[40]){
-// 			   player.y += 5 + psp;
-// 			}
-// 		}
-// 	})
-// document.addEventListener('keyup', function(event){
-// 		if(event.keyCode in map){
-// 			map[event.keyCode] = false;
-// 		}
-// 	});
+      <div class="contactform row"> 
+      <div class="col-lg-6">
+        <div class="container1">
+          <h1>Get Your Own Farm Now</h1>
+          <h2>Contact Us</h2>
+          <form class="form" method="post">
+            
+            <fieldset class="form-fieldset ui-input __first">
+              <input type="text" id="fullname" tabindex="0" />
+              <label for="fullname">
+                <span data-text="Full Name">Full Name</span>
+              </label>
+            </fieldset>
+            
+            <fieldset class="form-fieldset ui-input __first">
+              <input type="text" id="phone" tabindex="0" />
+              <label for="phone">
+                <span data-text="Phone">Phone</span>
+              </label>
+            </fieldset>
 
-	document.addEventListener("mousedown",function(e){
-				beam.push({
-					x : player.y,
-					y : player.x + playerImg.width/2,
-				})
-				bsp += .001
-	})
+            <fieldset class="form-fieldset ui-input __second">
+              <input type="email" id="email" tabindex="0" />
+              <label for="email">
+                <span data-text="E-mail Address">E-mail Address</span>
+              </label>
+            </fieldset>
 
-	document.addEventListener('keyup', function(event){
-		if(event.keyCode in map){
-			map[event.keyCode] = false;
-		}
-	});
+            <fieldset class="form-fieldset ui-input __first">
+              <input type="text" id="location" tabindex="0" />
+              <label for="location">
+                <span data-text="Location">Location</span>
+              </label>
+            </fieldset>
 
-	function start(event){
-		flag = 1; 
-	}
-	document.addEventListener("touchstart",function(e){
-		mx = e.touches[0].clientX;
-		my = e.touches[0].clientY;
+            <fieldset class="form-fieldset ui-input __second">
+              <textarea type="text" id="Message"></textarea>
+              <label for="Message">
+                <span data-text="Your Message">Your Message</span>
+              </label>
+            </fieldset>
+            
+            <div class="form-footer">
+              <button class="btn btn-primary">Submit</button>
+            </div>
+          </form>
+        </div>
+      </div>
+        
+        <div class="col-lg-2">
+          <img src="AEROKRISHI-pitch-deck-1024x576.jpg"/>
+        </div>
+      </div>
+        
 
-		
+      <div class="footer">
+        <footer class="flex-rw">
+  
+          <ul class="footer-list-top">
+            <li>
+              <h4 class="footer-list-header">About Aerokrishi</h4></li>
+            <li><a href='/shop/about-mission' class="generic-anchor footer-list-anchor" itemprop="significantLink">GET TO KNOW US</a></li>
+            <li><a href='/promos.html' class="generic-anchor footer-list-anchor" itemprop="significantLink">PROMOS</a></li>
+            <li><a href='/retailers/new-retailers.html' class="generic-anchor footer-list-anchor" itemprop="significantLink">Lorem Ipsum</a></li>
 
-		if(0 < mx && mx < 44 &&
-			(height - arrowkeysImg.height) + 30 < my && my < (height - arrowkeysImg.height) + 30 + 40){
-			player.x -= 5 + psp;
-		}else if(28 < mx && mx < 28 + 44 &&
-			(height - arrowkeysImg.height) < my && my < (height - arrowkeysImg.height) + 40){
-			player.y -= 5 + psp;
-		}else if(58 < mx && mx < 58 + 44 &&
-			(height - arrowkeysImg.height) + 30< my && my < (height - arrowkeysImg.height) + 30 + 40){
-			player.x += 5 + psp;
-		}else if(28 < mx && mx < 28 + 44 &&
-			(height - arrowkeysImg.height) + 62 < my && my < (height - arrowkeysImg.height) + 62 + 40){
-			player.y += 5 + psp;
-		}else if((width - shootbtnImg.width) + 8 < mx && mx < (width - shootbtnImg.width) + 8 + 64 &&
-			(height - shootbtnImg.height) + 8 < my && my < (height - shootbtnImg.height) + 8 + 62){
-			beam.push({
-				x : player.y,
-				y : player.x + playerImg.width/2,
-			})
-			bsp += .001
-		}
-	})
+            <li><a href='/job-openings.html' itemprop="significantLink" class="generic-anchor footer-list-anchor">Lorem Ipsum</a></li>
 
-	function draw(){
-
-		canvas.width = width;
-	
-		canvas.height = height;
-
-		if(width > 500){
-			width = 800;
-			height = 600;
-			ctx.drawImage(bgImg, 0, 0);
-
-				if (flag === 0) {
-					ctx.fillStyle = "white"
-					ctx.font = '50px Arial';
-					ctx.fillText("Space Shooter", 40, 200);
-					ctx.font = '30px Arial';
-					ctx.fillText("Press Enter to start", 40, 250);
-					ctx.font = '20px Arial';
-					ctx.fillText("Instructions : ", 150,330);
-					ctx.font = '20px Arial';
-					ctx.fillText("1. Press Arrow Keys to move the ship.", 150, 360)
-					ctx.fillText("2. Press spacebar to shoot.", 150, 380)
-					ctx.fillText("3. You Health is 100 at the start of the Game(as it should be).", 150, 400)
-					ctx.fillText("3. Try to dodge the enemy ships or health will decrease(by 20).", 150, 420)
-					ctx.fillText("4. If any ship passes by you your health will decrease(by 5).", 150, 440)
-					ctx.font = '10px Arial'
-					
-					document.addEventListener("keydown",function(e){
-						if(e.keyCode == 13){
-							flag = 1;
-						}
-					})
-				}else{
-					if(player.x < 0 ){
-					player.x = 0
-				}else if(player.y < 0){
-					player.y = 0
-				}else if(player.y > height - playerImg.height){
-					player.y = height - playerImg.height
-				}else if(player.x > width - playerImg.width ){
-					player.x = width - playerImg.width
-				}
-
-				ctx.drawImage(playerImg, player.x, player.y)
+            <li><a href='/shop/about-show-schedule' class="generic-anchor footer-list-anchor" itemprop="significantLink">Lorem Ipsum</a></li>
+          </ul>
+          <ul class="footer-list-top">
+            <li>
+              <h4 class="footer-list-header">Our Products</h4></li>
 
 
-				for(var j = 1; j < beam.length; j++){
-
-					ctx.drawImage(beamImg, beam[j].y, beam[j].x)
-					beam[j].x -= bsp
-
-					if(beam[j].x < 20){
-						beam.splice(j,1)
-					}
-
-				}
-
-				for (var a = 0; a < beam.length; a++) {
-					
-					for (var b = 0; b < enemy.length; b++) {
-					
-						if (beam[a].y < enemy[b].x + enemyImg.width &&
-						beam[a].y + beamImg.width > enemy[b].x &&
-						beam[a].x < enemy[b].y + enemyImg.height &&
-						beamImg.height + beam[a].x > enemy[b].y) {
-							enemy.splice(b,1)
-							beam.splice(a,1)
-							score += 1
-							esp += .05
-							psp += .05
-						}
-					// var dx = beam[a].y - enemy[b].x;
-					// var dy = beam[a].x - enemy[b].y;
-					// var distance = Math.sqrt(dx * dx + dy * dy);
-				
-					// if (distance < beam[a].radius + enemy[b].radius){
-					// 	enemy.splice(b,1)
-					// 	beam.splice(a,1)
-					// 	score += 5
-					// }
-
-					}
-
-				}			
-
-
-				for (var i = 0; i < enemy.length; i++) {
-					ctx.drawImage(enemyImg, enemy[i].x, enemy[i].y)
-
-					enemy[i].y += esp;
-
-					if(enemy.length === 1){
-						enemy.push({
-							x : Math.random()*(width - enemyImg.width),
-							y : 10,
-							radius : 40,
-						})
-					}
-
-				
-					var dx = player.x - enemy[i].x;
-					var dy = player.y - enemy[i].y;
-					var distance = Math.sqrt(dx * dx + dy * dy);
-				
-					if (distance < player.radius + enemy[i].radius){
-						enemy.splice(i,1)
-						health -= 20
-					}
-					if(enemy.length >= 2){
-						if(enemy[i].y > height){
-							enemy.splice(i,1)
-							health -= 5
-						}
-					}
-				
-					if(health <= 0){
-						ctx.fillStyle = "white"
-						ctx.font = "50px Arial";
-						ctx.fillText("GAME OVER!!", 250, 300);
-						ctx.font = "10px Arial";
-						ctx.fillText("press ENTER to restart",350,330);
-						document.addEventListener("keydown",function(e){
-							if(e.keyCode == 13){
-								location.reload();
-							}
-						})
-						window.cancelAnimationFrame();
-					}
-				}
-				if(player.x < 0 ){
-					player.x = 0
-				}else if(player.y < 0){
-					player.y = 0
-				}else if(player.y > height - playerImg.height){
-					player.y = height - playerImg.height
-				}else if(player.x > width - playerImg.width ){
-					player.x = width - playerImg.width
-				}
-
-				ctx.fillStyle = "white";
-				ctx.font = "30px Arial";
-				ctx.fillText("Score: "+score, 10, 50);
-				ctx.fillText("Health: "+health, width - 160, 50)
-				psp += .001;
-			}
-			window.requestAnimationFrame(draw);
-		}else{
-			if(player.x < 0 ){
-					player.x = 0
-				}else if(player.y < 0){
-					player.y = 0
-				}else if(player.y > height - playerImg.height){
-					player.y = height - playerImg.height
-				}else if(player.x > width - playerImg.width ){
-					player.x = width - playerImg.width
-				}
-			
-			
-			ctx.drawImage(bgImg, 0, 0, width, height);
-			if (flag === 0) {
-					ctx.fillStyle = "white"
-					ctx.font = '25px Arial';
-					ctx.fillText("Space Shooter", 0, 100);
-					ctx.font = '20px Arial';
-					ctx.fillText("Tap anywhere to start ", 0, 150);
-					ctx.font = '10px Arial';
-					ctx.fillText("Instructions : ", 0,230);
-					ctx.font = '10px Arial';
-					ctx.fillText("1. Use the Joystick on your left hand side to move the ship.", 0, 260)
-					ctx.fillText("2. Press shoot button on the right hand side to shoot.", 0, 280)
-					ctx.fillText("3. Your Health is 100 at the start of the Game(as it should be).", 0, 300)
-					ctx.fillText("3. Try to dodge the enemy ships or your health will decrease(by 20).", 0, 320)
-					ctx.fillText("4. If any ships passes by you, your health will decrease(by 5).", 0, 340)
-					ctx.font = '10px Arial'
-					ctx.drawImage(startImg, startbtn.x, startbtn.y)
-				}else{
-
-					ctx.drawImage(playerImg, player.x, player.y)
-					ctx.drawImage(shootbtnImg, width - shootbtnImg.width, height - shootbtnImg.height)
+            <li><a href='/Angels/cat/id/70' class="generic-anchor footer-list-anchor">Lorem Ipsum</a></li>
+            <li><a href='/Home-Decor/cat/id/64' class="generic-anchor footer-list-anchor">Lorem Ipsum</a></li>
+            <li><a href='/Mugs/cat/id/32' class="generic-anchor footer-list-anchor">Lorem Ipsum</a></li>
+            <li><a href='/Pet-Lover/cat/id/108' class="generic-anchor footer-list-anchor">Lorem Ipsum</a></li>
+            <li><a href='/Ladies-Accessories/cat/id/117' class="generic-anchor footer-list-anchor" target="_blank">Lorem Ipsum</a></li>
+          </ul>
+          <ul class="footer-list-top">
+            <li id='help'>
+              <h4 class="footer-list-header">Please Help Me</h4></li>
+            <li><a href='/shop/about-contact' class="generic-anchor footer-list-anchor" itemprop="significantLink">CONTACT</a></li>
+            <li><a href='/faq.html' class="generic-anchor footer-list-anchor" itemprop="significantLink">FAQ</a></li>
+            <li id='find-a-store'><a href='/shop/store-locator' class="generic-anchor footer-list-anchor" itemprop="significantLink">Office</a></li>
+            <li id='user-registration'><a href='/shop/user-registration?URL=' class="generic-anchor footer-list-anchor" itemprop="significantLink">Lorem Ipsum</a></li>
+            <li id='order-tracking'><a href='/shop/order-status' itemprop="significantLink" class="generic-anchor footer-list-anchor">Lorem Ipsum</a></li>
+          </ul>
+          <section class="footer-social-section flex-rw">
+              <span class="footer-social-overlap footer-social-connect">
+              CONNECT <span class="footer-social-small">with</span> US
+              </span>
+              <span class="footer-social-overlap footer-social-icons-wrapper">
+              <a href="https://www.pinterest.com/paviliongift/" class="generic-anchor" target="_blank" title="Pinterest" itemprop="significantLink"><i class="fa fa-pinterest"></i></a>
+              <a href="https://www.facebook.com/paviliongift" class="generic-anchor" target="_blank" title="Facebook" itemprop="significantLink"><i class="fa fa-facebook"></i></a>
+              <a href="https://twitter.com/PavilionGiftCo" class="generic-anchor" target="_blank" title="Twitter" itemprop="significantLink"><i class="fa fa-twitter"></i></a>
+              <a href="http://instagram.com/paviliongiftcompany" class="generic-anchor" target="_blank" title="Instagram" itemprop="significantLink"><i class="fa fa-instagram"></i></a>
+              <a href="https://www.youtube.com/channel/UCYgUODvd0qXbu_LkUWpTVEg" class="generic-anchor" target="_blank" title="Youtube" itemprop="significantLink"><i class="fa fa-youtube"></i></a>
+              <a href="https://plus.google.com/+Paviliongift/posts" class="generic-anchor" target="_blank" title="Google Plus" itemprop="significantLink"><i class="fa fa-google-plus"></i></a>
+              </span>
+          </section>
+          <section class="footer-bottom-section flex-rw">
+        <div class="footer-bottom-wrapper">   
+        <i class="fa fa-copyright" role="copyright">
+         
+        </i> 2018 Aerokrishi in <address class="footer-address" role="company address">Sector-105, Noida</address><span class="footer-bottom-rights"> - All Rights Reserved - </span>
+            </div>
+            <div class="footer-bottom-wrapper">
+            <a href="/terms-of-use.html" class="generic-anchor" rel="nofollow">Terms</a> | <a href="/privacy-policy.html" class="generic-anchor" rel="nofollow">Privacy</a>
+              </div>
+          </section>
+        </footer>
+      </div>
 
 
-				for(var j = 1; j < beam.length; j++){
-
-					ctx.drawImage(beamImg, beam[j].y, beam[j].x)
-					beam[j].x -= bsp
-
-					if(beam[j].x < 0){
-						beam.splice(j,1)
-					}
-
-				}
-
-				for (var a = 0; a < beam.length; a++) {
-					
-					for (var b = 0; b < enemy.length; b++) {
-					
-						if (beam[a].y < enemy[b].x + enemyImg.width &&
-						beam[a].y + beamImg.width > enemy[b].x &&
-						beam[a].x < enemy[b].y + enemyImg.height &&
-						beamImg.height + beam[a].x > enemy[b].y) {
-							enemy.splice(b,1)
-							beam.splice(a,1)
-							score += 1
-							psp += .05;
-							esp += .05;
-						}
-					// var dx = beam[a].y - enemy[b].x;
-					// var dy = beam[a].x - enemy[b].y;
-					// var distance = Math.sqrt(dx * dx + dy * dy);
-				
-					// if (distance < beam[a].radius + enemy[b].radius){
-					// 	enemy.splice(b,1)
-					// 	beam.splice(a,1)
-					// 	score += 5
-					// }
-
-					}
-
-				}			
 
 
-				for (var i = 0; i < enemy.length; i++) {
-					ctx.drawImage(enemyImg, enemy[i].x, enemy[i].y)
 
-					enemy[i].y += esp;
-
-					if(enemy.length === 1){
-						enemy.push({
-							x : Math.random()*(width - enemyImg.width),
-							y : 10,
-							radius : 40,
-						})
-					}
-
-				
-					var dx = player.x - enemy[i].x;
-					var dy = player.y - enemy[i].y;
-					var distance = Math.sqrt(dx * dx + dy * dy);
-				
-					if (distance < player.radius + enemy[i].radius){
-						enemy.splice(i,1)
-						health -= 20
-					}
-					if(enemy.length >= 2){
-						if(enemy[i].y > height){
-							enemy.splice(i,1)
-							health -= 5
-						}
-					}
-				
-					if(health <= 0){
-						ctx.fillStyle = "white"
-						ctx.font = "25px Arial";
-						ctx.fillText("GAME OVER!!", width/2 - 25, 300);
-						ctx.font = "10px Arial";
-						ctx.fillText("Tap anywhere to restart", width/2 - 10,330);
-						document.addEventListener("touchstart",function(e){
-							location.reload()
-						})
-						window.cancelAnimationFrame();
-					}
-				}
-				if(player.x < 0 ){
-					player.x = 0
-				}else if(player.y < 0){
-					player.y = 0
-				}else if(player.y > height - playerImg.height){
-					player.y = height - playerImg.height
-				}else if(player.x > width - playerImg.width ){
-					player.x = width - playerImg.width
-				}
-				if( joystick.right() ){
-					player.x += 1 + psp;    
-				}
-				if( joystick.left() ){
-					player.x -= 1 + psp;     
-				}
-				if( joystick.up() ){
-					player.y -= 1 + psp;       
-				}
-				if( joystick.down() ){
-					player.y += 1 + psp;
-				}
-				
-				ctx.fillStyle = "white";
-				ctx.font = "30px Arial";
-				ctx.fillText("Score: "+score, 10, 50);
-				ctx.fillText("Health: "+health, width - 160, 50)
-			}
-			window.requestAnimationFrame(draw);
-			}
-		}		
-draw();
-if ('serviceWorker' in navigator){
-	navigator.serviceWorker
-	.register('./serviceWorker.js')
-	.then(function(){console.log("Service Worker registered");});
-}
-
-</script>
-
-</body>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="index.js" ></script>
+  </body>
 </html>
