@@ -1,14 +1,14 @@
 .home {
   height:auto;
   background-repeat: no-repeat;
-  background-image: url('verticalfarm1.jpg');
+  /*background-image: url('verticalfarm1.jpg');*/
   background-size: cover;
 }
 
 
-.container1 {
+.container {
   width: 80%;
-  margin: 15px auto;
+  margin: 200px auto 0px auto;
   padding: 1px;
   background-size: cover;
   background-position: center;
@@ -23,9 +23,50 @@
   height: 406px;
 }
 
-.text-1, .text-2, .text-3, .text-4 {
-  width: 206px;
-  height: 94px;
+.text-1{
+  width: 200px;
+  position:absolute;
+  left:10%;
+  top:30%;
+  height: 120px;
+  margin: 6px;
+  padding: 1px;
+  text-align: center;
+  text-transform: uppercase;
+  background-color: rgba(255,255,255,0.6);
+  cursor: pointer;
+}
+.text-2{
+  width: 200px;
+  height: 120px;
+  position:absolute;
+  left:30%;
+  top:30%;
+  margin: 6px;
+  padding: 1px;
+  text-align: center;
+  text-transform: uppercase;
+  background-color: rgba(255,255,255,0.6);
+  cursor: pointer;
+}  
+.text-3{
+  width: 200px;
+  height: 120px;
+  position:absolute;
+  left:50%;
+  top:30%;
+  margin: 6px;
+  padding: 1px;
+  text-align: center;
+  text-transform: uppercase;
+  background-color: rgba(255,255,255,0.6);
+  cursor: pointer;
+} .text-4{
+  width: 200px;
+  height:120px;
+  position:absolute;
+  left:70%;
+  top:30%;
   margin: 6px;
   padding: 1px;
   text-align: center;
@@ -33,6 +74,158 @@
   background-color: rgba(255,255,255,0.6);
   cursor: pointer;
 } 
+
+.text-1:hover,
+.text-2:hover,
+.text-3:hover,
+.text-4:hover{
+  background-color: rgba(72, 72, 72, 1);
+  color: white;
+}
+
+.text-1 > p:first-child, 
+.text-2 > p:first-child,
+.text-3 > p:first-child,
+.text-4 > p:first-child {
+  font-size: 1em;
+  font-weight: 300;
+}
+
+.text-1 > p:last-child, 
+.text-2 > p:last-child,
+.text-3 > p:last-child,
+.text-4 > p:last-child {
+  font-size: 1em;
+  font-weight: 900;
+}
+
+
+@media screen and (max-width: 770px) and (orientation: landscape){
+
+  html {
+  }
+
+  .text-1{
+  width: 130px;
+  position:absolute;
+  left:0%;
+  top:30%;
+  height: 94px;
+  margin: 6px;
+  padding: 1px;
+  text-align: center;
+  text-transform: uppercase;
+  background-color: rgba(255,255,255,0.6);
+  cursor: pointer;
+}
+.text-2{
+  width: 130px;
+  height: 94px;
+  position:absolute;
+  left:25%;
+  top:30%;
+  margin: 6px;
+  padding: 1px;
+  text-align: center;
+  text-transform: uppercase;
+  background-color: rgba(255,255,255,0.6);
+  cursor: pointer;
+}  
+.text-3{
+  width: 130px;
+  height: 94px;
+  position:absolute;
+  left:50%;
+  top:30%;
+  margin: 6px;
+  padding: 1px;
+  text-align: center;
+  text-transform: uppercase;
+  background-color: rgba(255,255,255,0.6);
+  cursor: pointer;
+} .text-4{
+  width: 130px;
+  height: 94px;
+  position:absolute;
+  left:75%;
+  top:30%;
+  margin: 6px;
+  padding: 1px;
+  text-align: center;
+  text-transform: uppercase;
+  background-color: rgba(255,255,255,0.6);
+  cursor: pointer;
+} 
+
+}
+@media screen and (max-width: 560px) {
+
+  .text-1,.text-2,.text-3,.text-4{
+    font-size:10px !important;
+  }
+  .text-1{
+  width: 80px;
+  position:absolute;
+  left:0%;
+  top:40%;
+  height: 94px;
+  margin: 6px;
+  padding: 1px;
+  text-align: center;
+  text-transform: uppercase;
+  background-color: rgba(255,255,255,0.6);
+  cursor: pointer;
+}
+.text-2{
+  width: 80px;
+  height: 94px;
+  position:absolute;
+  left:25%;
+  top:40%;
+  margin: 6px;
+  padding: 1px;
+  text-align: center;
+  text-transform: uppercase;
+  background-color: rgba(255,255,255,0.6);
+  cursor: pointer;
+}  
+.text-3{
+  width: 80px;
+  height: 94px;
+  position:absolute;
+  left:50%;
+  top:40%;
+  margin: 6px;
+  padding: 1px;
+  text-align: center;
+  text-transform: uppercase;
+  background-color: rgba(255,255,255,0.6);
+  cursor: pointer;
+} .text-4{
+  width: 80px;
+  height: 94px;
+  position:absolute;
+  left:75%;
+  top:40%;
+  margin: 6px;
+  padding: 1px;
+  text-align: center;
+  text-transform: uppercase;
+  background-color: rgba(255,255,255,0.6);
+  cursor: pointer;
+} 
+
+
+
+}
+
+
+#submit-btn{
+
+  margin-bottom:50px;
+
+
+}
 
 .text-1:hover,
 .text-2:hover,
@@ -124,7 +317,7 @@ nav{
 }
 
 .home{
-  background-image: url("greenhouse-2139527_960_720-3.jpg");
+  /*background-image: url("greenhouse-2139527_960_720-3.jpg");*/
   position: relative;
   min-height:500px;
   background-attachment: fixed;
@@ -135,7 +328,7 @@ nav{
 }
 
 .product{
-  background-image: url("product.jpg");
+  /*background-image: url("product.jpg");*/
   position: relative;
   min-height:500px;
   background-position: center;
@@ -346,7 +539,7 @@ h1 {
 h2 {
   font-weight: 400;
   font-size: 24px;
-  color: rgba(255, 255, 255, 0.4);
+  color: white;
 }
 
 .container1 {
@@ -355,6 +548,7 @@ h2 {
   padding: 10px 40px 0px 10px;
   transform: translateZ(0);
   text-align: center;
+  color:white;
 }
 
 .form-footer {
@@ -409,7 +603,7 @@ h2 {
 }
 .ui-input input + label span {
   position: relative;
-  color: rgba(255, 255, 255, 0.2);
+  color: white;
   transition: color 300ms cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 .ui-input input + label span::after {
@@ -504,7 +698,7 @@ h2 {
   font-weight: 500;
   text-align: left;
 }
-.ui-input textarea + label::before, .ui-input input + label::after {
+.ui-input textarea + label::before, .ui-input textarea + label::after {
   position: absolute;
   top: 0;
   left: 0;
@@ -524,7 +718,7 @@ h2 {
 }
 .ui-input textarea + label span {
   position: relative;
-  color: rgba(255, 255, 255, 0.2);
+  color: white;
   transition: color 300ms cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 .ui-input textarea + label span::after {
