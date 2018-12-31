@@ -1,8 +1,7 @@
 .home {
   height:auto;
   background-repeat: no-repeat;
-  /*background-image: url('verticalfarm1.jpg');*/
-  background-size: cover;
+  background-image: url('https://previews.123rf.com/images/flovien/flovien1702/flovien170200002/70739325-watercolor-isolated-spot-on-a-white-background-blue-yellow-and-green-colors-grungy-texture-bright-pr.jpg');
 }
 
 
@@ -516,9 +515,7 @@ nav{
 
 
 .bg-my{
-  /*background: linear-gradient(to right, rgba(0, 0, 254, 0.5), rgba(102, 255, 51, 0.5));*/
-  background-color: rgba(255,255,255,0.5);
-  color:black !important;
+  background: linear-gradient(to right, rgba(0, 0, 254, 0.5), rgba(102, 255, 51, 0.5));
 }
 
 /*Contact-form css*/
@@ -526,8 +523,7 @@ nav{
   background-color: #363E4A;
 }
 body{
-  /*background: linear-gradient(to right, rgba(0, 0, 254, 0.5), rgba(102, 255, 51, 0.5));*/
-  background: linear-gradient(to bottom right, #33ccff 0%, #66ff33 100%);
+  background: linear-gradient(to right, rgba(0, 0, 254, 0.5), rgba(102, 255, 51, 0.5));
   font-family: "Avenir Next", "Avenir", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
