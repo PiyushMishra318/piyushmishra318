@@ -1,6 +1,6 @@
 {
-  "name": "Flappy Bird",
-  "short_name": "Flappy Bird",
+  "name": "AEROKRISHI",
+  "short_name": "AEROKRISHI",
   "theme_color": "#2196f3",
   "background_color": "#2196f3",
   "start_url": "http://192.168.43.179:8080",
@@ -11,7 +11,7 @@
   "manifest_version": 2,
   "icons": [
     {
-   "src": "./image/brandimg.png",
+   "src": "index.png",
    "sizes": "192x192",
    "type": "image/png",
    "density": "4.0"

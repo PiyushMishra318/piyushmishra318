@@ -41,6 +41,13 @@
 //   StartTextAnimation(0);
 // });
 
+if ('serviceWorker' in navigator){
+	navigator.serviceWorker
+	.register('./serviceWorker.js')
+	.then(function(){console.log("Service Worker registered");});
+
+}
+
 
 $(document).ready(function() {
   $(".container2").css(
