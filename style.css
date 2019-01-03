@@ -4,7 +4,11 @@
   background-image: url('https://previews.123rf.com/images/flovien/flovien1702/flovien170200002/70739325-watercolor-isolated-spot-on-a-white-background-blue-yellow-and-green-colors-grungy-texture-bright-pr.jpg');
 }
 
+.bg-new{
 
+  background-color: black;
+
+}
 .container {
   width: 80%;
   margin: 200px auto 0px auto;

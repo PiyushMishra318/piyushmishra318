@@ -17,6 +17,7 @@
     <link rel="stylesheet" type="text/css" href="my.css">
     <link rel="stylesheet" type="text/css" href="button.css">
     <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="scrollanimation.css">
     <link rel="stylesheet" href="navstyle.css">
     <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
@@ -29,9 +30,10 @@
   </head>
   <body>
   <div class="home">
-    <nav class="navbar navbar-expand-lg navbar-dark transparent">
-      <img src="index.png" height="50px" width="50px">
-      <a class="navbar-brand navfont" href="#">AEROKRISHI</a>
+    <nav id="navbar" class="navbar navbar-expand-lg navbar-dark transparent">
+    <a class="navbar-brand" href="index.html">
+      <img src="index.png" height="50px" width="50px"></a>
+      <a class="navbar-brand mr-auto navfont" href="index.html">AEROKRISHI</a>
       <button class="navbar-toggler navbar-toggler-right navbutton fixbutton" type="button" data-toggle="modal" data-backdrop="false" data-target="#sidenav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -39,19 +41,19 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item active">
-            <a class="nav-link navfont" href="#page">HOME <span class="sr-only">(current)</span></a>
+            <a class="nav-link navfont" href="index.html">HOME <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link navfont" href="#whatwedo">WHAT WE DO</a>
+            <a class="nav-link navfont" href="comingsoon.html">WHAT WE DO</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link navfont" href="#about">WHO WE ARE</a>
+            <a class="nav-link navfont" href="comingsoon.html">WHO WE ARE</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link navfont" href="#services">SERVICES</a>
+            <a class="nav-link navfont" href="comingsoon.html">SERVICES</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link navfont" href="#page" onclick="window.alert('Coming Soon!')">Blog</a>
+            <a class="nav-link navfont" href="comingsoon.html">Blog</a>
           </li>
         </ul>
       </div>
@@ -63,45 +65,45 @@
             <a class="nav-link" href="#" data-toggle="modal" data-backdrop="false" data-target="#sidenav"><i class="fa fa-window-close" style="font-size:24px ; color:white;"></i></a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link " style="color: white;" href="#page">HOME <span class="sr-only">(current)</span></a>
+            <a class="nav-link " style="color: white;" href="comingsoon.html">HOME <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" style="color: white;" href="#whatwedo">WHAT WE DO</a>
+            <a class="nav-link" style="color: white;" href="comingsoon.html">WHAT WE DO</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" style="color: white;" href="#about">WHO WE ARE</a>
+            <a class="nav-link" style="color: white;" href="comingsoon.html">WHO WE ARE</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" style="color: white;" href="#services">SERVICES</a>
+            <a class="nav-link" style="color: white;" href="comingsoon.html">SERVICES</a>
           </li>
           <li class="nav-item">
-          <a class="nav-link" href="#page" onclick="window.alert('Coming Soon!')">Blog</a>
+          <a class="nav-link" href="comingsoon.html">Blog</a>
         </li>
         </ul>
       </div>
       
 
 
-      <div class="container intro text-center bg-my" style="color:white;margin-top:100px;height:auto;">
+      <div class="container intro text-center bg-my animatable bounceInLeft"style="color:white;margin-top:100px;height:auto;">
         <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt </h3>
       </div>
 
-      <div class="container container2">
+      <div class="container container2 ">
         <div class="box">
           <div class="widget">
-            <div class="text-1">
+            <div class="text-1 animatable fadeIn">
               <p>Lorem Ipsum</p>
               <p>Lorem Ipsum</p>
             </div>
-            <div class="text-2">
+            <div class="text-2 animatable fadeIn">
               <p>Lorem Ipsum</p>
               <p>Lorem Ipsum</p>
             </div>
-            <div class="text-3">
+            <div class="text-3 animatable fadeIn">
               <p>Lorem Ipsum</p>
               <p>Lorem Ipsum</p>
             </div>
-            <div class="text-4">
+            <div class="text-4 animatable fadeIn">
               <p>Lorem Ipsum</p>
               <p>Lorem Ipsum</p>
             </div>
@@ -111,7 +113,7 @@
       </div>
 
 
-      <div class="contactform row"> 
+      <div class="contactform row" > 
       <div class="col-lg-6">
         <div class="container1">
           <h1>Get Your Own Farm Now</h1>
@@ -169,38 +171,38 @@
       <div class="footer">
         <footer class="flex-rw">
   
-          <ul class="footer-list-top">
-            <li>
+          <ul class="footer-list-top " >
+            <li class="animatable bounceIn">
               <h4 class="footer-list-header">About Aerokrishi</h4></li>
-            <li><a href='/shop/about-mission' class="generic-anchor footer-list-anchor" itemprop="significantLink">GET TO KNOW US</a></li>
-            <li><a href='/promos.html' class="generic-anchor footer-list-anchor" itemprop="significantLink">PROMOS</a></li>
-            <li><a href='/retailers/new-retailers.html' class="generic-anchor footer-list-anchor" itemprop="significantLink">Lorem Ipsum</a></li>
+            <li class="animatable bounceInLeft"><a href='/shop/about-mission' class="generic-anchor footer-list-anchor" itemprop="significantLink">GET TO KNOW US</a></li>
+            <li class="animatable bounceInLeft"><a href='/promos.html' class="generic-anchor footer-list-anchor" itemprop="significantLink">PROMOS</a></li>
+            <li class="animatable bounceInLeft"><a href='/retailers/new-retailers.html' class="generic-anchor footer-list-anchor" itemprop="significantLink">Lorem Ipsum</a></li>
 
-            <li><a href='/job-openings.html' itemprop="significantLink" class="generic-anchor footer-list-anchor">Lorem Ipsum</a></li>
+            <li class="animatable bounceInLeft"><a href='/job-openings.html' itemprop="significantLink" class="generic-anchor footer-list-anchor">Lorem Ipsum</a></li>
 
-            <li><a href='/shop/about-show-schedule' class="generic-anchor footer-list-anchor" itemprop="significantLink">Lorem Ipsum</a></li>
+            <li class="animatable bounceInLeft"><a href='/shop/about-show-schedule' class="generic-anchor footer-list-anchor" itemprop="significantLink">Lorem Ipsum</a></li>
           </ul>
           <ul class="footer-list-top">
-            <li>
+            <li class="animatable bounceIn">
               <h4 class="footer-list-header">Our Products</h4></li>
 
 
-            <li><a href='/Angels/cat/id/70' class="generic-anchor footer-list-anchor">Lorem Ipsum</a></li>
-            <li><a href='/Home-Decor/cat/id/64' class="generic-anchor footer-list-anchor">Lorem Ipsum</a></li>
-            <li><a href='/Mugs/cat/id/32' class="generic-anchor footer-list-anchor">Lorem Ipsum</a></li>
-            <li><a href='/Pet-Lover/cat/id/108' class="generic-anchor footer-list-anchor">Lorem Ipsum</a></li>
-            <li><a href='/Ladies-Accessories/cat/id/117' class="generic-anchor footer-list-anchor" target="_blank">Lorem Ipsum</a></li>
+            <li class="animatable moveUp"><a href='/Angels/cat/id/70' class="generic-anchor footer-list-anchor">Lorem Ipsum</a></li>
+            <li class="animatable moveUp"><a href='/Home-Decor/cat/id/64' class="generic-anchor footer-list-anchor">Lorem Ipsum</a></li>
+            <li class="animatable moveUp"><a href='/Mugs/cat/id/32' class="generic-anchor footer-list-anchor">Lorem Ipsum</a></li>
+            <li class="animatable moveUp"><a href='/Pet-Lover/cat/id/108' class="generic-anchor footer-list-anchor">Lorem Ipsum</a></li>
+            <li class="animatable moveUp"><a href='/Ladies-Accessories/cat/id/117' class="generic-anchor footer-list-anchor" target="_blank">Lorem Ipsum</a></li>
           </ul>
           <ul class="footer-list-top">
-            <li id='help'>
+            <li class="animatable bounceIn" class="animatable bounceIn" id='help'>
               <h4 class="footer-list-header">Please Help Me</h4></li>
-            <li><a href='/shop/about-contact' class="generic-anchor footer-list-anchor" itemprop="significantLink">CONTACT</a></li>
-            <li><a href='/faq.html' class="generic-anchor footer-list-anchor" itemprop="significantLink">FAQ</a></li>
-            <li id='find-a-store'><a href='/shop/store-locator' class="generic-anchor footer-list-anchor" itemprop="significantLink">Office</a></li>
-            <li id='user-registration'><a href='/shop/user-registration?URL=' class="generic-anchor footer-list-anchor" itemprop="significantLink">Lorem Ipsum</a></li>
-            <li id='order-tracking'><a href='/shop/order-status' itemprop="significantLink" class="generic-anchor footer-list-anchor">Lorem Ipsum</a></li>
+            <li class="animatable bounceInRight"><a href='/shop/about-contact' class="generic-anchor footer-list-anchor" itemprop="significantLink">CONTACT</a></li>
+            <li class="animatable bounceInRight"><a href='/faq.html' class="generic-anchor footer-list-anchor" itemprop="significantLink">FAQ</a></li>
+            <li class="animatable bounceInRight" id='find-a-store'><a href='/shop/store-locator' class="generic-anchor footer-list-anchor" itemprop="significantLink">Office</a></li>
+            <li class="animatable bounceInRight" id='user-registration'><a href='/shop/user-registration?URL=' class="generic-anchor footer-list-anchor" itemprop="significantLink">Lorem Ipsum</a></li>
+            <li class="animatable bounceInRight" id='order-tracking'><a href='/shop/order-status' itemprop="significantLink" class="generic-anchor footer-list-anchor">Lorem Ipsum</a></li>
           </ul>
-          <section class="footer-social-section flex-rw">
+          <section class="footer-social-section flex-rw fadeInUp animatable ">
               <span class="footer-social-overlap footer-social-connect">
               CONNECT <span class="footer-social-small">with</span> US
               </span>
@@ -214,12 +216,12 @@
               </span>
           </section>
           <section class="footer-bottom-section flex-rw">
-        <div class="footer-bottom-wrapper">   
+        <div class="footer-bottom-wrapper fadeInUp animatable">   
         <i class="fa fa-copyright" role="copyright">
          
         </i> 2018 Aerokrishi in <address class="footer-address" role="company address">Sector-105, Noida</address><span class="footer-bottom-rights"> - All Rights Reserved - </span>
             </div>
-            <div class="footer-bottom-wrapper">
+            <div class="footer-bottom-wrapper fadeInUp animatable">
             <a href="/terms-of-use.html" class="generic-anchor" rel="nofollow">Terms</a> | <a href="/privacy-policy.html" class="generic-anchor" rel="nofollow">Privacy</a>
               </div>
           </section>
@@ -230,7 +232,9 @@
 
 
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"
+            integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+            crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     <script src="index.js" ></script>

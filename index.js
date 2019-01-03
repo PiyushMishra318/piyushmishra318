@@ -41,6 +41,19 @@
 //   StartTextAnimation(0);
 // });
 
+window.onscroll = () => {
+  const nav = document.querySelector('#navbar');
+  if(this.scrollY >= 60 && this.scrollY <= $(window).height()){ 
+    nav.className = 'navbar navbar-expand-lg navbar-dark bg-new sticky-top';
+    }
+  else if(this.scrollY >= $(window).height()){
+    nav.className = 'navbar navbar-expand-lg navbar-dark bg-new fixed-top';
+  }
+   else{ 
+    nav.className = 'navbar navbar-expand-lg navbar-dark transparent';
+  }
+};
+
 if ('serviceWorker' in navigator){
 	navigator.serviceWorker
 	.register('./serviceWorker.js')
@@ -158,4 +171,60 @@ $(document).ready(function() {
       color: "black"
     });
   });
+});
+
+
+// Trigger CSS animations on scroll.
+// Detailed explanation can be found at http://www.bram.us/2013/11/20/scroll-animations/
+
+// Looking for a version that also reverses the animation when
+// elements scroll below the fold again?
+// --> Check https://codepen.io/bramus/pen/vKpjNP
+
+jQuery(function($) {
+
+  // Function which adds the 'animated' class to any '.animatable' in view
+  var doAnimations = function() {
+
+    // Calc current offset and get all animatables
+    var offset = $(window).scrollTop() + $(window).height(),
+        $animatables = $('.animatable');
+
+    // Unbind scroll handler if we have no animatables
+    if ($animatables.length == 0) {
+      $(window).off('scroll', doAnimations);
+    }
+
+    // Check all animatables and animate them if necessary
+    $animatables.each(function(i) {
+       var $animatable = $(this);
+      if (($animatable.offset().top + $animatable.height() - 20) < offset ) {
+        $animatable.removeClass('animatable').addClass('animated');
+      }
+     
+    });
+
+  };
+
+  // Hook doAnimations on scroll, and trigger a scroll
+  $(window).on('scroll', doAnimations);
+  $(window).trigger('scroll');
+
+});
+
+$(window).scroll(function() {
+    if ($(this).scrollTop() > 50 ) {
+        $('.scrolltop:hidden').stop(true, true).fadeIn();
+    } else {
+        $('.scrolltop').stop(true, true).fadeOut();
+    }
+});
+$(function(){$(".scroll").click(function(){$("html,body").animate({scrollTop:$(".thetop").offset().top},"1000");return false})})
+
+$(window).scroll(function() {
+    if ($(this).scrollTop() >= ($(document).height() - $(window).height()) ) {
+        $('.signature:hidden').stop(true, true).fadeIn();
+    } else {
+        $('.signature').stop(true, true).fadeOut();
+    }
 });
