@@ -65,15 +65,19 @@ if ('serviceWorker' in navigator){
 $(document).ready(function() {
   $(".container2").css(
     "background-image",
-    "url(imgaes/WhatsApp4.jpeg)"
+    "url(open.jpg)"
   );
   $(".container2").css(
     "background-size",
-    "cover"
+    "contain"
   );
   $(".container2").css(
       "background-position",
       "center"
+    );
+  $(".container2").css(
+      "width",
+      "120%"
     );
   $(".text-1").css({
     "background-color": "rgba(72, 72, 72, 1)",
@@ -83,15 +87,19 @@ $(document).ready(function() {
   $(".text-1").hover(function() {
     $(".container2").css(
       "background-image",
-      "url(imgaes/WhatsApp5.jpeg)"
+      "url(image1.jpg)"
     );
     $(".container2").css(
       "background-size",
-      "cover"
+      "contain"
     );
     $(".container2").css(
       "background-position",
       "center"
+    );
+    $(".container2").css(
+      "width",
+      "128%"
     );
     $(".text-1").css({
       "background-color": "rgba(72, 72, 72, 1)",
@@ -106,15 +114,19 @@ $(document).ready(function() {
   $(".text-2").hover(function() {
     $(".container2").css(
       "background-image",
-      "url(imgaes/WhatsApp1.jpeg)"
+      "url(image2.jpg)"
     );
     $(".container2").css(
       "background-size",
-      "cover"
+      "contain"
     );
     $(".container2").css(
       "background-position",
       "center"
+    );
+    $(".container2").css(
+      "width",
+      "160%"
     );
     $(".text-2").css({
       "background-color": "rgba(72, 72, 72, 1)",
@@ -129,15 +141,19 @@ $(document).ready(function() {
   $(".text-3").hover(function() {
     $(".container2").css(
       "background-image",
-      "url(imgaes/WhatsApp3.jpeg)"
+      "url(image3.jpg)"
     );
     $(".container2").css(
       "background-size",
-      "cover"
+      "contain"
     );
     $(".container2").css(
       "background-position",
       "center"
+    );
+    $(".container2").css(
+      "width",
+      "200%"
     );
     $(".text-3").css({
       "background-color": "rgba(72, 72, 72, 1)",
@@ -152,15 +168,19 @@ $(document).ready(function() {
   $(".text-4").hover(function() {
     $(".container2").css(
       "background-image",
-      "url(imgaes/WhatsApp2.jpeg)"
+      "url(image4.jpg)"
     );
     $(".container2").css(
       "background-size",
-      "cover"
+      "contain"
     );
     $(".container2").css(
       "background-position",
       "center"
+    );
+    $(".container2").css(
+      "width",
+      "150%"
     );
     $(".text-4").css({
       "background-color": "rgba(72, 72, 72, 1)",
@@ -227,4 +247,24 @@ $(window).scroll(function() {
     } else {
         $('.signature').stop(true, true).fadeOut();
     }
+});
+
+
+
+
+// Customer Reviews
+const app = new Vue({
+  el: '#app',
+  data: {
+    reviews: [],
+    products: []
+  },
+  created () {
+  fetch('https://api.myjson.com/bins/6cyk0')
+    .then(response => response.json())
+    .then(json => {
+      this.reviews = json
+      // console.log(this.reviews)
+    })
+  }
 });
