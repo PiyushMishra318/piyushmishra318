@@ -1,3 +1,5 @@
+This is still a work in progress.  I'll try to post demos for most of the following applications.
+
 # Table of Contents
 
 - [Tech stack](#techstack)
