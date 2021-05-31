@@ -1,8 +1,8 @@
 <a href="https://github.com/piyushmishra318">
-  <img align="center" src="https://github-readme-stats.vercel.app/api/top-langs/?username=piyushmishra318&theme=cobalt&hide=css,html&?count_private=true&show_icons=true&langs_count=100&layout=compact" />
+  <img align="center" src="https://github-readme-stats.vercel.app/api/top-langs/?username=piyushmishra318&theme=cobalt&hide=css,html&show_icons=true&langs_count=100&layout=compact" />
 </a>
 <a href="https://github.com/piyushmishra318">
- <img align="center" src="https://github-readme-stats.vercel.app/api?username=piyushmishra318&show_icons=true&theme=cobalt&include_all_commits=true"/>
+ <img align="center" src="https://github-readme-stats.vercel.app/api?username=piyushmishra318&show_icons=true&theme=cobalt&include_all_commits=true&count_private=true"/>
 </a>
 
 <a href="https://github.com/piyushmishra318">
