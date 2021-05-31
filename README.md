@@ -1,4 +1,4 @@
-This is still a work in progress.  I'll try to post demos for most of the following applications.
+This is still a work in progress. I'll try to post demos for most of the following applications.
 
 # Table of Contents
 
@@ -56,6 +56,13 @@ The following is the list of all the frameworks/tech I've worked on
 
 - [OpenCV.js](https://opencv.org) - OpenCV (Open Source Computer Vision Library) is an open source computer vision and machine learning software library
 
-- AWS Lambda 
-	
-	- 
+- AWS Lambda
+
+  ....updating
+
+<a href="https://github.com/piyushmishra318">
+  <img align="center" src="https://github-readme-stats.vercel.app/api/top-langs/?username=piyushmishra318&theme=dark&hide=css,html" />
+</a>
+<a href="https://github.com/piyushmishra318">
+ <img align="center" src="https://github-readme-stats.vercel.app/api?username=piyushmishra318&show_icons=true&theme=dracula&line_height=27" alt="Prkhr's github stats"/>
+</a>
