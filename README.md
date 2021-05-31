@@ -2,7 +2,7 @@
   <img align="center" src="https://github-readme-stats.vercel.app/api/top-langs/?username=piyushmishra318&theme=dark&hide=css,html" />
 </a>
 <a href="https://github.com/piyushmishra318">
- <img align="center" src="https://github-readme-stats.vercel.app/api?username=piyushmishra318&show_icons=true&theme=dracula&line_height=27" alt="Prkhr's github stats"/>
+ <img align="center" src="https://github-readme-stats.vercel.app/api?username=piyushmishra318&show_icons=true&theme=dracula&line_height=27"/>
 </a>
 
 This is still a work in progress. I'll try to post demos for most of the following applications.
