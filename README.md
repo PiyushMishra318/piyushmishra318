@@ -65,8 +65,24 @@ The following is the list of all the frameworks/tech I've worked on
 
   - Cookie session management using express-session for single point authentication across the apex domain.
 
-- [OpenCV.js](https://opencv.org) - OpenCV (Open Source Computer Vision Library) is an open source computer vision and machine learning software library
+- [OpenCV.js](https://opencv.org) - OpenCV (Open Source Computer Vision Library) is an open source computer vision and machine learning software library. [Repo-link](https://github.com/PiyushMishra318/node-opencv)
 
-- AWS Lambda
+### AWS
 
-  ....updating
+  - Lambda
+
+    - [Cloudfront Events](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/lambda-cloudfront-trigger-events.html) <a name="lambda1"></a> - These function are used to intercept and modify the request and responses for data served over cloudfront using [Lambda@Edge](https://aws.amazon.com/lambda/edge/).
+
+    - On the fly image optimization - Compressing and converting the images into next gen format for eg. webp for chrome on the fly while serving the image through cloudfront. <strong>Demo under development</strong>.
+
+    - [Amazon SES](https://aws.amazon.com/ses/) <a name="lambda2"></a> Email Templates - Edit/Delete/Create/SendEmail coupled with [AWS API-Gateway](https://aws.amazon.com/api-gateway/). <strong>Demo under development</strong>.
+
+    - Serverless Node <a name="lambda3"></a> - Serverless Router made on Node.js for serving static conten coupled with [DynamoDB](https://aws.amazon.com/dynamodb/). <strong>Demo under development</strong>.
+
+  - [AWS API-Gateway](https://aws.amazon.com/api-gateway/) - Check [this](#lambda2)
+
+  - [Amazon SES](https://aws.amazon.com/ses/) - Check [this](#lambda2)
+
+  - [DynamoDB](https://aws.amazon.com/dynamodb/) - Check [this](#lambda3)
+
+  - [Cloudfront](https://aws.amazon.com/cloudfront/) - Check [this](#lambda1)
