@@ -47,7 +47,7 @@ The following is the list of all the frameworks/tech I've worked on
 
 - Made some contributions to [local_auth](https://github.com/PiyushMishra318/local_auth) package used for biometrics detection interface.
 
-- [Tsukiyomi](https://github.com/PiyushMishra318/Tsukiyomi) - This is a GBA Games catelogue with an external GBA emulator with user management using firebase and the backend for user's statistics like paytime, favorites and downloads are being managed by Node.js + MongoDB backend. First Release is only launched for India.
+-[Tsukiyomi](https://github.com/PiyushMishra318/Tsukiyomi) <a name="tsukiyomi"></a> - - This is a GBA Games catelogue with an external GBA emulator with user management using firebase and the backend for user's statistics like paytime, favorites and downloads are being managed by Node.js + MongoDB backend. First Release is only launched for India.
 
 - A webview application with qr code scanner with push notifications.
 
@@ -66,6 +66,18 @@ The following is the list of all the frameworks/tech I've worked on
   - Cookie session management using express-session for single point authentication across the apex domain.
 
 - [OpenCV.js](https://opencv.org) - OpenCV (Open Source Computer Vision Library) is an open source computer vision and machine learning software library. [Repo-link](https://github.com/PiyushMishra318/node-opencv)
+
+- Serving a static website with a custom router with Node.js.
+
+- Backend for an invoice and po service.
+
+- A node script for extracting google page speed for a website.
+
+- Backend for [Tsukiyomi](#tsukiyomi)
+
+- A micro service that manages notifications through email, sms or whatsapp. Template management for notifications, queueing of requests based on priority and different event loops based on different use cases.
+
+- An online wallet with referrals and affiliate integrations.
 
 ### AWS
 
@@ -86,3 +98,5 @@ The following is the list of all the frameworks/tech I've worked on
 - [DynamoDB](https://aws.amazon.com/dynamodb/) - Check [Lambda Section](#lambda3)
 
 - [Cloudfront](https://aws.amazon.com/cloudfront/) - Check [Lambda Section](#lambda1)
+
+.... still updating
