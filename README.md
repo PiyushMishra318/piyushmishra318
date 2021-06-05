@@ -79,6 +79,8 @@ The following is the list of all the frameworks/tech I've worked on
 
 - An online wallet with referrals and affiliate integrations.
 
+- [aws-sdk](https://aws.amazon.com/sdk-for-javascript/) - aws-sdk was used for creating/editing/managing distributions, lambdas, athena queries, aws ses, managing ssl certificates using amazon certificate manager.
+
 ### AWS
 
 - Lambda
@@ -98,5 +100,13 @@ The following is the list of all the frameworks/tech I've worked on
 - [DynamoDB](https://aws.amazon.com/dynamodb/) - Check [Lambda Section](#lambda3)
 
 - [Cloudfront](https://aws.amazon.com/cloudfront/) - Check [Lambda Section](#lambda1)
+
+- [AWS Athena](https://aws.amazon.com/athena/) - Processing the logs from s3 into reports for analytics.
+
+- [AWS ACM](https://aws.amazon.com/acm/) - Used for generating certficates for cloudfront/route53.
+
+- [AWS EC2](https://aws.amazon.com/ec2/) - Used for deploying apps and services.
+
+- [AWS Lightsail](https://aws.amazon.com/lightsail/) - Used for deploying apps and services
 
 .... still updating
