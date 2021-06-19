@@ -6,7 +6,7 @@
 </a>
 
 <a href="https://github.com/piyushmishra318">
- <img src="https://github-readme-stats.vercel.app/api/wakatime?range=last_7_days&username=piyushmishra&langs_count=100&layout=compact"/>
+ <img src="https://github-readme-stats.vercel.app/api/wakatime?username=piyushmishra&range=last_7_days&langs_count=100&layout=compact"/>
 </a>
 
 This is still a work in progress. I'll try to post demos for most of the following applications.
