@@ -109,4 +109,4 @@ The following is the list of all the frameworks/tech I've worked on
 
 - [AWS Lightsail](https://aws.amazon.com/lightsail/) - Used for deploying apps and services
 
-.... still updating
+.... still updating other things I've worked with and what I'm allowed to show.
