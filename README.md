@@ -9,6 +9,10 @@
  <img src="https://github-readme-stats.vercel.app/api/wakatime?username=piyushmishra&langs_count=100&layout=compact&hide_progress=false&custom_title=Code Time since June 2021"/>
 </a>
 
+<a href="https://github.com/piyushmishra318">
+ <img src="https://raw.githubusercontent.com/PiyushMishra318/piyushmishra318/master/LinkedIn%20Assessment%20Badges.png"/>
+</a>
+
 This is still a work in progress. I'll try to post demos for most of the following applications.
 
 # Table of Contents
