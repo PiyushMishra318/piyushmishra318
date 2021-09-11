@@ -6,7 +6,7 @@
 </a>
 
 <a href="https://github.com/piyushmishra318">
- <img src="https://github-readme-stats.vercel.app/api/wakatime?username=piyushmishra&langs_count=100&layout=compact&hide_progress=false&custom_title=Code Time since June 2021"/>
+ <img style="width:45%;margin-right:10px" src="https://github-readme-stats.vercel.app/api/wakatime?username=piyushmishra&langs_count=100&layout=compact&hide_progress=false&custom_title=Code Time since June 2021"/>
 </a>
 
 <a href="https://github.com/piyushmishra318">
