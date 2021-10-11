@@ -1,19 +1,19 @@
 <div style="display:grid;grid-template-columns:1fr 1fr;">
-<a href="https://github.com/piyushmishra318" style="margin-right:10px">
-  <img align="center" src="https://github-readme-stats.vercel.app/api/top-langs/?username=piyushmishra318&theme=cobalt&hide=css,html&show_icons=true&langs_count=100&layout=compact" />
-</a>
-<a href="https://github.com/piyushmishra318">
- <img align="center" src="https://github-readme-stats.vercel.app/api?username=piyushmishra318&show_icons=true&theme=cobalt&include_all_commits=true&count_private=true"/>
-</a>
+  <a href="https://github.com/piyushmishra318">
+    <img align="center" src="https://github-readme-stats.vercel.app/api/top-langs/?username=piyushmishra318&theme=cobalt&hide=css,html&show_icons=true&langs_count=100&layout=compact" />
+  </a>
+  <a href="https://github.com/piyushmishra318">
+   <img align="center" src="https://github-readme-stats.vercel.app/api?username=piyushmishra318&show_icons=true&theme=cobalt&include_all_commits=true&count_private=true"/>
+  </a>
 
-<a href="https://github.com/piyushmishra318">
- <img style="width:45%;margin-right:10px" src="https://github-readme-stats.vercel.app/api/wakatime?username=piyushmishra&langs_count=100&layout=compact&hide_progress=false&custom_title=Code Time since June 2021"/>
-</a>
+  <a href="https://github.com/piyushmishra318">
+   <img style="width:45%;margin-right:10px" src="https://github-readme-stats.vercel.app/api/wakatime?username=piyushmishra&langs_count=100&layout=compact&hide_progress=false&custom_title=Code Time since June 2021"/>
+  </a>
 
-<a href="https://github.com/piyushmishra318" style="margin-right:10px">
- <img src="https://raw.githubusercontent.com/PiyushMishra318/piyushmishra318/master/LinkedIn%20Assessment%20Badges%20(1).png" style="width:45%"/>
-</a>
-<div>
+  <a href="https://github.com/piyushmishra318">
+   <img src="https://raw.githubusercontent.com/PiyushMishra318/piyushmishra318/master/LinkedIn%20Assessment%20Badges%20(1).png" style="width:45%"/>
+  </a>
+</div>
 
 This is still a work in progress. I'll try to post demos for most of the following applications.
 
