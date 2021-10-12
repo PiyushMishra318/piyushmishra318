@@ -1,4 +1,5 @@
-<div style="display:grid;grid-template-columns:1fr 1fr;">
+  [![wakatime](https://wakatime.com/badge/user/1126c104-125d-4c52-840c-530d4fb4215e.svg)](https://wakatime.com/@1126c104-125d-4c52-840c-530d4fb4215e)
+
   <a href="https://github.com/piyushmishra318">
     <img align="center" src="https://github-readme-stats.vercel.app/api/top-langs/?username=piyushmishra318&theme=cobalt&hide=css,html&show_icons=true&langs_count=100&layout=compact" />
   </a>
@@ -13,7 +14,6 @@
   <a href="https://github.com/piyushmishra318">
    <img src="https://raw.githubusercontent.com/PiyushMishra318/piyushmishra318/master/LinkedIn%20Assessment%20Badges%20(1).png" style="width:45%"/>
   </a>
-</div>
 
 This is still a work in progress. I'll try to post demos for most of the following applications.
 
