@@ -1,4 +1,4 @@
-  <a href="https://wakatime.com/@1126c104-125d-4c52-840c-530d4fb4215e"><img src="https://wakatime.com/badge/user/1126c104-125d-4c52-840c-530d4fb4215e.svg" alt="Total time coded since May 31 2021" /></a>
+  <a href="https://wakatime.com/@1126c104-125d-4c52-840c-530d4fb4215e" title="Total time coded since May 31 2021"><img src="https://wakatime.com/badge/user/1126c104-125d-4c52-840c-530d4fb4215e.svg" alt="Total time coded since May 31 2021" /></a>
 
   <a href="https://github.com/piyushmishra318">
     <img align="center" src="https://github-readme-stats.vercel.app/api/top-langs/?username=piyushmishra318&theme=cobalt&hide=css,html&show_icons=true&langs_count=100&layout=compact" />
