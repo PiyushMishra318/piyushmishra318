@@ -12,7 +12,9 @@
 </a>
 
   <a href="https://github.com/piyushmishra318">
-   <img src="https://raw.githubusercontent.com/PiyushMishra318/piyushmishra318/master/LinkedIn%20Assessment%20Badges%20(1).png" style="width:45%"/>
+   <img 
+  align="center"
+src="https://raw.githubusercontent.com/PiyushMishra318/piyushmishra318/master/LinkedIn%20Assessment%20Badges%20(1).png" style="width:45%"/>
   </a>
 
 This is still a work in progress. I'll try to post demos for most of the following applications.
