@@ -81,7 +81,6 @@
 <h4 align="left">Connect with me:</h4>
 <p align="center">
 <a  href="https://linkedin.com/in/piyush-mishra31"  target="_blank"><img align="center"  src="https://cdn.iconscout.com/icon/free/png-512/free-linkedin-189-721962.png?f=webp&w=256"  alt="piyush-mishra31"  height="40"  width="40"  /></a>&nbsp;&nbsp;&nbsp;
-<a  href="https://stackoverflow.com/users/13517445"  target="_blank"><img align="center"  src="https://seeklogo.com/images/S/stackoverflow-logo-31EF274B60-seeklogo.com.png"  alt="13517445"  height="40"  width="30"  /></a>&nbsp;&nbsp;&nbsp;
 <a  href="https://www.leetcode.com/piyushmishra318"  target="_blank"><img align="center"  src="https://cdn.iconscout.com/icon/free/png-256/free-leetcode-3629476-3031539.png?f=webp"  alt="piyushmishra318"  height="40"  width="40"  /></a>
 </p>
 </div>
