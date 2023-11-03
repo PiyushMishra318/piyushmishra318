@@ -104,3 +104,7 @@
 <p align="center">
 <img src="https://github-readme-streak-stats.herokuapp.com?user=piyushmishra318&theme=tokyonight&hide_border=true&card_width=700)](https://git.io/streak-stats"  />
 </p>
+
+<p align="center">
+<img src="https://leetcard.jacoblin.cool/piyushmishra318?theme=nord&font=Ubuntu"  />
+</p>
