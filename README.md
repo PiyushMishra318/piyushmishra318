@@ -8,7 +8,7 @@
 <a href="https://wakatime.com/@1126c104-125d-4c52-840c-530d4fb4215e" title="Total time coded since May 31 2021"><img src="https://wakatime.com/badge/user/1126c104-125d-4c52-840c-530d4fb4215e.svg" align="center" alt="Total time coded since May 31 2021" /></a>
 - 🌱 I’m currently learning **Go, Rust, gRPC, Assembly**
 
-- 👨‍💻 All of my projects are available at [My Portfolio](https://piyushmishra.vercel.app/)
+- 👨‍💻 Checkout my soundcloud [Soundcloud](https://piyushmishra.vercel.app/)
 
 - 💬 Ask me about **JS/TS, Python, C/C++, React/Redux, DevOPs**
 
