@@ -8,7 +8,7 @@
 <a href="https://wakatime.com/@1126c104-125d-4c52-840c-530d4fb4215e" title="Total time coded since May 31 2021"><img src="https://wakatime.com/badge/user/1126c104-125d-4c52-840c-530d4fb4215e.svg" align="center" alt="Total time coded since May 31 2021" /></a>
 - 🌱 I’m currently learning **Go, Rust, gRPC, Assembly**
 
-- 👨‍💻 Checkout my soundcloud [Soundcloud](https://piyushmishra.vercel.app/)
+- 👨‍💻 Checkout my [Soundcloud](https://piyushmishra.vercel.app/)
 
 - 💬 Ask me about **JS/TS, Python, C/C++, React/Redux, DevOPs**
 
@@ -124,11 +124,6 @@ Rust                     1 repo              ░░░░░░░░░░░�
 
  Last Updated on 29/11/2023 18:40:56 UTC
 <!--END_SECTION:waka-->
-   
-<p align="center">
-<picture>
-<source media="(prefers-color-scheme: dark)" srcset="https://wakatime.com/share/@piyushmishra/68efe320-b7cf-44ad-86cb-2b2fd7dc0a48.svg"> <img width="700" height="500" alt="Languages used over all time" src="https://wakatime.com/share/@piyushmishra/94bc0099-c108-41a1-a89f-46af7fcdf078.svg"> </picture>
-</p>
 <h4>Coding Activity (Last year)</h4>
 <p align="center">
 <picture> <source media="(prefers-color-scheme: dark)" srcset="https://wakatime.com/share/@piyushmishra/39b90e7e-f50a-4d17-8c25-1dca6e7d37fc.svg"> <img alt="Coding Activity Last year" src="https://wakatime.com/share/@piyushmishra/88824ea2-c74c-4e22-81dc-ebfc532a2e9c.svg"> </picture>
