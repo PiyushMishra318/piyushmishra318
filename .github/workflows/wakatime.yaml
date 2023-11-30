@@ -16,4 +16,5 @@ jobs:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
           SHOW_UPDATED_DATE: "True"
           SHOW_LINES_OF_CODE: "True"
+          SHOW_PROFILE_VIEWS: "False"
           IGNORED_REPOS: "asdb, mypro, newprojects, myprojects, age-calc, colorgenerator, basic, sample, test, cfs, abcd, cfs-history-17-jan-2023, concord, testing, ebmpapst, bulgin, subhas, carlogavazzi, adityatest1, instockav6, testing14, instockav5, instockav4, microtest1, cotek, instockav3, synctest, draftlogin1, draftlogin, test122, asdb, mypro, newprojects, myprojects, age-calc, colorgenerator, basic, sample, test, cfs, abcd, cfs-history-17-jan-2023, concord, testing, ebmpapst, bulgin, subhas, carlogavazzi, adityatest1, instockav6, testing14, instockav5, instockav4, microtest1, cotek, instockav3, synctest, draftlogin1, draftlogin, test122"
