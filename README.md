@@ -48,8 +48,6 @@
 
 > 📦 1.1 MB Used in GitHub's Storage 
  > 
-> 🏆 2 Contributions in the Year 2024
- > 
 > 💼 Opted to Hire
  > 
 > 📜 41 Public Repositories 
@@ -119,7 +117,7 @@ Rust                     1 repo              ░░░░░░░░░░░�
 ![Lines of Code chart](https://raw.githubusercontent.com/PiyushMishra318/PiyushMishra318/master/assets/bar_graph.png)
 
 
- Last Updated on 24/02/2024 18:39:34 UTC
+ Last Updated on 25/02/2024 18:39:20 UTC
 <!--END_SECTION:waka-->
 <h4>Coding Activity (Last year)</h4>
 <p align="center">
