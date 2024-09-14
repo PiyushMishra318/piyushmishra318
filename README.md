@@ -40,7 +40,7 @@
 <hr/>
 
 <!--START_SECTION:waka-->
-![Code Time](http://img.shields.io/badge/Code%20Time-3%2C271%20hrs%2039%20mins-blue)
+![Code Time](http://img.shields.io/badge/Code%20Time-3%2C272%20hrs%202%20mins-blue)
 
 ![Lines of code](https://img.shields.io/badge/From%20Hello%20World%20I%27ve%20Written-24.7%20million%20lines%20of%20code-blue)
 
@@ -81,16 +81,19 @@ Sunday                   570 commits         █░░░░░░░░░░�
 🕑︎ Time Zone: Asia/Kolkata
 
 💬 Programming Languages: 
-No Activity Tracked This Week
+Other                    18 mins             █████████████████████░░░░   84.42 % 
+Lua                      3 mins              ███░░░░░░░░░░░░░░░░░░░░░░   13.87 % 
+netrw                    0 secs              ░░░░░░░░░░░░░░░░░░░░░░░░░   01.71 % 
 
 🔥 Editors: 
-No Activity Tracked This Week
+Neovim                   22 mins             █████████████████████████   100.00 % 
 
 🐱‍💻 Projects: 
-No Activity Tracked This Week
+Unknown Project          18 mins             █████████████████████░░░░   84.42 % 
+nvim                     3 mins              ████░░░░░░░░░░░░░░░░░░░░░   15.58 % 
 
 💻 Operating System: 
-No Activity Tracked This Week
+Linux                    22 mins             █████████████████████████   100.00 % 
 ```
 
 **I Mostly Code in JavaScript** 
@@ -110,7 +113,7 @@ Rust                     1 repo              ░░░░░░░░░░░�
 ![Lines of Code chart](https://raw.githubusercontent.com/PiyushMishra318/PiyushMishra318/master/assets/bar_graph.png)
 
 
- Last Updated on 11/09/2024 18:48:56 UTC
+ Last Updated on 14/09/2024 18:47:18 UTC
 <!--END_SECTION:waka-->
 <h4>Coding Activity (Last year)</h4>
 <p align="center">
