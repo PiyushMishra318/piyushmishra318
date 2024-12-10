@@ -83,20 +83,16 @@ Sunday                   570 commits         █░░░░░░░░░░�
 🕑︎ Time Zone: Asia/Kolkata
 
 💬 Programming Languages: 
-JavaScript               11 mins             ███████████░░░░░░░░░░░░░░   45.05 % 
-Other                    10 mins             ██████████░░░░░░░░░░░░░░░   41.31 % 
-JSON                     3 mins              ███░░░░░░░░░░░░░░░░░░░░░░   13.64 % 
+No Activity Tracked This Week
 
 🔥 Editors: 
-Neovim                   25 mins             █████████████████████████   100.00 % 
+No Activity Tracked This Week
 
 🐱‍💻 Projects: 
-vane                     11 mins             ███████████░░░░░░░░░░░░░░   43.56 % 
-Unknown Project          10 mins             ██████████░░░░░░░░░░░░░░░   40.41 % 
-cockpit                  4 mins              ████░░░░░░░░░░░░░░░░░░░░░   16.02 % 
+No Activity Tracked This Week
 
 💻 Operating System: 
-WSL                      25 mins             █████████████████████████   100.00 % 
+No Activity Tracked This Week
 ```
 
 **I Mostly Code in JavaScript** 
@@ -116,7 +112,7 @@ Rust                     1 repo              ░░░░░░░░░░░�
 ![Lines of Code chart](https://raw.githubusercontent.com/PiyushMishra318/PiyushMishra318/master/assets/bar_graph.png)
 
 
- Last Updated on 09/12/2024 18:58:36 UTC
+ Last Updated on 10/12/2024 18:55:11 UTC
 <!--END_SECTION:waka-->
 <h4>Coding Activity (Last year)</h4>
 <p align="center">
