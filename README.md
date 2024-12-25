@@ -40,7 +40,7 @@
 <hr/>
 
 <!--START_SECTION:waka-->
-![Code Time](http://img.shields.io/badge/Code%20Time-3%2C272%20hrs%2028%20mins-blue)
+![Code Time](http://img.shields.io/badge/Code%20Time-3%2C275%20hrs%2021%20mins-blue)
 
 ![Lines of code](https://img.shields.io/badge/From%20Hello%20World%20I%27ve%20Written-24.7%20million%20lines%20of%20code-blue)
 
@@ -83,16 +83,24 @@ Sunday                   570 commits         █░░░░░░░░░░�
 🕑︎ Time Zone: Asia/Kolkata
 
 💬 Programming Languages: 
-No Activity Tracked This Week
+JavaScript               2 hrs 2 mins        ██████████████████░░░░░░░   70.85 % 
+JSON                     30 mins             ████░░░░░░░░░░░░░░░░░░░░░   17.35 % 
+Git Config               5 mins              █░░░░░░░░░░░░░░░░░░░░░░░░   03.44 % 
+Markdown                 3 mins              ░░░░░░░░░░░░░░░░░░░░░░░░░   01.75 % 
+HTML                     2 mins              ░░░░░░░░░░░░░░░░░░░░░░░░░   01.72 % 
 
 🔥 Editors: 
-No Activity Tracked This Week
+VS Code                  2 hrs 53 mins       █████████████████████████   100.00 % 
 
 🐱‍💻 Projects: 
-No Activity Tracked This Week
+horn                     2 hrs 33 mins       ██████████████████████░░░   88.62 % 
+rudder                   11 mins             ██░░░░░░░░░░░░░░░░░░░░░░░   06.58 % 
+cloudflared              6 mins              █░░░░░░░░░░░░░░░░░░░░░░░░   03.76 % 
+Unknown Project          1 min               ░░░░░░░░░░░░░░░░░░░░░░░░░   00.60 % 
+tiledesk-authentication  0 secs              ░░░░░░░░░░░░░░░░░░░░░░░░░   00.45 % 
 
 💻 Operating System: 
-No Activity Tracked This Week
+Windows                  2 hrs 53 mins       █████████████████████████   100.00 % 
 ```
 
 **I Mostly Code in JavaScript** 
@@ -112,7 +120,7 @@ Rust                     1 repo              ░░░░░░░░░░░�
 ![Lines of Code chart](https://raw.githubusercontent.com/PiyushMishra318/PiyushMishra318/master/assets/bar_graph.png)
 
 
- Last Updated on 24/12/2024 18:49:43 UTC
+ Last Updated on 25/12/2024 18:52:12 UTC
 <!--END_SECTION:waka-->
 <h4>Coding Activity (Last year)</h4>
 <p align="center">
