@@ -48,6 +48,8 @@
 
 > 📦 1.3 MB Used in GitHub's Storage 
  > 
+> 🏆 38 Contributions in the Year 2025
+ > 
 > 💼 Opted to Hire
  > 
 > 📜 44 Public Repositories 
@@ -110,7 +112,7 @@ Go                       2 repos             ░░░░░░░░░░░�
 ![Lines of Code chart](https://raw.githubusercontent.com/PiyushMishra318/PiyushMishra318/master/assets/bar_graph.png)
 
 
- Last Updated on 26/06/2025 19:04:01 UTC
+ Last Updated on 27/06/2025 18:58:26 UTC
 <!--END_SECTION:waka-->
 <h4>Coding Activity (Last year)</h4>
 <p align="center">
