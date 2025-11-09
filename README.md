@@ -83,18 +83,16 @@ Sunday                   436 commits         ░░░░░░░░░░░�
 🕑︎ Time Zone: Asia/Kolkata
 
 💬 Programming Languages: 
-Python                   20 mins             █████████████████░░░░░░░░   66.97 % 
-Git Config               7 mins              ██████░░░░░░░░░░░░░░░░░░░   23.46 % 
-Markdown                 2 mins              ██░░░░░░░░░░░░░░░░░░░░░░░   09.57 % 
+No Activity Tracked This Week
 
 🔥 Editors: 
-Cursor                   29 mins             █████████████████████████   100.00 % 
+No Activity Tracked This Week
 
 🐱‍💻 Projects: 
-lumina                   29 mins             █████████████████████████   100.00 % 
+No Activity Tracked This Week
 
 💻 Operating System: 
-Windows                  29 mins             █████████████████████████   100.00 % 
+No Activity Tracked This Week
 ```
 
 **I Mostly Code in JavaScript** 
@@ -114,7 +112,7 @@ CSS                      5 repos             █░░░░░░░░░░�
 ![Lines of Code chart](https://raw.githubusercontent.com/PiyushMishra318/PiyushMishra318/master/assets/bar_graph.png)
 
 
- Last Updated on 08/11/2025 18:49:45 UTC
+ Last Updated on 09/11/2025 18:50:47 UTC
 <!--END_SECTION:waka-->
 <h4>Coding Activity (Last year)</h4>
 <p align="center">
