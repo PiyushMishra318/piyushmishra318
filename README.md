@@ -48,13 +48,13 @@
 
 > 📦 1.3 MB Used in GitHub's Storage 
  > 
-> 🏆 44 Contributions in the Year 2025
+> 🏆 45 Contributions in the Year 2025
  > 
 > 💼 Opted to Hire
  > 
 > 📜 44 Public Repositories 
  > 
-> 🔑 65 Private Repositories 
+> 🔑 66 Private Repositories 
  > 
 **I'm an Early 🐤** 
 
@@ -98,11 +98,11 @@ No Activity Tracked This Week
 **I Mostly Code in JavaScript** 
 
 ```text
-JavaScript               37 repos            ██████████░░░░░░░░░░░░░░░   39.36 % 
-HTML                     17 repos            █████░░░░░░░░░░░░░░░░░░░░   18.09 % 
-Python                   10 repos            ███░░░░░░░░░░░░░░░░░░░░░░   10.64 % 
-TypeScript               8 repos             ██░░░░░░░░░░░░░░░░░░░░░░░   08.51 % 
-CSS                      5 repos             █░░░░░░░░░░░░░░░░░░░░░░░░   05.32 % 
+JavaScript               37 repos            ██████████░░░░░░░░░░░░░░░   38.95 % 
+HTML                     17 repos            ████░░░░░░░░░░░░░░░░░░░░░   17.89 % 
+Python                   11 repos            ███░░░░░░░░░░░░░░░░░░░░░░   11.58 % 
+TypeScript               8 repos             ██░░░░░░░░░░░░░░░░░░░░░░░   08.42 % 
+CSS                      5 repos             █░░░░░░░░░░░░░░░░░░░░░░░░   05.26 % 
 ```
 
 
@@ -112,7 +112,7 @@ CSS                      5 repos             █░░░░░░░░░░�
 ![Lines of Code chart](https://raw.githubusercontent.com/PiyushMishra318/PiyushMishra318/master/assets/bar_graph.png)
 
 
- Last Updated on 18/11/2025 18:56:22 UTC
+ Last Updated on 19/11/2025 18:53:39 UTC
 <!--END_SECTION:waka-->
 <h4>Coding Activity (Last year)</h4>
 <p align="center">
