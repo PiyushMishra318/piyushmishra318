@@ -40,7 +40,7 @@
 <hr/>
 
 <!--START_SECTION:waka-->
-![Code Time](http://img.shields.io/badge/Code%20Time-3%2C352%20hrs%2014%20mins-blue)
+![Code Time](http://img.shields.io/badge/Code%20Time-3%2C360%20hrs%2033%20mins-blue)
 
 ![Lines of code](https://img.shields.io/badge/From%20Hello%20World%20I%27ve%20Written-21.4%20million%20lines%20of%20code-blue)
 
@@ -83,16 +83,24 @@ Sunday                   436 commits         ░░░░░░░░░░░�
 🕑︎ Time Zone: Asia/Kolkata
 
 💬 Programming Languages: 
-No Activity Tracked This Week
+Python                   5 hrs 50 mins       ██████████████████░░░░░░░   70.19 % 
+Markdown                 1 hr 19 mins        ████░░░░░░░░░░░░░░░░░░░░░   15.85 % 
+YAML                     27 mins             █░░░░░░░░░░░░░░░░░░░░░░░░   05.42 % 
+Text                     24 mins             █░░░░░░░░░░░░░░░░░░░░░░░░   04.85 % 
+Other                    5 mins              ░░░░░░░░░░░░░░░░░░░░░░░░░   01.07 % 
 
 🔥 Editors: 
-No Activity Tracked This Week
+VS Code                  8 hrs 19 mins       █████████████████████████   100.00 % 
 
 🐱‍💻 Projects: 
-No Activity Tracked This Week
+argus                    6 hrs 53 mins       █████████████████████░░░░   82.90 % 
+watcher                  1 hr 18 mins        ████░░░░░░░░░░░░░░░░░░░░░   15.70 % 
+iris                     4 mins              ░░░░░░░░░░░░░░░░░░░░░░░░░   00.80 % 
+heimdall                 3 mins              ░░░░░░░░░░░░░░░░░░░░░░░░░   00.60 % 
 
 💻 Operating System: 
-No Activity Tracked This Week
+Mac                      7 hrs 57 mins       ████████████████████████░   95.73 % 
+Windows                  21 mins             █░░░░░░░░░░░░░░░░░░░░░░░░   04.27 % 
 ```
 
 **I Mostly Code in JavaScript** 
@@ -112,7 +120,7 @@ CSS                      5 repos             █░░░░░░░░░░�
 ![Lines of Code chart](https://raw.githubusercontent.com/PiyushMishra318/PiyushMishra318/master/assets/bar_graph.png)
 
 
- Last Updated on 19/11/2025 18:53:39 UTC
+ Last Updated on 21/11/2025 18:50:18 UTC
 <!--END_SECTION:waka-->
 <h4>Coding Activity (Last year)</h4>
 <p align="center">
