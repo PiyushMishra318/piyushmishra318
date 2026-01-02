@@ -40,9 +40,7 @@
 <hr/>
 
 <!--START_SECTION:waka-->
-![Code Time](http://img.shields.io/badge/Code%20Time-3%2C360%20hrs%2043%20mins-blue)
-
-![Lines of code](https://img.shields.io/badge/From%20Hello%20World%20I%27ve%20Written-43.25%20million%20lines%20of%20code-blue)
+![Lines of code](https://img.shields.io/badge/From%20Hello%20World%20I%27ve%20Written-43.26%20million%20lines%20of%20code-blue)
 
 **🐱 My GitHub Data** 
 
@@ -56,45 +54,6 @@
  > 
 > 🔑 66 Private Repositories 
  > 
-**I'm an Early 🐤** 
-
-```text
-🌞 Morning                13308 commits       ██████░░░░░░░░░░░░░░░░░░░   25.17 % 
-🌆 Daytime                24890 commits       ████████████░░░░░░░░░░░░░   47.08 % 
-🌃 Evening                14422 commits       ███████░░░░░░░░░░░░░░░░░░   27.28 % 
-🌙 Night                  245 commits         ░░░░░░░░░░░░░░░░░░░░░░░░░   00.46 % 
-```
-📅 **I'm Most Productive on Wednesday** 
-
-```text
-Monday                   7912 commits        ████░░░░░░░░░░░░░░░░░░░░░   14.97 % 
-Tuesday                  9347 commits        ████░░░░░░░░░░░░░░░░░░░░░   17.68 % 
-Wednesday                12960 commits       ██████░░░░░░░░░░░░░░░░░░░   24.52 % 
-Thursday                 9682 commits        █████░░░░░░░░░░░░░░░░░░░░   18.31 % 
-Friday                   8514 commits        ████░░░░░░░░░░░░░░░░░░░░░   16.11 % 
-Saturday                 3629 commits        ██░░░░░░░░░░░░░░░░░░░░░░░   06.86 % 
-Sunday                   821 commits         ░░░░░░░░░░░░░░░░░░░░░░░░░   01.55 % 
-```
-
-
-📊 **This Week I Spent My Time On** 
-
-```text
-🕑︎ Time Zone: Asia/Kolkata
-
-💬 Programming Languages: 
-No Activity Tracked This Week
-
-🔥 Editors: 
-No Activity Tracked This Week
-
-🐱‍💻 Projects: 
-No Activity Tracked This Week
-
-💻 Operating System: 
-No Activity Tracked This Week
-```
-
 **I Mostly Code in JavaScript** 
 
 ```text
@@ -112,7 +71,7 @@ CSS                      9 repos             ██░░░░░░░░░�
 ![Lines of Code chart](https://raw.githubusercontent.com/PiyushMishra318/PiyushMishra318/master/assets/bar_graph.png)
 
 
- Last Updated on 01/01/2026 19:02:13 UTC
+ Last Updated on 02/01/2026 19:02:37 UTC
 <!--END_SECTION:waka-->
 <h4>Coding Activity (Last year)</h4>
 <p align="center">
