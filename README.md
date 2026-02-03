@@ -40,6 +40,8 @@
 <hr/>
 
 <!--START_SECTION:waka-->
+![Code Time](http://img.shields.io/badge/Code%20Time-3%2C792%20hrs%2022%20mins-blue?style=flat)
+
 ![Lines of code](https://img.shields.io/badge/From%20Hello%20World%20I%27ve%20Written-43.38%20million%20lines%20of%20code-blue?style=flat)
 
 **🐱 My GitHub Data** 
@@ -54,6 +56,45 @@
  > 
 > 🔑 67 Private Repositories 
  > 
+**I'm an Early 🐤** 
+
+```text
+🌞 Morning                13318 commits       ██████░░░░░░░░░░░░░░░░░░░   25.08 % 
+🌆 Daytime                25052 commits       ████████████░░░░░░░░░░░░░   47.17 % 
+🌃 Evening                14496 commits       ███████░░░░░░░░░░░░░░░░░░   27.29 % 
+🌙 Night                  245 commits         ░░░░░░░░░░░░░░░░░░░░░░░░░   00.46 % 
+```
+📅 **I'm Most Productive on Wednesday** 
+
+```text
+Monday                   7912 commits        ████░░░░░░░░░░░░░░░░░░░░░   14.90 % 
+Tuesday                  9557 commits        ████░░░░░░░░░░░░░░░░░░░░░   17.99 % 
+Wednesday                12968 commits       ██████░░░░░░░░░░░░░░░░░░░   24.42 % 
+Thursday                 9705 commits        █████░░░░░░░░░░░░░░░░░░░░   18.27 % 
+Friday                   8519 commits        ████░░░░░░░░░░░░░░░░░░░░░   16.04 % 
+Saturday                 3629 commits        ██░░░░░░░░░░░░░░░░░░░░░░░   06.83 % 
+Sunday                   821 commits         ░░░░░░░░░░░░░░░░░░░░░░░░░   01.55 % 
+```
+
+
+📊 **This Week I Spent My Time On** 
+
+```text
+🕑︎ Time Zone: Asia/Kolkata
+
+💬 Programming Languages: 
+No Activity Tracked This Week
+
+🔥 Editors: 
+No Activity Tracked This Week
+
+🐱‍💻 Projects: 
+No Activity Tracked This Week
+
+💻 Operating System: 
+No Activity Tracked This Week
+```
+
 **I Mostly Code in JavaScript** 
 
 ```text
@@ -71,7 +112,7 @@ CSS                      9 repos             ██░░░░░░░░░�
 ![Lines of Code chart](https://raw.githubusercontent.com/PiyushMishra318/PiyushMishra318/master/assets/bar_graph.png)
 
 
- Last Updated on 01/02/2026 19:10:23 UTC
+ Last Updated on 03/02/2026 19:38:46 UTC
 <!--END_SECTION:waka-->
 <h4>Coding Activity (Last year)</h4>
 <p align="center">
