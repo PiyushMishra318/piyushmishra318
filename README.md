@@ -3,7 +3,7 @@
 <h1 align="center">Hi 👋, I'm Piyush</h1>
 <h3 align="center">Experienced Fullstack Engineer | Building Scalable SaaS Solutions | Skilled in Multiple Technologies & Frameworks | Collaborative Problem-Solver</h3>
 <p align="center">  <img  src="https://komarev.com/ghpvc/?username=piyushmishra318&color=0e75b6&style=for-the-badge"  alt="piyushmishra318"  />   </p>
-<p align="center">  <a  href="https://github.com/ryo-ma/github-profile-trophy"><img  src="https://github-profile-trophy.vercel.app/?username=piyushmishra318&row=2&column=4&theme=nord&margin-w=15&margin-h=15"  alt="piyushmishra318"  /></a>  </p>
+
 
 <a href="https://wakatime.com/@1126c104-125d-4c52-840c-530d4fb4215e" title="Total time coded since May 31 2021"><img src="https://wakatime.com/badge/user/1126c104-125d-4c52-840c-530d4fb4215e.svg" align="center" alt="Total time coded since May 31 2021" /></a>
 - 🌱 I’m currently learning **Go, Rust, gRPC, Assembly**
