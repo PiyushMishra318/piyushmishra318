@@ -11,7 +11,7 @@
 
 - 🌱 Exploring **local-first AI** (**MCP**, **vLLM**, **llama.cpp**, **Tauri**) and **event-driven** systems (**Kafka**, **Go**, **Rust**)
 
-- 👨‍💻 Portfolio & case studies → **[piyushmishra.vercel.app](https://piyushmishra.vercel.app/)** · Flagship work → **[Sinch Converse](https://sinchconverse.com)** · **[opencoot / coot.ai](https://coot.ai)**
+- 👨‍💻 Portfolio & case studies → **[piyushm.dev](https://piyushm.dev/)** · Flagship work → **[Sinch Converse](https://sinchconverse.com)** · **[opencoot / coot.ai](https://coot.ai)**
 
 - 💬 Ask me about **AI/LLM systems, distributed systems, full-stack architecture**
 
