@@ -1,18 +1,20 @@
 
 
 <h1 align="center">Hi 👋, I'm Piyush</h1>
-<h3 align="center">Experienced Fullstack Engineer | Building Scalable SaaS Solutions | Skilled in Multiple Technologies & Frameworks | Collaborative Problem-Solver</h3>
+<h3 align="center">Senior Software Engineer · AI Systems & Distributed Infrastructure</h3>
 <p align="center">  <img  src="https://komarev.com/ghpvc/?username=piyushmishra318&color=0e75b6&style=for-the-badge"  alt="piyushmishra318"  />   </p>
 
 
 <a href="https://wakatime.com/@1126c104-125d-4c52-840c-530d4fb4215e" title="Total time coded since May 31 2021"><img src="https://wakatime.com/badge/user/1126c104-125d-4c52-840c-530d4fb4215e.svg" align="center" alt="Total time coded since May 31 2021" /></a>
-- 🌱 I’m currently learning **Go, Rust, gRPC, Assembly**
+- 🔭 **Software Engineer III @ [Sinch](https://www.sinch.com/)** — Converse SaaS, on-device RAG, billions-message analytics, micro-frontends (70% fewer prod bugs, 50% faster loads, **99.99% uptime**)
 
-- 👨‍💻 Checkout my [Soundcloud](https://piyushmishra.vercel.app/)
+- 🌱 Exploring **Go, Rust, gRPC**, and local-first AI (**MCP**, **Tauri**, **llama.cpp**)
 
-- 💬 Ask me about **JS/TS, Python, C/C++, React/Redux, DevOPs**
+- 👨‍💻 Portfolio & case studies → **[piyushmishra.vercel.app](https://piyushmishra.vercel.app/)** · Flagship work → **[Sinch Converse](https://sinchconverse.com)** · **[opencoot / coot.ai](https://coot.ai)**
 
-- 📫 How to reach me **piyush_mishra31@outlook.com**
+- 💬 Ask me about **AI/LLM systems, distributed systems, full-stack architecture**
+
+- 📫 **piyush_mishra31@outlook.com** · [LinkedIn](https://linkedin.com/in/piyush-mishra31) · [LeetCode](https://www.leetcode.com/piyushmishra318)
 
 ### Languages and Tools:
 ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white) ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54) ![C++](https://img.shields.io/badge/c++-%2300599C.svg?style=for-the-badge&logo=c%2B%2B&logoColor=white) ![Go](https://img.shields.io/badge/go-%2300ADD8.svg?style=for-the-badge&logo=go&logoColor=white) ![Rust](https://img.shields.io/badge/rust-%23000000.svg?style=for-the-badge&logo=rust&logoColor=white)
