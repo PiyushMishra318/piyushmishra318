@@ -7,7 +7,7 @@
 
 
 <a href="https://wakatime.com/@1126c104-125d-4c52-840c-530d4fb4215e" title="Total time coded since May 31 2021"><img src="https://wakatime.com/badge/user/1126c104-125d-4c52-840c-530d4fb4215e.svg" align="center" alt="Total time coded since May 31 2021" /></a>
-- 🔭 **Software Engineer III @ [Sinch](https://www.sinch.com/)** — Converse SaaS (3,000+ SMEs, **99.99% uptime**, defined SLOs), on-device RAG, local-first AI platform (MCP), billions-message analytics + LRU chat virtualisation, micro-frontends (70% fewer prod bugs, 50% faster loads), ML-driven test generation
+- 🔭 **Software Engineer III @ [Sinch](https://www.sinch.com/)** — Converse SaaS (3,000+ SMEs, **99.99% uptime**, defined SLOs), on-device RAG (ChromaDB/Milvus/vLLM), visual-workflow local-first AI (MCP), billions-message analytics + LRU chat virtualisation, micro-frontends (70% fewer prod bugs, 50% faster loads), ML-driven test generation, MFA rollout
 
 - 🌱 Exploring **local-first AI** (**MCP**, **vLLM**, **llama.cpp**, **Tauri**) and **event-driven** systems (**Kafka**, **Go**, **Rust**)
 
