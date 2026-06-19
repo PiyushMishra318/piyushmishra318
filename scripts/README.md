@@ -30,7 +30,7 @@ The script updates `README.md` in place. Review the diff before committing.
 
 ### Metrics layout
 
-1. **GitHub at a glance** — labeled bullet summary (Contributions, Collaboration, Rhythm, Stack, Top repos)
+1. **GitHub at a glance** — monospace summary block (Contributions, Collaboration, Rhythm, Stack, Top repos)
 2. **ASCII charts** — repos, coding rhythm, languages, AI split
 
 ## CI

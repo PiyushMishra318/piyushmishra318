@@ -525,6 +525,12 @@ def fetch_collaboration_stats(gh: GitHubClient) -> dict[str, int]:
     }
 
 
+def _glance_line(label: str, detail: str, *, emoji: str = "") -> str:
+    prefix = f"{emoji} {label}".strip() if emoji else label
+    pad = max(18 - len(prefix), 1)
+    return f"{prefix}{' ' * pad}{detail}"
+
+
 def format_compact_dashboard(
     user: dict[str, Any],
     contributions: dict[str, Any],
@@ -552,39 +558,56 @@ def format_compact_dashboard(
     top_repos = _top_repo_summary(scan, repositories)
 
     if language_stack:
-        language_line = f"mostly **{top_language}** ({language_stack})"
+        language_line = f"mostly {top_language} ({language_stack})"
     else:
-        language_line = f"mostly **{top_language}**"
+        language_line = f"mostly {top_language}"
 
-    lines = [
-        "**GitHub at a glance**",
-        "",
-        (
-            f"- **Contributions** — **{_intcomma(year_total)}** ({year_label}) · "
-            f"**{_intcomma(last_7)}** last 7d · **{_intcomma(last_30)}** last 30d · "
-            f"streak **{_intcomma(current)}** (best **{_intcomma(longest)}**)"
-        ),
-        (
-            f"- **Collaboration** — **{_intcomma(collaboration['merged_prs'])}** merged PRs · "
-            f"**{_intcomma(collaboration['open_prs'])}** open · "
-            f"**{_intcomma(collaboration['issues_opened'])}** issues · "
-            f"**{_intcomma(collaboration['reviews_given'])}** reviews · "
-            f"**{_intcomma(repo_count)}** repos (**{public_repos}** public) · {hireable}"
-        ),
-        (
-            f"- **Rhythm** — peak **{best_day}** · {time_label} · "
-            f"busiest **{busiest_month}** · **{weekend_pct}%** weekend"
-        ),
-        (
-            f"- **Stack** — {language_line} · "
-            f"**{manual_pct}%** manual / **{ai_pct}%** AI-assisted"
-        ),
-        f"- **Top repos** — {top_repos}",
-        "",
-        "*AI share estimated from commit messages — approximate.*",
-    ]
+    top_repos_plain = _top_repo_summary(scan, repositories).replace("`", "")
 
-    return "\n".join(lines) + "\n"
+    glance_body = "\n".join(
+        [
+            _glance_line(
+                "Contributions",
+                (
+                    f"{_intcomma(year_total)} ({year_label}) · "
+                    f"{_intcomma(last_7)} last 7d · {_intcomma(last_30)} last 30d · "
+                    f"streak {_intcomma(current)} (best {_intcomma(longest)})"
+                ),
+                emoji="🏆",
+            ),
+            _glance_line(
+                "Collaboration",
+                (
+                    f"{_intcomma(collaboration['merged_prs'])} merged PRs · "
+                    f"{_intcomma(collaboration['open_prs'])} open · "
+                    f"{_intcomma(collaboration['issues_opened'])} issues · "
+                    f"{_intcomma(collaboration['reviews_given'])} reviews · "
+                    f"{_intcomma(repo_count)} repos ({public_repos} public) · {hireable}"
+                ),
+                emoji="🤝",
+            ),
+            _glance_line(
+                "Rhythm",
+                (
+                    f"peak {best_day} · {time_label} · "
+                    f"busiest {busiest_month} · {weekend_pct}% weekend"
+                ),
+                emoji="⏰",
+            ),
+            _glance_line(
+                "Stack",
+                f"{language_line} · {manual_pct}% manual / {ai_pct}% AI-assisted",
+                emoji="💻",
+            ),
+            _glance_line("Top repos", top_repos_plain, emoji="🔥"),
+        ]
+    )
+
+    return (
+        "**GitHub at a glance**\n\n"
+        f"{_text_block(glance_body)}\n\n"
+        "*AI share estimated from commit messages — approximate.*\n"
+    )
 
 
 def format_detailed_charts(scan: CommitScanResult, repositories: list[dict[str, Any]]) -> str:

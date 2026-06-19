@@ -11,11 +11,13 @@ I solve problems at the intersection of product, infrastructure, and a deadline 
 <!--START_SECTION:metrics-->
 **GitHub at a glance**
 
-- **Contributions** — **634** (2026) · **45** last 7d · **120** last 30d · streak **12** (best **89**)
-- **Collaboration** — **142** merged PRs · **3** open · **28** issues · **56** reviews · **52** repos (**40** public) · Open to hire
-- **Rhythm** — peak **Wednesday** · early bird · busiest **Mar '23** · **12%** weekend
-- **Stack** — mostly **JavaScript** (Python · TypeScript) · **78%** manual / **22%** AI-assisted
-- **Top repos** — `opencoot` (1,234) · `scripts` (890) · `voice` (456)
+```text
+🏆 Contributions   634 (2026) · 45 last 7d · 120 last 30d · streak 12 (best 89)
+🤝 Collaboration  142 merged PRs · 3 open · 28 issues · 56 reviews · 52 repos (40 public) · Open to hire
+⏰ Rhythm         peak Wednesday · early bird · busiest Mar '23 · 12% weekend
+💻 Stack          mostly JavaScript (Python · TypeScript) · 78% manual / 22% AI-assisted
+🔥 Top repos      opencoot (1,234) · scripts (890) · voice (456)
+```
 
 *AI share estimated from commit messages — approximate.*
 
