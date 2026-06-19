@@ -1,6 +1,6 @@
 <h1>Piyush Mishra</h1>
 
-![](https://raw.githubusercontent.com/PiyushMishra318/piyushmishra318/master/assets/profile-views.svg)
+![](https://gitviews.com/user/piyushmishra318.svg?style=for-the-badge&label-color=555555&color=0e75b6)
 
 I solve problems. Usually the ones that sit at the intersection of product, infrastructure, and a deadline.
 

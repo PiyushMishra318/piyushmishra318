@@ -43,14 +43,13 @@ The script updates `README.md` in place. Review the diff before committing.
 
 ## Profile view counter
 
-Self-hosted badge stored in `assets/profile-views.svg` (no komarev dependency).
+The README uses [GitViews](https://gitviews.com) — the badge increments on each profile load (same idea as komarev).
 
-- Script: `scripts/update_profile_views.py`
-- Workflow: copy `scripts/profile-views.workflow.yml` → `.github/workflows/profile-views.yml` on GitHub (Actions → New workflow)
-- Data: `assets/profile-views.json` accumulates GitHub traffic insights for this repo
-- README embed: `raw.githubusercontent.com/.../assets/profile-views.svg`
+```markdown
+![](https://gitviews.com/user/piyushmishra318.svg?style=for-the-badge&label-color=555555&color=0e75b6)
+```
 
-To seed a starting count (e.g. from an old komarev total), set `"base"` in `assets/profile-views.json`.
+To carry over an old total, add `?base=1234` to the URL permanently.
 
 ## Out of scope (v1)
 
