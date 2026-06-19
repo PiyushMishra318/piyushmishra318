@@ -2,6 +2,8 @@
 
 ![](https://gitviews.com/user/piyushmishra318.svg?base=1900&style=for-the-badge&label-color=555555&color=0e75b6)
 
+<sub>*Profile views include the total from my previous counter (komarev), carried over after migration — not padded; same real traffic, new badge.*</sub>
+
 I solve problems at the intersection of product, infrastructure, and a deadline — SaaS, real-time systems, AI tooling. SE III @ [Sinch](https://sinch.com); co-building [AuditShark](https://app.auditshark.ai/login) and [OpenCoot](https://coot.ai).
 
 [piyushm.dev](https://piyushm.dev) · [Playground](https://piyushm.dev/products/playground/)
