@@ -230,7 +230,8 @@ def _language_summary(repositories: list[dict[str, Any]], *, limit: int = 3) -> 
 
     ranked = sorted(language_count.items(), key=lambda item: item[1], reverse=True)
     top_language = ranked[0][0]
-    stack = " · ".join(lang for lang, _ in ranked[:limit])
+    others = [lang for lang, _ in ranked[1:limit]]
+    stack = " · ".join(others)
     return top_language, stack
 
 
@@ -550,31 +551,37 @@ def format_compact_dashboard(
     manual_pct, ai_pct = _ai_manual_summary(scan)
     top_repos = _top_repo_summary(scan, repositories)
 
+    if language_stack:
+        language_line = f"mostly **{top_language}** ({language_stack})"
+    else:
+        language_line = f"mostly **{top_language}**"
+
     lines = [
         "**GitHub at a glance**",
         "",
         (
-            f"> 🏆 **{_intcomma(year_total)}** contributions ({year_label}) · "
-            f"**{_intcomma(last_7)}** / 7d · **{_intcomma(last_30)}** / 30d · "
+            f"- **Contributions** — **{_intcomma(year_total)}** ({year_label}) · "
+            f"**{_intcomma(last_7)}** last 7d · **{_intcomma(last_30)}** last 30d · "
             f"streak **{_intcomma(current)}** (best **{_intcomma(longest)}**)"
         ),
         (
-            f"> 🤝 **{_intcomma(collaboration['merged_prs'])}** merged · "
-            f"**{_intcomma(collaboration['open_prs'])}** open PRs · "
+            f"- **Collaboration** — **{_intcomma(collaboration['merged_prs'])}** merged PRs · "
+            f"**{_intcomma(collaboration['open_prs'])}** open · "
             f"**{_intcomma(collaboration['issues_opened'])}** issues · "
             f"**{_intcomma(collaboration['reviews_given'])}** reviews · "
-            f"**{_intcomma(repo_count)}** repos · **{public_repos}** public · {hireable}"
+            f"**{_intcomma(repo_count)}** repos (**{public_repos}** public) · {hireable}"
         ),
         (
-            f"> ⏰ peak **{best_day}** · {time_label} · "
-            f"busiest **{busiest_month}** · weekend **{weekend_pct}%**"
+            f"- **Rhythm** — peak **{best_day}** · {time_label} · "
+            f"busiest **{busiest_month}** · **{weekend_pct}%** weekend"
         ),
         (
-            f"> 💻 mostly **{top_language}** ({language_stack}) · "
-            f"manual **{manual_pct}%** / AI **{ai_pct}%** *"
+            f"- **Stack** — {language_line} · "
+            f"**{manual_pct}%** manual / **{ai_pct}%** AI-assisted"
         ),
-        f"> 🔥 {top_repos}",
-        "> *AI share estimated from commit messages — approximate.*",
+        f"- **Top repos** — {top_repos}",
+        "",
+        "*AI share estimated from commit messages — approximate.*",
     ]
 
     return "\n".join(lines) + "\n"
