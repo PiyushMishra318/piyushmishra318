@@ -9,7 +9,8 @@ import re
 import sys
 import time
 import warnings
-from datetime import datetime, timezone
+from dataclasses import dataclass, field
+from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 from string import Template
 from typing import Any
@@ -17,6 +18,7 @@ from typing import Any
 import httpx
 
 from profile_config import (
+    AI_COMMIT_MESSAGE_PATTERN,
     END_MARKER,
     GITHUB_USERNAME,
     GRAPHQL_PAGE_SIZE,
@@ -28,16 +30,42 @@ from profile_config import (
 
 ROOT = Path(__file__).resolve().parent.parent
 README_PATH = ROOT / "README.md"
+CONTRIBUTIONS_API = f"https://github-contributions.vercel.app/api/v1/{GITHUB_USERNAME}"
 
 DAY_TIME_EMOJI = ("🌞", "🌆", "🌃", "🌙")
 DAY_TIME_NAMES = ("Morning", "Daytime", "Evening", "Night")
 WEEK_DAY_NAMES = ("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday")
+MONTH_NAMES = (
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+)
 
 GITHUB_API_QUERIES = {
     "viewer_id": """
 {
   user(login: "$username") {
     id
+  }
+}""",
+    "user_collaboration_stats": """
+{
+  user(login: "$username") {
+    openPullRequests: pullRequests(states: OPEN) { totalCount }
+    mergedPullRequests: pullRequests(states: MERGED) { totalCount }
+    issuesOpened: issues(states: [OPEN, CLOSED]) { totalCount }
+    contributionsCollection(from: "2010-01-01T00:00:00Z", to: "$now") {
+      pullRequestReviewContributions { totalCount }
+    }
   }
 }""",
     "repos_contributed_to": """
@@ -98,6 +126,9 @@ GITHUB_API_QUERIES = {
               ... on Commit {
                 committedDate
                 oid
+                message
+                additions
+                deletions
               }
             }
             pageInfo { endCursor hasNextPage }
@@ -108,6 +139,18 @@ GITHUB_API_QUERIES = {
   }
 }""",
 }
+
+
+@dataclass
+class CommitScanResult:
+    repo_commit_counts: dict[str, int] = field(default_factory=dict)
+    month_counts: dict[str, int] = field(default_factory=dict)
+    day_times: list[int] = field(default_factory=lambda: [0, 0, 0, 0])
+    week_days: list[int] = field(default_factory=lambda: [0] * 7)
+    ai_commits: int = 0
+    manual_commits: int = 0
+    ai_lines: int = 0
+    manual_lines: int = 0
 
 
 def _env(name: str) -> str:
@@ -168,6 +211,21 @@ def _naturalsize(num_bytes: int) -> str:
 
 def _intcomma(value: int) -> str:
     return f"{value:,}"
+
+
+def _quote_lines(lines: list[str]) -> str:
+    return "\n".join(f"> {line}" if line else ">" for line in lines)
+
+
+def _section(title: str, body: str) -> str:
+    body = body.rstrip()
+    if not body:
+        return ""
+    return f"{title}\n\n{body}\n\n"
+
+
+def _text_block(content: str) -> str:
+    return f"```text\n{content.rstrip()}\n```"
 
 
 class GitHubClient:
@@ -238,50 +296,50 @@ class GitHubClient:
         return self.user_node_id
 
 
+def fetch_contributions_data() -> dict[str, Any]:
+    response = httpx.get(CONTRIBUTIONS_API, timeout=60.0)
+    response.raise_for_status()
+    return response.json()
 
-def fetch_github_short_stats(gh: GitHubClient) -> str:
-    user = gh.rest_user()
-    stats_response = httpx.get(
-        f"https://github-contributions.vercel.app/api/v1/{GITHUB_USERNAME}",
-        timeout=60.0,
-    )
-    stats_response.raise_for_status()
-    contributions = stats_response.json()
 
-    lines = ["**🐱 My GitHub Data** ", ""]
+def _contribution_day_map(contributions: list[dict[str, Any]]) -> dict[date, int]:
+    return {date.fromisoformat(row["date"]): int(row["count"]) for row in contributions}
 
-    disk_usage = user.get("disk_usage")
-    if disk_usage is None:
-        lines.append("> 📦 ? Used in GitHub's Storage ")
-    else:
-        lines.append(f"> 📦 {_naturalsize(disk_usage)} Used in GitHub's Storage ")
-    lines.append(" > ")
 
-    years = contributions.get("years") or []
-    if years:
-        year_row = years[0]
-        lines.append(
-            f"> 🏆 {_intcomma(int(year_row['total']))} Contributions in the Year {year_row['year']}"
-        )
-        lines.append(" > ")
+def _rolling_contribution_sum(day_map: dict[date, int], days: int, *, end: date | None = None) -> int:
+    end = end or datetime.now(timezone.utc).date()
+    start = end - timedelta(days=days - 1)
+    return sum(count for day, count in day_map.items() if start <= day <= end)
 
-    if user.get("hireable"):
-        lines.append("> 💼 Opted to Hire")
-    else:
-        lines.append("> 🚫 Not Opted to Hire")
-    lines.append(" > ")
 
-    public_repos = int(user.get("public_repos") or 0)
-    public_label = "Public Repositories" if public_repos != 1 else "Public Repository"
-    lines.append(f"> 📜 {public_repos} {public_label} ")
-    lines.append(" > ")
+def _current_streak(day_map: dict[date, int], *, end: date | None = None) -> int:
+    end = end or datetime.now(timezone.utc).date()
+    cursor = end if day_map.get(end, 0) > 0 else end - timedelta(days=1)
+    streak = 0
+    while day_map.get(cursor, 0) > 0:
+        streak += 1
+        cursor -= timedelta(days=1)
+    return streak
 
-    private_repos = int(user.get("owned_private_repos") or 0)
-    private_label = "Private Repositories" if private_repos != 1 else "Private Repository"
-    lines.append(f"> 🔑 {private_repos} {private_label} ")
-    lines.append(" > ")
 
-    return "\n".join(lines) + "\n"
+def _longest_streak(day_map: dict[date, int]) -> int:
+    best = 0
+    run = 0
+    previous: date | None = None
+    for day in sorted(day for day, count in day_map.items() if count > 0):
+        if previous and (day - previous).days == 1:
+            run += 1
+        else:
+            run = 1
+        best = max(best, run)
+        previous = day
+    return best
+
+
+def _is_ai_assisted_commit(message: str | None) -> bool:
+    if not message:
+        return False
+    return bool(AI_COMMIT_MESSAGE_PATTERN.search(message))
 
 
 def collect_repositories(gh: GitHubClient) -> list[dict[str, Any]]:
@@ -296,6 +354,14 @@ def collect_repositories(gh: GitHubClient) -> list[dict[str, Any]]:
     return owned + extra
 
 
+def _count_active_repositories(repositories: list[dict[str, Any]]) -> int:
+    return sum(
+        1
+        for repo in repositories
+        if repo and repo["name"] not in IGNORED_REPOS and not repo.get("isFork")
+    )
+
+
 def _repo_label(repo: dict[str, Any]) -> str:
     if repo.get("isPrivate"):
         return "[private]"
@@ -303,9 +369,17 @@ def _repo_label(repo: dict[str, Any]) -> str:
     return f"{owner}/{repo.get('name', '?')}"
 
 
-def fetch_commit_time_stats(gh: GitHubClient, repositories: list[dict[str, Any]]) -> str:
+def _repo_display_name(repo_name: str, repositories: list[dict[str, Any]]) -> str:
+    for repo in repositories:
+        if repo["name"] == repo_name:
+            return _repo_label(repo)
+    return repo_name
+
+
+def scan_commits(gh: GitHubClient, repositories: list[dict[str, Any]]) -> CommitScanResult:
     author_id = gh.viewer_node_id()
-    commit_dates: dict[str, dict[str, dict[str, str]]] = {}
+    result = CommitScanResult()
+    seen_oids: set[str] = set()
 
     for index, repo in enumerate(repositories):
         if repo["name"] in IGNORED_REPOS or repo.get("isFork"):
@@ -314,6 +388,8 @@ def fetch_commit_time_stats(gh: GitHubClient, repositories: list[dict[str, Any]]
         label = _repo_label(repo)
         print(f"  {index + 1}/{len(repositories)} Retrieving repo: {label}", flush=True)
         owner = repo["owner"]["login"]
+        repo_unique_commits = 0
+
         try:
             branches = gh.graphql_paginated(
                 "repo_branch_list",
@@ -344,70 +420,186 @@ def fetch_commit_time_stats(gh: GitHubClient, repositories: list[dict[str, Any]]
                 continue
 
             for commit in commits:
-                repo_dates = commit_dates.setdefault(repo["name"], {})
-                branch_dates = repo_dates.setdefault(branch["name"], {})
-                branch_dates[commit["oid"]] = commit["committedDate"]
+                oid = commit["oid"]
+                if oid in seen_oids:
+                    continue
+                seen_oids.add(oid)
+                repo_unique_commits += 1
+
+                committed = datetime.strptime(
+                    commit["committedDate"], "%Y-%m-%dT%H:%M:%SZ"
+                ).replace(tzinfo=timezone.utc)
+                bucket = committed.hour // 6
+                result.day_times[bucket] += 1
+                result.week_days[committed.isoweekday() - 1] += 1
+                month_key = committed.strftime("%Y-%m")
+                result.month_counts[month_key] = result.month_counts.get(month_key, 0) + 1
+
+                lines_changed = int(commit.get("additions") or 0) + int(commit.get("deletions") or 0)
+                if _is_ai_assisted_commit(commit.get("message")):
+                    result.ai_commits += 1
+                    result.ai_lines += lines_changed
+                else:
+                    result.manual_commits += 1
+                    result.manual_lines += lines_changed
+
+        if repo_unique_commits:
+            result.repo_commit_counts[repo["name"]] = repo_unique_commits
 
         time.sleep(REPO_SLEEP_SECONDS)
 
-    return format_commit_time_stats(commit_dates)
+    return result
 
 
-def format_commit_time_stats(
-    commit_dates: dict[str, dict[str, dict[str, str]]],
+def fetch_collaboration_stats(gh: GitHubClient) -> dict[str, int]:
+    now_iso = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+    payload = gh.graphql("user_collaboration_stats", username=GITHUB_USERNAME, now=now_iso)
+    user = payload["data"]["user"]
+    reviews = user["contributionsCollection"]["pullRequestReviewContributions"]["totalCount"]
+    return {
+        "open_prs": user["openPullRequests"]["totalCount"],
+        "merged_prs": user["mergedPullRequests"]["totalCount"],
+        "issues_opened": user["issuesOpened"]["totalCount"],
+        "reviews_given": reviews,
+    }
+
+
+def format_snapshot_block(
+    user: dict[str, Any],
+    contributions: dict[str, Any],
+    repo_count: int,
 ) -> str:
-    day_times = [0, 0, 0, 0]
-    week_days = [0] * 7
+    day_map = _contribution_day_map(contributions.get("contributions") or [])
+    lines = ["**🐱 GitHub Snapshot**", ""]
 
-    for repo_commits in commit_dates.values():
-        for branch_commits in repo_commits.values():
-            for committed_date in branch_commits.values():
-                local_date = datetime.strptime(committed_date, "%Y-%m-%dT%H:%M:%SZ").replace(
-                    tzinfo=timezone.utc
-                )
-                day_times[local_date.hour // 6] += 1
-                week_days[local_date.isoweekday() - 1] += 1
+    years = contributions.get("years") or []
+    if years:
+        year_row = years[0]
+        lines.append(
+            f"> 🏆 {_intcomma(int(year_row['total']))} contributions in {year_row['year']}"
+        )
 
-    day_times = day_times[1:] + day_times[:1]
-    sum_day = sum(day_times)
-    sum_week = sum(week_days)
+    last_7 = _rolling_contribution_sum(day_map, 7)
+    last_30 = _rolling_contribution_sum(day_map, 30)
+    lines.append(f"> 📈 {_intcomma(last_7)} last 7 days · {_intcomma(last_30)} last 30 days")
 
+    current = _current_streak(day_map)
+    longest = _longest_streak(day_map)
+    lines.append(f"> 🔥 {_intcomma(current)} day streak · 🏅 {_intcomma(longest)} longest streak")
+
+    lines.append(f"> 📂 {_intcomma(repo_count)} repos contributed to")
+
+    disk_usage = user.get("disk_usage")
+    if disk_usage is None:
+        lines.append("> 📦 ? used in GitHub storage")
+    else:
+        lines.append(f"> 📦 {_naturalsize(disk_usage)} used in GitHub storage")
+
+    public_repos = int(user.get("public_repos") or 0)
+    private_repos = int(user.get("owned_private_repos") or 0)
+    lines.append(f"> 📜 {public_repos} public · 🔑 {private_repos} private repos")
+
+    if user.get("hireable"):
+        lines.append("> 💼 Opted to hire")
+    else:
+        lines.append("> 🚫 Not opted to hire")
+
+    return "\n".join(lines) + "\n"
+
+
+def format_collaboration_block(stats: dict[str, int]) -> str:
+    lines = [
+        f"> 🔀 {_intcomma(stats['open_prs'])} open PRs · ✅ {_intcomma(stats['merged_prs'])} merged PRs",
+        f"> 🐛 {_intcomma(stats['issues_opened'])} issues opened · 👀 {_intcomma(stats['reviews_given'])} reviews given",
+    ]
+    return _section("**🤝 Collaboration**", _quote_lines(lines))
+
+
+def format_top_repos_block(scan: CommitScanResult, repositories: list[dict[str, Any]]) -> str:
+    if not scan.repo_commit_counts:
+        return ""
+
+    ranked = sorted(scan.repo_commit_counts.items(), key=lambda item: item[1], reverse=True)[:5]
+    total = sum(count for _, count in ranked)
+    names = [_repo_display_name(name, repositories) for name, _ in ranked]
+    texts = [f"{count} commits" for _, count in ranked]
+    percents = [round(count / total * 100, 2) for _, count in ranked]
+
+    return _section(
+        "**🔥 Most Active Repos**",
+        _text_block(make_list(names, texts, percents, sort=False)),
+    )
+
+
+def format_coding_rhythm_block(scan: CommitScanResult) -> str:
     parts: list[str] = []
 
+    day_times = scan.day_times[1:] + scan.day_times[:1]
+    sum_day = sum(day_times)
     if sum_day:
         early = sum(day_times[0:2]) >= sum(day_times[2:4])
-        title = "**I'm an Early 🐤** " if early else "**I'm a Night 🦉** "
+        subtitle = "Early bird 🐤" if early else "Night owl 🦉"
         dt_names = [f"{DAY_TIME_EMOJI[i]} {DAY_TIME_NAMES[i]}" for i in range(4)]
         dt_texts = [f"{count} commits" for count in day_times]
         dt_percents = [round((count / sum_day) * 100, 2) for count in day_times]
-        parts.append(title)
-        parts.append("")
-        parts.append("```text")
         parts.append(
-            make_list(dt_names, dt_texts, dt_percents, top_num=7, sort=False)
+            _section(
+                f"**⏰ When I Code** ({subtitle})",
+                _text_block(make_list(dt_names, dt_texts, dt_percents, top_num=4, sort=False)),
+            )
         )
-        parts.append("```")
 
+    sum_week = sum(scan.week_days)
     if sum_week:
+        weekday = sum(scan.week_days[0:5])
+        weekend = sum(scan.week_days[5:7])
+        weekend_pct = round(weekend / sum_week * 100, 2)
+        weekday_pct = round(weekday / sum_week * 100, 2)
+        best_day = WEEK_DAY_NAMES[scan.week_days.index(max(scan.week_days))]
         wd_names = list(WEEK_DAY_NAMES)
-        wd_texts = [f"{count} commits" for count in week_days]
-        wd_percents = [round((count / sum_week) * 100, 2) for count in week_days]
-        best_day = wd_names[wd_percents.index(max(wd_percents))]
-        parts.append(f"📅 **I'm Most Productive on {best_day}** ")
-        parts.append("")
-        parts.append("```text")
+        wd_texts = [f"{count} commits" for count in scan.week_days]
+        wd_percents = [round((count / sum_week) * 100, 2) for count in scan.week_days]
+
+        rhythm_lines = [
+            _text_block(make_list(wd_names, wd_texts, wd_percents, top_num=7, sort=False)),
+            "",
+            _text_block(
+                make_list(
+                    ["Weekday", "Weekend"],
+                    [f"{weekday} commits", f"{weekend} commits"],
+                    [weekday_pct, weekend_pct],
+                    top_num=2,
+                    sort=False,
+                )
+            ),
+        ]
         parts.append(
-            make_list(wd_names, wd_texts, wd_percents, top_num=7, sort=False)
+            _section(
+                f"**📅 Most Productive on {best_day}**",
+                "\n".join(rhythm_lines),
+            )
         )
-        parts.append("```")
 
-    if parts:
-        parts.append("")
-        parts.append("")
-    return "\n".join(parts)
+    if scan.month_counts:
+        busiest_key = max(scan.month_counts, key=scan.month_counts.get)
+        year, month = busiest_key.split("-")
+        busiest_name = MONTH_NAMES[int(month) - 1]
+        month_ranked = sorted(scan.month_counts.items(), key=lambda item: item[1], reverse=True)[:5]
+        month_total = sum(count for _, count in month_ranked)
+        names = [MONTH_NAMES[int(key.split("-")[1]) - 1] for key, _ in month_ranked]
+        texts = [f"{count} commits" for _, count in month_ranked]
+        percents = [round(count / month_total * 100, 2) for _, count in month_ranked]
+        parts.append(
+            _section(
+                f"**📆 Busiest Month: {busiest_name} {year}**",
+                _text_block(make_list(names, texts, percents, sort=False)),
+            )
+        )
+
+    return "\n".join(part for part in parts if part)
 
 
-def fetch_language_per_repo(repositories: list[dict[str, Any]]) -> str:
+def format_language_block(repositories: list[dict[str, Any]]) -> str:
     language_count: dict[str, int] = {}
 
     for repo in repositories:
@@ -424,35 +616,80 @@ def fetch_language_per_repo(repositories: list[dict[str, Any]]) -> str:
     top_language = ranked[0][0]
     top = ranked[:5]
     names = [lang for lang, _ in top]
-    texts = [
-        f"{count} {'repo' if count == 1 else 'repos'}"
-        for _, count in top
-    ]
+    texts = [f"{count} {'repo' if count == 1 else 'repos'}" for _, count in top]
     percents = [round(count / total * 100, 2) for _, count in top]
 
-    return (
-        f"**I Mostly Code in {top_language}** \n\n"
-        f"```text\n{make_list(names, texts, percents, sort=False)}\n```\n\n"
+    return _section(
+        f"**🧑‍💻 Mostly {top_language} Repos**",
+        _text_block(make_list(names, texts, percents, sort=False)),
     )
 
 
-def build_section(gh_token: str) -> str:
-    parts: list[str] = []
+def format_ai_manual_block(scan: CommitScanResult) -> str:
+    total_commits = scan.ai_commits + scan.manual_commits
+    total_lines = scan.ai_lines + scan.manual_lines
+    if total_commits == 0:
+        return ""
 
+    commit_ai_pct = round(scan.ai_commits / total_commits * 100, 2)
+    commit_manual_pct = round(100 - commit_ai_pct, 2)
+
+    names = ["Manual commits", "AI-assisted commits"]
+    texts = [
+        f"{scan.manual_commits} commits",
+        f"{scan.ai_commits} commits",
+    ]
+    percents = [commit_manual_pct, commit_ai_pct]
+
+    body = _text_block(make_list(names, texts, percents, top_num=2, sort=False))
+
+    if total_lines > 0:
+        line_ai_pct = round(scan.ai_lines / total_lines * 100, 2)
+        line_manual_pct = round(100 - line_ai_pct, 2)
+        line_block = _text_block(
+            make_list(
+                ["Manual lines", "AI-assisted lines"],
+                [f"{_intcomma(scan.manual_lines)} lines", f"{_intcomma(scan.ai_lines)} lines"],
+                [line_manual_pct, line_ai_pct],
+                top_num=2,
+                sort=False,
+            )
+        )
+        body = f"{body}\n\n{line_block}"
+
+    note = (
+        "> *AI-assisted share is estimated from commit messages "
+        "(Copilot, Cursor, ChatGPT, etc.) — approximate, not exact.*"
+    )
+    return _section("**🤖 AI vs Manual**", f"{body}\n\n{note}")
+
+
+def build_section(gh_token: str) -> str:
     gh = GitHubClient(gh_token)
     try:
-        parts.append(fetch_github_short_stats(gh))
+        user = gh.rest_user()
+        contributions = fetch_contributions_data()
         repositories = collect_repositories(gh)
-        parts.append(fetch_commit_time_stats(gh, repositories))
-        parts.append(fetch_language_per_repo(repositories))
+        repo_count = _count_active_repositories(repositories)
+        collaboration = fetch_collaboration_stats(gh)
+        scan = scan_commits(gh, repositories)
     finally:
         gh.close()
+
+    parts = [
+        format_snapshot_block(user, contributions, repo_count),
+        format_collaboration_block(collaboration),
+        format_top_repos_block(scan, repositories),
+        format_coding_rhythm_block(scan),
+        format_language_block(repositories),
+        format_ai_manual_block(scan),
+    ]
 
     updated_at = datetime.now(timezone.utc)
     updated_iso = updated_at.strftime("%Y-%m-%dT%H:%M:%SZ")
     updated_fallback = updated_at.strftime(UPDATED_DATE_FORMAT) + " UTC"
     parts.append(
-        f"\n Last updated "
+        f" Last updated "
         f'<relative-time datetime="{updated_iso}" format="relative">{updated_fallback}</relative-time>'
     )
     return "\n".join(part for part in parts if part)

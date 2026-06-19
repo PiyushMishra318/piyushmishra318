@@ -28,6 +28,15 @@ python scripts/build_readme.py
 
 The script updates `README.md` in place. Review the diff before committing.
 
+### Metrics sections (in order)
+
+1. **GitHub Snapshot** — yearly contributions, 7/30-day activity, streaks, repo count, storage
+2. **Collaboration** — open/merged PRs, issues opened, reviews given
+3. **Most Active Repos** — top 5 repos by commit count
+4. **When I Code** — time-of-day, weekday, weekend split, busiest month
+5. **Mostly X Repos** — primary language breakdown
+6. **AI vs Manual** — heuristic split from commit messages (Copilot, Cursor, etc.)
+
 ## CI
 
 `.github/workflows/update-readme.yml` runs daily at 18:30 UTC (00:00 IST) and on `workflow_dispatch`. Secret: `GH_TOKEN`.

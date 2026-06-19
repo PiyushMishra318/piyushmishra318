@@ -51,6 +51,16 @@ EXCLUDED_COMMIT_PATH_PATTERNS: list[re.Pattern[str]] = [
 SECTION_NAME = "metrics"
 UPDATED_DATE_FORMAT = "%d/%m/%Y %H:%M:%S"
 
+# Heuristic: commit messages suggesting AI-assisted authorship (not line-level proof).
+AI_COMMIT_MESSAGE_PATTERN = re.compile(
+    r"(?i)("
+    r"copilot|cursor|chatgpt|claude|openai|gemini|"
+    r"generated with|ai-assisted|ai assisted|"
+    r"co-authored-by:.*?(copilot|cursor|github)|"
+    r"🤖|via compose|written with (ai|gpt)"
+    r")"
+)
+
 START_MARKER = f"<!--START_SECTION:{SECTION_NAME}-->"
 END_MARKER = f"<!--END_SECTION:{SECTION_NAME}-->"
 
