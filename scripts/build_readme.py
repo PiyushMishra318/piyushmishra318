@@ -32,6 +32,8 @@ ROOT = Path(__file__).resolve().parent.parent
 README_PATH = ROOT / "README.md"
 CONTRIBUTIONS_API = f"https://github-contributions.vercel.app/api/v1/{GITHUB_USERNAME}"
 
+DAY_TIME_EMOJI = ("🌞", "🌆", "🌃", "🌙")
+DAY_TIME_NAMES = ("Morning", "Daytime", "Evening", "Night")
 WEEK_DAY_NAMES = ("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday")
 MONTH_NAMES = (
     "January",
@@ -164,6 +166,46 @@ def replace_chunk(content: str, chunk: str) -> str:
     if not re.search(pattern, content):
         raise SystemExit(f"README markers not found: {START_MARKER} ... {END_MARKER}")
     return re.sub(pattern, replacement, content, count=1)
+
+
+def make_graph(percent: float) -> str:
+    done, empty = "█", "░"
+    quart = round(percent / 4)
+    return f"{done * quart}{empty * (25 - quart)}"
+
+
+def make_list(
+    names: list[str],
+    texts: list[str],
+    percents: list[float],
+    *,
+    top_num: int = 5,
+    sort: bool = True,
+) -> str:
+    rows = list(zip(names, texts, percents))
+    if sort:
+        rows = sorted(rows, key=lambda r: r[2], reverse=True)
+    top = rows[:top_num]
+    lines = []
+    for name, text, percent in top:
+        line = (
+            f"{name[:25]}{' ' * (25 - len(name))}"
+            f"{text}{' ' * (20 - len(text))}"
+            f"{make_graph(percent)} {percent:05.2f} % "
+        )
+        lines.append(line)
+    return "\n".join(lines)
+
+
+def _section(title: str, body: str) -> str:
+    body = body.rstrip()
+    if not body:
+        return ""
+    return f"{title}\n\n{body}\n\n"
+
+
+def _text_block(content: str) -> str:
+    return f"```text\n{content.rstrip()}\n```"
 
 
 def _intcomma(value: int) -> str:
@@ -535,20 +577,150 @@ def format_compact_dashboard(
         "> *AI share estimated from commit messages — approximate.*",
     ]
 
-    updated_at = datetime.now(timezone.utc)
-    updated_iso = updated_at.strftime("%Y-%m-%dT%H:%M:%SZ")
-    updated_fallback = updated_at.strftime(UPDATED_DATE_FORMAT) + " UTC"
-    lines.extend(
-        [
-            "",
-            (
-                f"Updated "
-                f'<relative-time datetime="{updated_iso}" format="relative">'
-                f"{updated_fallback}</relative-time>"
-            ),
-        ]
-    )
     return "\n".join(lines) + "\n"
+
+
+def format_detailed_charts(scan: CommitScanResult, repositories: list[dict[str, Any]]) -> str:
+    parts: list[str] = []
+
+    if scan.repo_commit_counts:
+        ranked = sorted(scan.repo_commit_counts.items(), key=lambda item: item[1], reverse=True)[:5]
+        total = sum(count for _, count in ranked)
+        names = [_repo_display_name(name, repositories) for name, _ in ranked]
+        texts = [f"{count} commits" for _, count in ranked]
+        percents = [round(count / total * 100, 2) for _, count in ranked]
+        parts.append(
+            _section(
+                "**🔥 Most Active Repos**",
+                _text_block(make_list(names, texts, percents, sort=False)),
+            )
+        )
+
+    day_times = scan.day_times[1:] + scan.day_times[:1]
+    sum_day = sum(day_times)
+    if sum_day:
+        early = sum(day_times[0:2]) >= sum(day_times[2:4])
+        subtitle = "Early bird 🐤" if early else "Night owl 🦉"
+        dt_names = [f"{DAY_TIME_EMOJI[i]} {DAY_TIME_NAMES[i]}" for i in range(4)]
+        dt_texts = [f"{count} commits" for count in day_times]
+        dt_percents = [round((count / sum_day) * 100, 2) for count in day_times]
+        parts.append(
+            _section(
+                f"**⏰ When I Code** ({subtitle})",
+                _text_block(make_list(dt_names, dt_texts, dt_percents, top_num=4, sort=False)),
+            )
+        )
+
+    sum_week = sum(scan.week_days)
+    if sum_week:
+        best_day = WEEK_DAY_NAMES[scan.week_days.index(max(scan.week_days))]
+        wd_names = list(WEEK_DAY_NAMES)
+        wd_texts = [f"{count} commits" for count in scan.week_days]
+        wd_percents = [round((count / sum_week) * 100, 2) for count in scan.week_days]
+        weekday = sum(scan.week_days[0:5])
+        weekend = sum(scan.week_days[5:7])
+        weekend_pct = round(weekend / sum_week * 100, 2)
+        weekday_pct = round(weekday / sum_week * 100, 2)
+        parts.append(
+            _section(
+                f"**📅 Most Productive on {best_day}**",
+                "\n".join(
+                    [
+                        _text_block(make_list(wd_names, wd_texts, wd_percents, top_num=7, sort=False)),
+                        _text_block(
+                            make_list(
+                                ["Weekday", "Weekend"],
+                                [f"{weekday} commits", f"{weekend} commits"],
+                                [weekday_pct, weekend_pct],
+                                top_num=2,
+                                sort=False,
+                            )
+                        ),
+                    ]
+                ),
+            )
+        )
+
+    if scan.month_counts:
+        busiest_key = max(scan.month_counts, key=scan.month_counts.get)
+        year, month = busiest_key.split("-")
+        busiest_name = MONTH_NAMES[int(month) - 1]
+        month_ranked = sorted(scan.month_counts.items(), key=lambda item: item[1], reverse=True)[:5]
+        month_total = sum(count for _, count in month_ranked)
+        names = [MONTH_NAMES[int(key.split("-")[1]) - 1] for key, _ in month_ranked]
+        texts = [f"{count} commits" for _, count in month_ranked]
+        percents = [round(count / month_total * 100, 2) for _, count in month_ranked]
+        parts.append(
+            _section(
+                f"**📆 Busiest Month: {busiest_name} {year}**",
+                _text_block(make_list(names, texts, percents, sort=False)),
+            )
+        )
+
+    language_count: dict[str, int] = {}
+    for repo in repositories:
+        if repo["name"] in IGNORED_REPOS or not repo.get("primaryLanguage"):
+            continue
+        language = repo["primaryLanguage"]["name"]
+        language_count[language] = language_count.get(language, 0) + 1
+
+    if language_count:
+        total = sum(language_count.values())
+        ranked = sorted(language_count.items(), key=lambda item: item[1], reverse=True)
+        top_language = ranked[0][0]
+        top = ranked[:5]
+        names = [lang for lang, _ in top]
+        texts = [f"{count} {'repo' if count == 1 else 'repos'}" for _, count in top]
+        percents = [round(count / total * 100, 2) for _, count in top]
+        parts.append(
+            _section(
+                f"**🧑‍💻 Mostly {top_language} Repos**",
+                _text_block(make_list(names, texts, percents, sort=False)),
+            )
+        )
+
+    total_commits = scan.ai_commits + scan.manual_commits
+    if total_commits:
+        commit_ai_pct = round(scan.ai_commits / total_commits * 100, 2)
+        commit_manual_pct = round(100 - commit_ai_pct, 2)
+        blocks = [
+            _text_block(
+                make_list(
+                    ["Manual commits", "AI-assisted commits"],
+                    [f"{scan.manual_commits} commits", f"{scan.ai_commits} commits"],
+                    [commit_manual_pct, commit_ai_pct],
+                    top_num=2,
+                    sort=False,
+                )
+            )
+        ]
+        total_lines = scan.ai_lines + scan.manual_lines
+        if total_lines:
+            line_ai_pct = round(scan.ai_lines / total_lines * 100, 2)
+            line_manual_pct = round(100 - line_ai_pct, 2)
+            blocks.append(
+                _text_block(
+                    make_list(
+                        ["Manual lines", "AI-assisted lines"],
+                        [
+                            f"{_intcomma(scan.manual_lines)} lines",
+                            f"{_intcomma(scan.ai_lines)} lines",
+                        ],
+                        [line_manual_pct, line_ai_pct],
+                        top_num=2,
+                        sort=False,
+                    )
+                )
+            )
+        parts.append(
+            _section(
+                "**🤖 AI vs Manual**",
+                "\n\n".join(blocks)
+                + "\n\n> *Estimated from commit messages (Copilot, Cursor, ChatGPT, etc.).*",
+            )
+        )
+
+    return "\n".join(part for part in parts if part)
 
 
 def build_section(gh_token: str) -> str:
@@ -563,14 +735,27 @@ def build_section(gh_token: str) -> str:
     finally:
         gh.close()
 
-    return format_compact_dashboard(
-        user,
-        contributions,
-        repo_count,
-        collaboration,
-        scan,
-        repositories,
+    parts = [
+        format_compact_dashboard(
+            user,
+            contributions,
+            repo_count,
+            collaboration,
+            scan,
+            repositories,
+        ),
+        format_detailed_charts(scan, repositories),
+    ]
+
+    updated_at = datetime.now(timezone.utc)
+    updated_iso = updated_at.strftime("%Y-%m-%dT%H:%M:%SZ")
+    updated_fallback = updated_at.strftime(UPDATED_DATE_FORMAT) + " UTC"
+    parts.append(
+        f"Updated "
+        f'<relative-time datetime="{updated_iso}" format="relative">'
+        f"{updated_fallback}</relative-time>\n"
     )
+    return "\n".join(part for part in parts if part)
 
 
 def main() -> None:

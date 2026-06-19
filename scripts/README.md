@@ -30,7 +30,8 @@ The script updates `README.md` in place. Review the diff before committing.
 
 ### Metrics layout
 
-One compact **GitHub at a glance** block (~6 lines): activity, collaboration, rhythm, languages, AI split, and top repos. No ASCII charts — designed to fit above the fold with the bio.
+1. **GitHub at a glance** — compact summary (6 lines)
+2. **ASCII charts** — repos, coding rhythm, languages, AI split
 
 ## CI
 

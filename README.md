@@ -18,5 +18,34 @@ I solve problems at the intersection of product, infrastructure, and a deadline 
 > 🔥 `opencoot` (1,234) · `scripts` (890) · `voice` (456)
 > *AI share estimated from commit messages — approximate.*
 
+**⏰ When I Code** (Early bird 🐤)
+
+```text
+🌞 Morning                14528 commits       ████████████░░░░░░░░░░░░░ 49.84 % 
+🌆 Daytime                8916 commits        ████████░░░░░░░░░░░░░░░░░ 30.59 % 
+🌃 Evening                623 commits         █░░░░░░░░░░░░░░░░░░░░░░░░ 02.14 % 
+🌙 Night                  5080 commits        ████░░░░░░░░░░░░░░░░░░░░░ 17.43 % 
+```
+
+**📅 Most Productive on Wednesday**
+
+```text
+Monday                   3911 commits        ███░░░░░░░░░░░░░░░░░░░░░░ 13.42 % 
+Tuesday                  5008 commits        ████░░░░░░░░░░░░░░░░░░░░░ 17.18 % 
+Wednesday                6553 commits        ██████░░░░░░░░░░░░░░░░░░░ 22.48 % 
+Thursday                 5453 commits        █████░░░░░░░░░░░░░░░░░░░░ 18.71 % 
+Friday                   4536 commits        ████░░░░░░░░░░░░░░░░░░░░░ 15.56 % 
+Saturday                 2716 commits        ██░░░░░░░░░░░░░░░░░░░░░░░ 09.32 % 
+Sunday                   970 commits         █░░░░░░░░░░░░░░░░░░░░░░░░ 03.33 % 
+```
+
+**🧑‍💻 Mostly JavaScript Repos**
+
+```text
+JavaScript               66 repos            ███████████░░░░░░░░░░░░░░ 43.42 % 
+Python                   25 repos            ████░░░░░░░░░░░░░░░░░░░░░ 16.45 % 
+TypeScript               13 repos            ██░░░░░░░░░░░░░░░░░░░░░░░ 08.55 % 
+```
+
 Updated <relative-time datetime="2026-06-19T03:13:36Z" format="relative">19/06/2026 03:13:36 UTC</relative-time>
 <!--END_SECTION:metrics-->
