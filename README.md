@@ -1,5 +1,7 @@
 <h1>Piyush Mishra</h1>
 
+<p align="center"><img src="https://komarev.com/ghpvc/?username=piyushmishra318&color=0e75b6&style=for-the-badge" alt="Profile views" /></p>
+
 I solve problems. Usually the ones that sit at the intersection of product, infrastructure, and a deadline.
 
 Five years of building things end-to-end — SaaS platforms, real-time systems, AI tooling, vision pipelines. Currently SE III at [Sinch](https://sinch.com), a global messaging platform. On the side, co-building [AuditShark](https://app.auditshark.ai/login) and [OpenCoot](https://coot.ai).
