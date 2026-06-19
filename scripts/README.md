@@ -32,6 +32,17 @@ The script updates `README.md` in place. Review the diff before committing.
 
 `.github/workflows/update-readme.yml` runs daily at 18:30 UTC (00:00 IST) and on `workflow_dispatch`. Secret: `GH_TOKEN`.
 
+## Profile view counter
+
+Self-hosted badge stored in `assets/profile-views.svg` (no komarev dependency).
+
+- Script: `scripts/update_profile_views.py`
+- Workflow: `.github/workflows/profile-views.yml` (every 6 hours + manual)
+- Data: `assets/profile-views.json` accumulates GitHub traffic insights for this repo
+- README embed: `raw.githubusercontent.com/.../assets/profile-views.svg`
+
+To seed a starting count (e.g. from an old komarev total), set `"base"` in `assets/profile-views.json`.
+
 ## Out of scope (v1)
 
 - Lines-of-code badge

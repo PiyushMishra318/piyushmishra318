@@ -1,6 +1,6 @@
 <h1>Piyush Mishra</h1>
 
-![](https://komarev.com/ghpvc/?username=piyushmishra318&color=0e75b6&style=for-the-badge)
+![](https://raw.githubusercontent.com/PiyushMishra318/piyushmishra318/master/assets/profile-views.svg)
 
 I solve problems. Usually the ones that sit at the intersection of product, infrastructure, and a deadline.
 
