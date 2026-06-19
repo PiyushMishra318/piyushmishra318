@@ -1,0 +1,48 @@
+# Copy this file to `.github/workflows/profile-views.yml` on GitHub
+# (Create new workflow in the repo UI — git push needs the `workflow` OAuth scope.)
+
+name: Update profile view counter
+
+on:
+  schedule:
+    # Every 6 hours
+    - cron: "0 */6 * * *"
+  workflow_dispatch:
+
+jobs:
+  profile-views:
+    name: Refresh profile view badge
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: master
+          fetch-depth: 0
+
+      - name: Sync with latest master
+        run: git pull --rebase origin master
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: scripts/requirements.txt
+
+      - name: Install dependencies
+        run: python -m pip install -r scripts/requirements.txt
+
+      - name: Update profile views badge
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: python scripts/update_profile_views.py
+
+      - name: Commit badge
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          file_pattern: assets/profile-views.json assets/profile-views.svg
+          commit_message: "chore(views): refresh profile view badge"
+          pull_options: "--rebase --autostash"

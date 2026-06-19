@@ -37,7 +37,7 @@ The script updates `README.md` in place. Review the diff before committing.
 Self-hosted badge stored in `assets/profile-views.svg` (no komarev dependency).
 
 - Script: `scripts/update_profile_views.py`
-- Workflow: `.github/workflows/profile-views.yml` (every 6 hours + manual)
+- Workflow: copy `scripts/profile-views.workflow.yml` → `.github/workflows/profile-views.yml` on GitHub (Actions → New workflow)
 - Data: `assets/profile-views.json` accumulates GitHub traffic insights for this repo
 - README embed: `raw.githubusercontent.com/.../assets/profile-views.svg`
 
