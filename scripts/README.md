@@ -1,6 +1,6 @@
 # Profile README metrics builder
 
-Replaces `anmol098/waka-readme-stats` with a local Python script that refreshes the `<!--START_SECTION:waka-->` … `<!--END_SECTION:waka-->` block in the repo root `README.md`.
+Refreshes the `<!--START_SECTION:metrics-->` … `<!--END_SECTION:metrics-->` block in the repo root `README.md` with GitHub stats.
 
 ## Prerequisites
 
@@ -34,7 +34,6 @@ The script updates `README.md` in place. Review the diff before committing.
 
 ## Out of scope (v1)
 
-- WakaTime weekly activity stats
 - Lines-of-code badge
 - Quarterly LOC timeline / `bar_graph.png`
 - Commit path filtering via `EXCLUDED_COMMIT_PATH_PATTERNS` (defined in `profile_config.py` for later use)

@@ -48,7 +48,7 @@ EXCLUDED_COMMIT_PATH_PATTERNS: list[re.Pattern[str]] = [
     re.compile(r"node_modules/"),
 ]
 
-SECTION_NAME = "waka"
+SECTION_NAME = "metrics"
 UPDATED_DATE_FORMAT = "%d/%m/%Y %H:%M:%S"
 
 START_MARKER = f"<!--START_SECTION:{SECTION_NAME}-->"
