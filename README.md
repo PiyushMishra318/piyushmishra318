@@ -7,3 +7,13 @@ Five years of building things end-to-end — SaaS platforms, real-time systems, 
 If something interests you, my portfolio is at [piyushm.dev](https://piyushm.dev).
 ---
 [Github Playground](https://piyushm.dev/products/playground/)
+
+---
+
+<!--START_SECTION:waka-->
+**🐱 My GitHub Data**
+
+> Metrics refresh nightly via GitHub Actions
+
+ Last Updated on 19/06/2026 00:00:00 UTC
+<!--END_SECTION:waka-->

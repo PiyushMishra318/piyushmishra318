@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build and replace the WakaTime / GitHub metrics section in profile README.md."""
+"""Build and replace the GitHub metrics section in profile README.md."""
 
 from __future__ import annotations
 
@@ -13,12 +13,10 @@ from datetime import datetime, timezone
 from pathlib import Path
 from string import Template
 from typing import Any
-from urllib.parse import quote
 
 import httpx
 
 from profile_config import (
-    BADGE_STYLE,
     END_MARKER,
     GITHUB_USERNAME,
     GRAPHQL_PAGE_SIZE,
@@ -26,7 +24,6 @@ from profile_config import (
     REPO_SLEEP_SECONDS,
     START_MARKER,
     UPDATED_DATE_FORMAT,
-    WAKATIME_API_URL,
 )
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -239,59 +236,6 @@ class GitHubClient:
         return self.user_node_id
 
 
-def fetch_waka(client: httpx.Client, path: str, api_key: str) -> dict[str, Any]:
-    url = f"{WAKATIME_API_URL}{path}"
-    response = client.get(url, params={"api_key": api_key})
-    response.raise_for_status()
-    return response.json()
-
-
-def fetch_waka_all_time(client: httpx.Client, api_key: str) -> str:
-    data = fetch_waka(client, "users/current/all_time_since_today", api_key)
-    text = data["data"]["text"]
-    return (
-        f"![Code Time](http://img.shields.io/badge/"
-        f"{quote('Code Time')}-{quote(text)}-blue?style={quote(BADGE_STYLE)})\n"
-    )
-
-
-def fetch_waka_last_7_days(client: httpx.Client, api_key: str) -> str:
-    data = fetch_waka(client, "users/current/stats/last_7_days", api_key)
-    payload = data["data"]
-    timezone_label = payload.get("timezone", "UTC")
-    no_activity = "No Activity Tracked This Week"
-
-    def section_list(items: list[dict[str, Any]]) -> str:
-        if not items:
-            return no_activity
-        return make_list(
-            [item["name"] for item in items],
-            [item["text"] for item in items],
-            [float(item["percent"]) for item in items],
-        )
-
-    lines = [
-        "📊 **This Week I Spent My Time On** ",
-        "",
-        "```text",
-        f"🕑︎ Time Zone: {timezone_label}",
-        "",
-        "💬 Programming Languages: ",
-        section_list(payload.get("languages") or []),
-        "",
-        "🔥 Editors: ",
-        section_list(payload.get("editors") or []),
-        "",
-        "🐱‍💻 Projects: ",
-        section_list(payload.get("projects") or []),
-        "",
-        "💻 Operating System: ",
-        section_list(payload.get("operating_systems") or []),
-        "```",
-        "",
-    ]
-    return "\n".join(lines)
-
 
 def fetch_github_short_stats(gh: GitHubClient) -> str:
     user = gh.rest_user()
@@ -491,19 +435,17 @@ def fetch_language_per_repo(repositories: list[dict[str, Any]]) -> str:
     )
 
 
-def build_section(waka_key: str, gh_token: str) -> str:
+def build_section(gh_token: str) -> str:
     parts: list[str] = []
 
-    with httpx.Client(timeout=60.0) as waka_client:
-        parts.append(fetch_waka_all_time(waka_client, waka_key))
-        parts.append(fetch_github_short_stats(gh := GitHubClient(gh_token)))
-        try:
-            repositories = collect_repositories(gh)
-            parts.append(fetch_commit_time_stats(gh, repositories))
-            parts.append(fetch_waka_last_7_days(waka_client, waka_key))
-            parts.append(fetch_language_per_repo(repositories))
-        finally:
-            gh.close()
+    gh = GitHubClient(gh_token)
+    try:
+        parts.append(fetch_github_short_stats(gh))
+        repositories = collect_repositories(gh)
+        parts.append(fetch_commit_time_stats(gh, repositories))
+        parts.append(fetch_language_per_repo(repositories))
+    finally:
+        gh.close()
 
     updated = datetime.now(timezone.utc).strftime(UPDATED_DATE_FORMAT)
     parts.append(f"\n Last Updated on {updated} UTC")
@@ -511,11 +453,10 @@ def build_section(waka_key: str, gh_token: str) -> str:
 
 
 def main() -> None:
-    waka_key = _env("WAKATIME_API_KEY")
     gh_token = _env("GH_TOKEN")
 
     readme = README_PATH.read_text(encoding="utf-8")
-    section = build_section(waka_key, gh_token)
+    section = build_section(gh_token)
     README_PATH.write_text(replace_chunk(readme, section), encoding="utf-8")
     print(f"Updated {README_PATH}", flush=True)
 
