@@ -140,7 +140,9 @@ def make_list(
     sort: bool = True,
 ) -> str:
     rows = list(zip(names, texts, percents))
-    top = sorted(rows[:top_num], key=lambda r: r[2], reverse=True) if sort else rows[:top_num]
+    if sort:
+        rows = sorted(rows, key=lambda r: r[2], reverse=True)
+    top = rows[:top_num]
     lines = []
     for name, text, percent in top:
         line = (
@@ -406,32 +408,31 @@ def format_commit_time_stats(
 
 
 def fetch_language_per_repo(repositories: list[dict[str, Any]]) -> str:
-    language_count: dict[str, dict[str, int]] = {}
-    repos_with_language = [repo for repo in repositories if repo.get("primaryLanguage")]
+    language_count: dict[str, int] = {}
 
-    for repo in repos_with_language:
-        if repo["name"] in IGNORED_REPOS:
+    for repo in repositories:
+        if repo["name"] in IGNORED_REPOS or not repo.get("primaryLanguage"):
             continue
         language = repo["primaryLanguage"]["name"]
-        language_count.setdefault(language, {"count": 0})
-        language_count[language]["count"] += 1
+        language_count[language] = language_count.get(language, 0) + 1
 
     if not language_count:
         return ""
 
-    names = list(language_count.keys())
+    total = sum(language_count.values())
+    ranked = sorted(language_count.items(), key=lambda item: item[1], reverse=True)
+    top_language = ranked[0][0]
+    top = ranked[:5]
+    names = [lang for lang, _ in top]
     texts = [
-        f"{language_count[lang]['count']} "
-        f"{'repo' if language_count[lang]['count'] == 1 else 'repos'}"
-        for lang in names
+        f"{count} {'repo' if count == 1 else 'repos'}"
+        for _, count in top
     ]
-    total = len(repos_with_language)
-    percents = [round(language_count[lang]["count"] / total * 100, 2) for lang in names]
-    top_language = max(language_count, key=lambda lang: language_count[lang]["count"])
+    percents = [round(count / total * 100, 2) for _, count in top]
 
     return (
         f"**I Mostly Code in {top_language}** \n\n"
-        f"```text\n{make_list(names, texts, percents)}\n```\n\n"
+        f"```text\n{make_list(names, texts, percents, sort=False)}\n```\n\n"
     )
 
 
