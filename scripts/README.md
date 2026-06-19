@@ -41,10 +41,10 @@ One compact **GitHub at a glance** block (~6 lines): activity, collaboration, rh
 The README uses [GitViews](https://gitviews.com) — the badge increments on each profile load (same idea as komarev).
 
 ```markdown
-![](https://gitviews.com/user/piyushmishra318.svg?style=for-the-badge&label-color=555555&color=0e75b6)
+![](https://gitviews.com/user/piyushmishra318.svg?base=1900&style=for-the-badge&label-color=555555&color=0e75b6)
 ```
 
-To carry over an old total, add `?base=1234` to the URL permanently.
+The `base=1900` carries over the old komarev total (GitViews only tracks new views itself). Bump `base` if you know the exact previous count.
 
 ## Out of scope (v1)
 

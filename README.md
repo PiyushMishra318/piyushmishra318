@@ -1,6 +1,6 @@
 <h1>Piyush Mishra</h1>
 
-![](https://gitviews.com/user/piyushmishra318.svg?style=for-the-badge&label-color=555555&color=0e75b6)
+![](https://gitviews.com/user/piyushmishra318.svg?base=1900&style=for-the-badge&label-color=555555&color=0e75b6)
 
 I solve problems at the intersection of product, infrastructure, and a deadline — SaaS, real-time systems, AI tooling. SE III @ [Sinch](https://sinch.com); co-building [AuditShark](https://app.auditshark.ai/login) and [OpenCoot](https://coot.ai).
 
