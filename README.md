@@ -11,9 +11,51 @@ If something interests you, my portfolio is at [piyushm.dev](https://piyushm.dev
 ---
 
 <!--START_SECTION:metrics-->
-**🐱 My GitHub Data**
+**🐱 My GitHub Data** 
 
-> Metrics refresh nightly via GitHub Actions
+> 📦 1.2 MB Used in GitHub's Storage 
+ > 
+> 🏆 634 Contributions in the Year 2026
+ > 
+> 💼 Opted to Hire
+ > 
+> 📜 40 Public Repositories 
+ > 
+> 🔑 2 Private Repositories 
+ > 
 
- Last Updated on 19/06/2026 00:00:00 UTC
+**I'm an Early 🐤** 
+
+```text
+🌞 Morning                14528 commits       ████████████░░░░░░░░░░░░░ 49.84 % 
+🌆 Daytime                8916 commits        ████████░░░░░░░░░░░░░░░░░ 30.59 % 
+🌃 Evening                623 commits         █░░░░░░░░░░░░░░░░░░░░░░░░ 02.14 % 
+🌙 Night                  5080 commits        ████░░░░░░░░░░░░░░░░░░░░░ 17.43 % 
+```
+📅 **I'm Most Productive on Wednesday** 
+
+```text
+Monday                   3911 commits        ███░░░░░░░░░░░░░░░░░░░░░░ 13.42 % 
+Tuesday                  5008 commits        ████░░░░░░░░░░░░░░░░░░░░░ 17.18 % 
+Wednesday                6553 commits        ██████░░░░░░░░░░░░░░░░░░░ 22.48 % 
+Thursday                 5453 commits        █████░░░░░░░░░░░░░░░░░░░░ 18.71 % 
+Friday                   4536 commits        ████░░░░░░░░░░░░░░░░░░░░░ 15.56 % 
+Saturday                 2716 commits        ██░░░░░░░░░░░░░░░░░░░░░░░ 09.32 % 
+Sunday                   970 commits         █░░░░░░░░░░░░░░░░░░░░░░░░ 03.33 % 
+```
+
+
+**I Mostly Code in JavaScript** 
+
+```text
+Python                   19 repos            █████░░░░░░░░░░░░░░░░░░░░ 19.79 % 
+TypeScript               7 repos             ██░░░░░░░░░░░░░░░░░░░░░░░ 07.29 % 
+HTML                     4 repos             █░░░░░░░░░░░░░░░░░░░░░░░░ 04.17 % 
+Dart                     2 repos             █░░░░░░░░░░░░░░░░░░░░░░░░ 02.08 % 
+Rust                     1 repo              ░░░░░░░░░░░░░░░░░░░░░░░░░ 01.04 % 
+```
+
+
+
+ Last Updated on 19/06/2026 03:13:36 UTC
 <!--END_SECTION:metrics-->
