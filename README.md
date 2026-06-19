@@ -1,6 +1,6 @@
 <h1>Piyush Mishra</h1>
 
-<p align="center"><img src="https://komarev.com/ghpvc/?username=piyushmishra318&color=0e75b6&style=for-the-badge" alt="Profile views" /></p>
+![](https://komarev.com/ghpvc/?username=piyushmishra318&color=0e75b6&style=for-the-badge)
 
 I solve problems. Usually the ones that sit at the intersection of product, infrastructure, and a deadline.
 
