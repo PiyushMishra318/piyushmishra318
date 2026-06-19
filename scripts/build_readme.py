@@ -448,8 +448,13 @@ def build_section(gh_token: str) -> str:
     finally:
         gh.close()
 
-    updated = datetime.now(timezone.utc).strftime(UPDATED_DATE_FORMAT)
-    parts.append(f"\n Last Updated on {updated} UTC")
+    updated_at = datetime.now(timezone.utc)
+    updated_iso = updated_at.strftime("%Y-%m-%dT%H:%M:%SZ")
+    updated_fallback = updated_at.strftime(UPDATED_DATE_FORMAT) + " UTC"
+    parts.append(
+        f"\n Last updated "
+        f'<relative-time datetime="{updated_iso}" format="relative">{updated_fallback}</relative-time>'
+    )
     return "\n".join(part for part in parts if part)
 
 

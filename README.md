@@ -57,5 +57,5 @@ Rust                     1 repo              ░░░░░░░░░░░�
 
 
 
- Last Updated on 19/06/2026 03:13:36 UTC
+ Last updated <relative-time datetime="2026-06-19T03:13:36Z" format="relative">19/06/2026 03:13:36 UTC</relative-time>
 <!--END_SECTION:metrics-->
