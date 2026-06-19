@@ -28,14 +28,9 @@ python scripts/build_readme.py
 
 The script updates `README.md` in place. Review the diff before committing.
 
-### Metrics sections (in order)
+### Metrics layout
 
-1. **GitHub Snapshot** — yearly contributions, 7/30-day activity, streaks, repo count, storage
-2. **Collaboration** — open/merged PRs, issues opened, reviews given
-3. **Most Active Repos** — top 5 repos by commit count
-4. **When I Code** — time-of-day, weekday, weekend split, busiest month
-5. **Mostly X Repos** — primary language breakdown
-6. **AI vs Manual** — heuristic split from commit messages (Copilot, Cursor, etc.)
+One compact **GitHub at a glance** block (~6 lines): activity, collaboration, rhythm, languages, AI split, and top repos. No ASCII charts — designed to fit above the fold with the bio.
 
 ## CI
 
